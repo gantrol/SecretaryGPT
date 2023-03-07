@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "教师GPT",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "你的私人教师，为你解释一切，用GPT实现",
+    "description": "Description of the extension."
+  }
+}

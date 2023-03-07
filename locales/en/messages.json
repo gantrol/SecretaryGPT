@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "TeacherGPT",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Your Web Teacher implemented in GPT-3",
+    "description": "Description of the extension."
+  }
+}
