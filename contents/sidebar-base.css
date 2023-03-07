@@ -1,0 +1,16 @@
+:root,
+#sidebar:host {
+  --sidebar-width: 420px;
+}
+
+body.sidebar-show,
+body.sidebar-show * {
+  max-width: calc(100vw - var(--sidebar-width));
+}
+
+#sidebar {
+  position: fixed;
+  z-index: 240;
+  top: 0px;
+  right: 0px;
+}

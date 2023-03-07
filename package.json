@@ -43,7 +43,7 @@
       "storage"
     ],
     "host_permissions": [
-      "<all_url>"
+      "<all_urls>"
     ],
     "default_locale": "en"
   }
