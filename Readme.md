@@ -4,6 +4,13 @@
 
 > In very early stage, not ready for use.
 
+1. Chat with ChatGPT in the browser sidebar;
+2. Select text on the webpage, and it's ready to be sent to ChatGPT;
+3. More to come.
+
+
+## Goals, Current Status, and Defects
+
 Goal: a plugin that puts various AI chatbots in the browser "sidebar". There are also several prompt paradigms to be launched.
 
 Currently implemented:
