@@ -1,7 +1,7 @@
 {
   "name": "teachergpt",
   "displayName": "Your Web Teacher implemented in GPT-3",
-  "version": "0.1.3",
+  "version": "0.0.1",
   "description": "Your private teacher, who explains all things to you, has implemented GPT-3.",
   "author": "gantrol",
   "scripts": {
@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "dexie": "^3.2.3",
+    "elizabot": "^0.0.3",
+    "eventsource-parser": "^0.0.5",
+    "keyv": "^4.5.2",
+    "marked": "^4.2.12",
     "modern-screenshot": "^4.4.0",
     "plasmo": "0.65.0",
     "svelte": "3.55.1",
@@ -20,9 +24,9 @@
   },
   "devDependencies": {
     "@jest/globals": "29.4.1",
-    "@tailwindcss/typography": "^0.5.9",
     "@jest/types": "29.4.1",
     "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/chrome": "0.0.210",
     "@types/node": "18.11.18",
     "autoprefixer": "^10.4.13",

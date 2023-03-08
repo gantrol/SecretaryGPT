@@ -1,5 +1,6 @@
 :root,
 #sidebar:host {
+  /*TODO: adjustable */
   --sidebar-width: 420px;
 }
 
@@ -10,7 +11,7 @@ body.sidebar-show * {
 
 #sidebar {
   position: fixed;
-  z-index: 240;
+  z-index: 999999;
   top: 0px;
   right: 0px;
 }

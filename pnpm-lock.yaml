@@ -10,9 +10,13 @@ specifiers:
   autoprefixer: ^10.4.13
   daisyui: ^2.46.1
   dexie: ^3.2.3
+  elizabot: ^0.0.3
+  eventsource-parser: ^0.0.5
   jest: 29.4.1
   jest-environment-jsdom: 29.4.1
   jest-webextension-mock: 3.8.8
+  keyv: ^4.5.2
+  marked: ^4.2.12
   modern-screenshot: ^4.4.0
   plasmo: 0.65.0
   postcss: ^8.4.7
@@ -26,6 +30,10 @@ specifiers:
 
 dependencies:
   dexie: 3.2.3
+  elizabot: 0.0.3
+  eventsource-parser: 0.0.5
+  keyv: 4.5.2
+  marked: 4.2.12
   modern-screenshot: 4.4.3
   plasmo: 0.65.0_postcss@8.4.21
   svelte: 3.55.1
@@ -3671,6 +3679,10 @@ packages:
   /electron-to-chromium/1.4.322:
     resolution: {integrity: sha512-KovjizNC9XB7dno/2GjxX8VS0SlfPpCjtyoKft+bCO+UfD8bFy16hY4Sh9s0h9BDxbRH2U0zX5VBjpM1LTcNlg==}
 
+  /elizabot/0.0.3:
+    resolution: {integrity: sha512-giwweEawiOHLS8eMPNtpLJaYxWZIHxtJcoq0NyvtEqVx2pxZ8XX1AXHHx84hUK3Scl8vk4U4lEatG54nsMZo+Q==}
+    dev: false
+
   /emittery/0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
     engines: {node: '>=12'}
@@ -4015,6 +4027,11 @@ packages:
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
+    dev: false
+
+  /eventsource-parser/0.0.5:
+    resolution: {integrity: sha512-BAq82bC3ZW9fPYYZlofXBOAfbpmDzXIOsj+GOehQwgTUYsQZ6HtHs6zuRtge7Ph8OhS6lNH1kJF8q9dj17RcmA==}
+    engines: {node: '>=12'}
     dev: false
 
   /execa/5.1.1:
@@ -5533,6 +5550,12 @@ packages:
     dependencies:
       tmpl: 1.0.5
     dev: true
+
+  /marked/4.2.12:
+    resolution: {integrity: sha512-yr8hSKa3Fv4D3jdZmtMMPghgVt6TWbk86WQaWhDloQjRSQhMMYCAro7jP7VDJrjjdV8pxVxMssXS8B8Y5DZ5aw==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /mdn-data/2.0.14:
     resolution: {integrity: sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==}

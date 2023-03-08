@@ -1,10 +1,8 @@
-<script context="module" lang="ts">
+<script context="module">
     import iconBase64 from "~/assets/icon.png"
     import cssText from "data-text:~/contents/sidebar.css"
-    import type {PlasmoCSConfig} from "plasmo"
     import "~/contents/sidebar-base.css"
-
-    export const config: PlasmoCSConfig = {
+    export const config = {
         matches: ["<all_urls>"]
     }
 
@@ -15,13 +13,15 @@
         style.textContent = cssText
         return style
     }
-
 </script>
 
 <script>
+    import Chat from "~components/Chat.svelte";
+
     let isOpen = true;
 
     let selectedText = "";
+
     function handleMouseUp() {
         const selection = getSelected();
 
@@ -36,23 +36,17 @@
     }
 
     document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("keyup", handleMouseUp);
 </script>
-<style>
-    .popup {
-        position: absolute;
-        background-color: white;
-        border: 1px solid black;
-        padding: 5px;
-        font-size: 12px;
-        z-index: 9999;
-    }
-</style>
 
 <div id="sidebar" class={isOpen ? "open" : "closed"}>
     <button class="sidebar-toggle" on:click={() => isOpen = !isOpen}>
-        {isOpen ? "🟡 Close" : "🟣 Open"}
+        {isOpen ? "🟡 合上" : "🟣 拉开"}
     </button>
-    <img src={iconBase64} alt="Extension Icon" width={128} height={128}/>
-    <p>Selected Text: {selectedText}</p>
+    <Chat
+            bind:inputText={selectedText}
+    >
+        <img src={iconBase64} alt="Extension Icon" width={35} height={35}/>
+    </Chat>
 </div>
 
