@@ -1,4 +1,4 @@
-# SecretaryGPT Web Extension
+# ChatGPT Sidebar  Web Extension
 
 [![cn](https://img.shields.io/badge/看我-中文-blue.svg?style=for-the-badge&logo=appveyor)](README.zh_CN.md)
 
