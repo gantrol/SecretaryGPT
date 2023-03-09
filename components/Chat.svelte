@@ -2,14 +2,24 @@
     import {beforeUpdate, afterUpdate} from 'svelte';
     import Message from "~components/Message.svelte";
 
+    // TODO: “new topic”
     export let inputText = '';
 
     export const getShadowHostId = () => "chat"
+
+    // TODO: fix autoscroll
     let div;
     let autoscroll;
 
     let isLogin = '';
     let ChatID = '';
+
+    // TODO: in all page?
+    let isSending = false;
+    let messages = [
+    ];
+
+    let newMessage = null;
 
 
     beforeUpdate(() => {
@@ -20,21 +30,9 @@
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
     });
 
-
-    let messages = [
-        {author: 'user', text: "# test\n\n```python\nprint('hello world')\n```"},
-        {
-            "text": "Hello! This is ChatGPT, a language model trained by OpenAI. It looks like you have provided a simple Python code snippet to print \"hello world\" to the console. If you run this code, it should output \"hello world\" as expected. \n\nIs there anything else I can help you with?",
-            author: "bot",
-            "messageId": "31334cd7-bcea-4bd4-a1a3-99a6e710435d",
-            "conversationId": "ba71a1ea-b926-4be0-87f1-eb78cb501359"
-        },
-    ];
-
-    let newMessage = null;
-
     function handleKeydown(event) {
-        if (event.key === 'Enter' && event.shiftKey) {
+        if (event.key === 'Enter' && event.shiftKey && !isSending) {
+            event.preventDefault();
             const text = event.target.value;
             if (!text) return;
             messages = messages.concat({
@@ -47,7 +45,8 @@
         }
     }
 
-    const handleSender = () => {
+    const sendOnclick = () => {
+        if (!inputText || isSending) return;
         messages = messages.concat({
             author: 'user',
             text: inputText
@@ -59,14 +58,26 @@
     }
 
     const sendMsg = async (message) => {
-        if (!message) return;
-        // TODO: 在某处开启界面限制
-        chrome.runtime.sendMessage({
-            type: 'newCov',
-            body: {
-                prompt: message,
-            }
-        });
+        if (!message || isSending) return;
+        isSending = true;
+        if (ChatID) {
+            chrome.runtime.sendMessage({
+                type: 'sendMsg',
+                body: {
+                    prompt: message,
+                    conversation_id: ChatID,
+                    parent_message_id: messages[messages.length - 2].id,  // 上一个回复在倒数第二个
+                }
+            });
+        } else {
+            chrome.runtime.sendMessage({
+                type: 'newCov',
+                body: {
+                    prompt: message,
+                }
+            });
+        }
+
     }
 
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -84,14 +95,16 @@
             console.log("end");
             messages = messages.concat(newMessage);
             newMessage = null;
-            // TODO: done , 取消界面限制
+            isSending = false;
         }
     });
 </script>
 
 <div class="chat flex flex-col h-full w-full">
     <slot></slot>
-    <div class="flex-auto overflow-y-auto mt-0 mb-[0.5em] mx-0 border-t-[#eee] border-t border-solid" bind:this={div}>
+    <div class="flex-auto overflow-y-auto mt-0 mb-[0.5em] mx-0 border-t-[#eee] border-t border-solid"
+         bind:this={div}
+    >
         {#each messages as message}
             <Message {message}></Message>
         {/each}
@@ -105,7 +118,7 @@
     <div class="flex">
         <textarea on:keydown={handleKeydown} bind:value={inputText} placeholder="请输入"
                   class="textarea textarea-bordered textarea-md w-full max-w-xs"></textarea>
-        <button on:click={handleSender} class="btn btn-primary">发送</button>
+        <button on:click={sendOnclick} class="btn btn-primary" disabled={isSending}>发送</button>
     </div>
 <!--  TODO:  <div>登录状态: {isLogin}</div>-->
     <div>ChatID:

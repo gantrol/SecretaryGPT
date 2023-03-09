@@ -15,7 +15,7 @@ Goal: a plugin that puts various AI chatbots in the browser "sidebar". There are
 
 Currently implemented:
 
-- Chat with ChatGPT (currently, each conversation will start a new session, but this will be changed to default to the same session unless cleared)
+- Chat with ChatGPT
 - Selecting text on current web page will update the input box on the right to this text (without retaining the original text, each window is independent)
 
 ![img.png](assets/demo.png)

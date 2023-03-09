@@ -46,7 +46,7 @@
     <Chat
             bind:inputText={selectedText}
     >
-        <img src={iconBase64} alt="Extension Icon" width={35} height={35}/>
+        <img src={iconBase64} alt="Extension Icon" width={50} height={50}/>
     </Chat>
 </div>
 

@@ -25,10 +25,12 @@ export interface API {
 
     /**
      * @description Send prompt to API
-     * @param cov_id
+     * @param conversation_id
+     * @param parent_message_id
      * @param prompt
+     * @param callback
      */
-    ask(cov_id: string, prompt: string);
+    ask(conversation_id: string, parent_message_id: string, prompt: string, callback);
 
     // TODO: title()
 }
@@ -134,9 +136,6 @@ export class ChatGPTAPI implements API {
         return data.accessToken;
     }
 
-    ask = (cov_id: string, prompt: string): any => {
-
-    }
 
     model = async (): Promise<string> => {
         const default_model = "text-davinci-002-render"
@@ -187,37 +186,50 @@ export class ChatGPTAPI implements API {
         // TODO: check prompt length,
         //  auto split?
         console.log(prompt);
+        return await this.sendMessage(prompt, callback, getUUID());
+    }
+
+    ask = (conversation_id: string, parent_message_id: string, prompt: string, callback): any => {
+        return this.sendMessage(prompt, callback, parent_message_id, conversation_id);
+    }
+
+    private sendMessage = async (prompt, callback, parent_message_id, conversation_id=null) => {
+        const auth_key = await this.auth();
+        const sse = {
+            on: true,
+            callback,
+        };
+        const body = {
+            action: 'next',
+            messages: [
+                {
+                    id: getUUID(),
+                    role: 'user',
+                    content: {
+                        content_type: 'text',
+                        parts: [
+                            prompt,
+                        ],
+                    },
+                },
+            ],
+            model: await this.model(),
+            parent_message_id: parent_message_id,
+        }
+        if (conversation_id) {
+            body['conversation_id'] = conversation_id
+        }
+        console.log(body);
         return await this.request<{
             id: string,
         }>(
             "/backend-api/conversation",
             "POST",
-            {
-                action: 'next',
-                messages: [
-                    {
-                        id: getUUID(),
-                        role: 'user',
-                        content: {
-                            content_type: 'text',
-                            parts: [
-                                prompt,
-                            ],
-                        },
-                    },
-                ],
-                model: await this.model(),
-                parent_message_id: getUUID(),
-            },
-            await this.auth(),
-            {
-                on: true,
-                callback,
-            }
+            body,
+            auth_key,
+            sse,
         );
     }
-
-    // TODO: add answer
 
     covList = async (offset: number = 0, limit: number = 20) => {
         const data = await this.request<{
