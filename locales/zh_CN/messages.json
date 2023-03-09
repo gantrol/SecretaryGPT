@@ -6,5 +6,17 @@
   "extensionDescription": {
     "message": "你的私人秘书，为你解释一切，用GPT实现",
     "description": "Description of the extension."
+  },
+  "chat_language_all": {
+    "message": "所有语言"
+  },
+  "chat_mode_explain": {
+    "message": "扮演解释"
+  },
+  "chat_mode_summary": {
+    "message": "摘要总结"
+  },
+  "chat_mode_none": {
+    "message": "不选择模式"
   }
 }

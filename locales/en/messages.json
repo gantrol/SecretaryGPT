@@ -4,7 +4,19 @@
     "description": "Name of the extension."
   },
   "extensionDescription": {
-    "message": "Your Web secretary implemented in GPT-3",
+    "message": "Your Web secretary implemented in GPT",
     "description": "Description of the extension."
+  },
+  "chat_language_all": {
+    "message": "All language"
+  },
+  "chat_mode_explain": {
+    "message": "Explain"
+  },
+  "chat_mode_summary": {
+    "message": "Summary"
+  },
+  "chat_mode_none": {
+    "message": "No mode"
   }
 }

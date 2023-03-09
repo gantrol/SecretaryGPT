@@ -1,6 +1,6 @@
 <script>
     export let message;
-    import {marked} from "marked";
+    import MarkdownToHTML from "~components/MarkdownToHTML.svelte";
 
     let userClass;
 
@@ -13,8 +13,6 @@
 
 {#if message && message.text}
     <article class="prose {userClass} pt-6 pb-6">
-        {@html marked.parse(
-            `${message.text}`
-        )}
+        <MarkdownToHTML text={message.text}></MarkdownToHTML>
     </article>
 {/if}
