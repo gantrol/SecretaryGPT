@@ -16,8 +16,7 @@
 
     // TODO: in all page?
     let isSending = false;
-    let messages = [
-    ];
+    let messages = [];
 
     let newMessage = null;
 
@@ -88,7 +87,7 @@
                 author: "bot",
                 text: data.text,
             }
-            console.log(data);
+            // console.log(data);
 
             ChatID = data.conversationId;
         } else if (request.type === 'end') {
@@ -100,8 +99,8 @@
     });
 </script>
 
+<!-- Page content here -->
 <div class="chat flex flex-col h-full w-full">
-    <slot></slot>
     <div class="flex-auto overflow-y-auto mt-0 mb-[0.5em] mx-0 border-t-[#eee] border-t border-solid"
          bind:this={div}
     >
@@ -115,12 +114,21 @@
         {/if}
     </div>
 
-    <div class="flex">
-        <textarea on:keydown={handleKeydown} bind:value={inputText} placeholder="请输入"
-                  class="textarea textarea-bordered textarea-md w-full max-w-xs"></textarea>
-        <button on:click={sendOnclick} class="btn btn-primary" disabled={isSending}>发送</button>
+    <div class="form-control">
+        <div class="input-group">
+<!--            preview？-->
+            <select class="select select-bordered">
+                <option disabled selected>选择开场白</option>
+                <option>扮演解释</option>
+                <option>摘要小结</option>
+                <option>无</option>
+            </select>
+            <button on:click={sendOnclick} class="btn btn-primary" disabled={isSending}>发送</button>
+        </div>
     </div>
-<!--  TODO:  <div>登录状态: {isLogin}</div>-->
+    <textarea on:keydown={handleKeydown} bind:value={inputText} placeholder="请输入"
+              class="textarea textarea-bordered textarea-md w-full"></textarea>
+    <!--  TODO:  <div>登录状态: {isLogin}</div>-->
     <div>ChatID:
         <input type="text" bind:value={ChatID} placeholder="请输入ChatID"
                class="input input-bordered input-md w-full max-w-xs"/>
