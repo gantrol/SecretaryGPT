@@ -20,8 +20,10 @@ const chat = async (prompt: string, callback, chatType, conversation_id: string 
     let api: API;
     if (chatType === chatTypes.ChatGPT) {
         api = chatAPI;
-    } else {
+    } else if (chatType === chatTypes.Bing) {
         api = bingAPI
+    } else {
+        throw new Error("chatType error: no chat type of " + chatType);
     }
     if (conversation_id && parent_message_id) {
         await api.ask(
@@ -55,7 +57,7 @@ const getCallback = (chatType, tabid) => {
 }
 
 const ask = async (prompt: string, conversation_id: string, parent_message_id: string, tabid, chatType) => {
-    return chat(prompt, getCallback(chatType, tabid), conversation_id, parent_message_id);
+    return chat(prompt, getCallback(chatType, tabid), chatType, conversation_id, parent_message_id);
 }
 
 chrome.runtime.onMessage.addListener(
