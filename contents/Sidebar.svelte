@@ -3,7 +3,6 @@
     import cssText from "data-text:~/contents/sidebar.css"
     import "~/contents/sidebar-base.css"
     import "~/contents/base.css"
-    import {chatType} from "~utils/stores";
 
     export const config = {
         matches: ["<all_urls>"]
@@ -22,6 +21,7 @@
 <script>
     import Chat from "~components/Chat.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
+    import {chatTypeChatGPT} from "~utils/stores";
     import {chatTypes} from "~utils/constants";
 
     let isOpen = true;
@@ -70,7 +70,8 @@
                         <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
                     </label>
                 </div>
-                <h1 class="text-2xl font-bold text-center">{$chatType} Title</h1>
+                <h1 class="text-2xl font-bold text-center">{$chatTypeChatGPT}</h1>
+<!--                TODO: Title-->
                 <button class="btn" on:click={openOnClick}>合上侧边栏</button>
 <!--                      TODO:  <li><a on:click={reflesh}>新对话</a></li>-->
 <!--                </div>-->
@@ -82,11 +83,11 @@
                         <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
                     </label>
                 </div>
-                <h1 class="text-2xl font-bold text-center">Chat Title</h1>
+                <h1 class="text-2xl font-bold text-center">placeholder</h1>
             </div>
             <Chat
                     bind:inputText={selectedText}
-                    chatType={chatType}
+                    chatType={chatTypeChatGPT}
             >
             </Chat>
 
@@ -96,7 +97,7 @@
             <ul class="menu p-4 w-80 bg-base-100">
                 <!-- Sidebar content here -->
                 <SimpleSelect
-                        bind:bind_value={$chatType}
+                        bind:bind_value={$chatTypeChatGPT}
                         keys={chatTypes}
                         values={chatTypes}
                 />

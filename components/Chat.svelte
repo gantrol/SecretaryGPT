@@ -1,13 +1,15 @@
 <script>
     import {beforeUpdate, afterUpdate} from 'svelte';
-    import Message from "~components/Message.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
     import { languageI18n, modeKeys, modeValues} from "~utils/constants";
     import PromptPreview from "~components/PromptPreview.svelte";
-    import {chatType} from "~utils/stores";
+    import {chatTypeChatGPT} from "~utils/stores";
+    import ChatContent from "~components/ChatContent.svelte";
+    import {ChatViewModel} from "~utils/viewmodel";
 
     // TODO: “new topic”
     export let inputText = '';
+    export let chatType = chatTypeChatGPT;
 
     export const getShadowHostId = () => "chat"
 
@@ -15,22 +17,24 @@
     let div;
     let autoscroll;
 
-    let isLogin = '';
-    let ChatID = '';
-
-    // TODO: in all page?
-    let isSending = false;
-    let messages = [
-
-    ];
-
-    let newMessage = null;
+    const vm = new ChatViewModel(chatType);
 
     let language;
     let mode;
 
     let preview;
-    $: preview = handleMessage(inputText, mode, language);
+    $: {
+        vm.chatType = $chatType;
+        if (mode) {
+            vm.mode = mode;
+        }
+        if (language) {
+            vm.language = language;
+        }
+        preview = vm.handleMessage(inputText);
+
+    }
+
 
     beforeUpdate(() => {
         autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
@@ -40,96 +44,50 @@
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
     });
 
-    function handleKeydown(event) {
-        if (event.key === 'Enter' && event.shiftKey && !isSending) {
+    const handleKeydown = async (event) => {
+        if (event.key === 'Enter' && event.shiftKey && !vm.isSending) {
             event.preventDefault();
             const text = event.target.value;
             if (!text) return;
-            messages = messages.concat({
+            vm.messages = vm.messages.concat({
                 author: 'user',
                 text
             });
             event.target.value = '';
-            sendMsg(text);
+            await vm.sendMsg(text);
         }
     }
 
-    const sendOnclick = () => {
-        if (!inputText || isSending) return;
-        messages = messages.concat({
+    const sendOnclick = async () => {
+        if (!inputText || vm.isSending) return;
+        vm.messages = vm.messages.concat({
             author: 'user',
             text: inputText
         });
 
-        sendMsg(inputText);
+        await vm.sendMsg(inputText);
 
         inputText = '';
     }
 
-    const sendMsg = async (message) => {
-        if (!message || isSending) return;
-        // TODO: bing
-
-        message = handleMessage(message, mode, language);
-        isSending = true;
-
-        if (ChatID) {
-            chrome.runtime.sendMessage({
-                type: 'sendMsg',
-                body: {
-                    prompt: message,
-                    conversation_id: ChatID,
-                    parent_message_id: messages[messages.length - 2].id,  // 上一个回复在倒数第二个
-                    chatType: $chatType,
-                }
-            });
-        } else {
-            chrome.runtime.sendMessage({
-                type: 'newCov',
-                body: {
-                    prompt: message,
-                    chatType: $chatType,
-                }
-            });
-        }
-
-    }
-
-    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.type === 'ans' && request.chatType === $chatType) {
+    chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
+        if (request.type === 'ans' && request.chatType === vm.chatType) {
             const data = request.data;
-            newMessage = {
+            vm.newMessage = {
                 id: data.messageId,
                 author: "bot",
                 text: data.text,
             }
             // console.log(data);
 
-            ChatID = data.conversationId;
-        } else if (request.type === 'end' && request.chatType === $chatType) {
+            vm.ChatID = data.conversationId;
+        } else if (request.type === 'end' && request.chatType === vm.chatType) {
             console.log("end");
-            messages = messages.concat(newMessage);
-            newMessage = null;
-            isSending = false;
+            vm.messages = vm.messages.concat(vm.newMessage);
+            vm.newMessage = null;
+            vm.isSending = false;
         }
     });
-
-    // TODO: preview the message in preview?
-    const handleMessage = (message, mode, language) => {
-        // mode value
-        // TODO: i18n？
-        if (mode === modeKeys.EXPLAIN) {
-            message = `请根据下面的片段，推断写作者是什么角色。并模仿这类角色做出解释：\n\n${message}`;
-        } else if (mode === modeKeys.SUMMARY) {
-            message = `请根据下面的片段，总结写作者的观点：\n\n${message}`;
-        }
-
-        // language value
-        if (language && language !== languageI18n.NONE) {
-            message = `${message}, 请用${language}回答`;
-        }
-        return message;
-    }
 </script>
 
 <!-- Page content here -->
@@ -137,18 +95,9 @@
     <div class="overflow-y-auto h-full mt-0 mb-[0.5em] mx-0 border-t-[#eee] border-t border-solid"
          bind:this={div}
     >
-        {#each messages as message}
-            <Message {message}></Message>
-        {/each}
-        {#if newMessage !== undefined && newMessage !== null}
-            <article class="prose">
-                <Message message={newMessage}></Message>
-            </article>
-        {/if}
+        <ChatContent messages={vm.messages} newMessage={vm.newMessage}></ChatContent>
         <div class="w-full h-64 md:h-64 flex-shrink-0"></div>
     </div>
-
-
 
     <div class="absolute bottom-0 left-0 w-full bg-base-200">
         {#if inputText}
@@ -171,7 +120,7 @@
                         keys={languageI18n}
                         values={languageI18n}>
                 </SimpleSelect>
-                <button on:click={sendOnclick} class="btn btn-primary" disabled={isSending}>发送</button>
+                <button on:click={sendOnclick} class="btn btn-primary" disabled={vm.isSending}>发送</button>
             </div>
         </div>
         <textarea on:keydown={handleKeydown} bind:value={inputText} placeholder="请输入"

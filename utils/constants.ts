@@ -30,3 +30,8 @@ export const chatTypes = {
     ChatGPT: "ChatGPT",
     Bing: "Bing",
 }
+
+export const LinkType = {
+    BING: "bing",
+    INNER: "inner"
+};
