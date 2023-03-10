@@ -3,6 +3,7 @@
     import cssText from "data-text:~/contents/sidebar.css"
     import "~/contents/sidebar-base.css"
     import "~/contents/base.css"
+    import {chatType} from "~utils/stores";
 
     export const config = {
         matches: ["<all_urls>"]
@@ -15,10 +16,13 @@
         style.textContent = cssText
         return style
     }
+
 </script>
 
 <script>
     import Chat from "~components/Chat.svelte";
+    import SimpleSelect from "~components/SimpleSelect.svelte";
+    import {chatTypes} from "~utils/constants";
 
     let isOpen = true;
 
@@ -66,13 +70,23 @@
                         <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
                     </label>
                 </div>
-                <h1 class="text-2xl font-bold text-center">Chat Title</h1>
+                <h1 class="text-2xl font-bold text-center">{$chatType} Title</h1>
                 <button class="btn" on:click={openOnClick}>合上侧边栏</button>
 <!--                      TODO:  <li><a on:click={reflesh}>新对话</a></li>-->
 <!--                </div>-->
             </div>
+<!--            TODO: remove the silly placeholder-->
+            <div class="flex w-full">
+                <div class="flex-none">
+                    <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
+                        <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
+                    </label>
+                </div>
+                <h1 class="text-2xl font-bold text-center">Chat Title</h1>
+            </div>
             <Chat
                     bind:inputText={selectedText}
+                    chatType={chatType}
             >
             </Chat>
 
@@ -81,8 +95,14 @@
             <label for="chat-drawer" class="drawer-overlay"></label>
             <ul class="menu p-4 w-80 bg-base-100">
                 <!-- Sidebar content here -->
-                <li><a>Sidebar Item 1</a></li>
-                <li><a>Sidebar Item 2</a></li>
+                <SimpleSelect
+                        bind:bind_value={$chatType}
+                        keys={chatTypes}
+                        values={chatTypes}
+                />
+<!--                TODO: need to reflesh? 做两套？-->
+<!--                <li><a on:click={() => chatType = chatTypes.ChatGPT}>ChatGPT</a></li>-->
+<!--                <li><a on:click={() => chatType = chatTypes.Bing}>Bing</a></li>-->
             </ul>
         </div>
     </div>

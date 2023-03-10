@@ -2,8 +2,9 @@
     import {beforeUpdate, afterUpdate} from 'svelte';
     import Message from "~components/Message.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
-    import {languageI18n, modeKeys, modeValues} from "~utils/constants";
+    import { languageI18n, modeKeys, modeValues} from "~utils/constants";
     import PromptPreview from "~components/PromptPreview.svelte";
+    import {chatType} from "~utils/stores";
 
     // TODO: “new topic”
     export let inputText = '';
@@ -67,6 +68,7 @@
 
     const sendMsg = async (message) => {
         if (!message || isSending) return;
+        // TODO: bing
 
         message = handleMessage(message, mode, language);
         isSending = true;
@@ -78,6 +80,7 @@
                     prompt: message,
                     conversation_id: ChatID,
                     parent_message_id: messages[messages.length - 2].id,  // 上一个回复在倒数第二个
+                    chatType: $chatType,
                 }
             });
         } else {
@@ -85,6 +88,7 @@
                 type: 'newCov',
                 body: {
                     prompt: message,
+                    chatType: $chatType,
                 }
             });
         }
@@ -92,7 +96,7 @@
     }
 
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-        if (request.type === 'ans') {
+        if (request.type === 'ans' && request.chatType === $chatType) {
             const data = request.data;
             newMessage = {
                 id: data.messageId,
@@ -102,7 +106,7 @@
             // console.log(data);
 
             ChatID = data.conversationId;
-        } else if (request.type === 'end') {
+        } else if (request.type === 'end' && request.chatType === $chatType) {
             console.log("end");
             messages = messages.concat(newMessage);
             newMessage = null;
@@ -154,6 +158,7 @@
             <button class="btn btn-secondary">
                 新对话
             </button>
+<!--            <div>{$chatType}</div>-->
             <div class="input-group justify-end">
                 <!--            preview？-->
                 <SimpleSelect

@@ -1,4 +1,5 @@
 
+- Bing
 - 获取标题
 - prompt workflow
   - 扮演解释
@@ -15,3 +16,4 @@
 - 列表页
     - 本地存储
 - UI redesign https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#update-position
+- 谷歌商城发布

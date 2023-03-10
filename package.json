@@ -20,7 +20,8 @@
     "plasmo": "0.65.0",
     "svelte": "3.55.1",
     "svelte-preprocess": "5.0.1",
-    "turndown": "^7.1.1"
+    "turndown": "^7.1.1",
+    "ws": "^8.12.1"
   },
   "devDependencies": {
     "@jest/globals": "29.4.1",

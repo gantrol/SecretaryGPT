@@ -24,3 +24,9 @@ export const modeKeys = {
     SUMMARY: "chat_mode_summary",
 }
 export const modeValues = objectMap(modeKeys, getText);
+
+export const chatTypes = {
+    // TODO：存储
+    ChatGPT: "ChatGPT",
+    Bing: "Bing",
+}

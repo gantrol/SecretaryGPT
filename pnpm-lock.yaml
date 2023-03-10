@@ -27,6 +27,7 @@ specifiers:
   ts-jest: ^29.0.5
   turndown: ^7.1.1
   typescript: 4.9.4
+  ws: ^8.12.1
 
 dependencies:
   dexie: 3.2.3
@@ -39,6 +40,7 @@ dependencies:
   svelte: 3.55.1
   svelte-preprocess: 5.0.1_oifjsu5oar4lzyaoppb2hxramu
   turndown: 7.1.1
+  ws: 8.12.1
 
 devDependencies:
   '@jest/globals': 29.4.1
@@ -7373,7 +7375,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: true
 
   /xml-name-validator/4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
