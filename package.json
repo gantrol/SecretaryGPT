@@ -1,13 +1,13 @@
 {
-  "name": "teachergpt",
+  "name": "secretary-gpt",
   "displayName": "Your Web Teacher implemented in GPT-3",
   "version": "0.0.3",
-  "description": "Your private teacher, who explains all things to you, has implemented GPT-3.",
+  "description": "Your private secretary, who explains all things to you, has implemented GPT-3.",
   "author": "gantrol",
   "scripts": {
     "dev": "plasmo dev",
     "test": "jest",
-    "build": "plasmo build",
+    "build": "plasmo build  --zip",
     "package": "plasmo package"
   },
   "dependencies": {
@@ -44,12 +44,10 @@
   "manifest": {
     "name": "__MSG_extensionName__",
     "permissions": [
-      "declarativeNetRequest",
-      "storage"
     ],
     "host_permissions": [
       "<all_urls>"
     ],
-    "default_locale": "en"
+    "default_locale": "zh_CN"
   }
 }
