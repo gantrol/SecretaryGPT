@@ -4,21 +4,22 @@
 
 > In very early stage, not ready for use.
 
-1. Chat with ChatGPT in the browser sidebar;
+1. Chat with ChatGPT or Bing in the browser sidebar;
 2. Select text on the webpage, and it's ready to be sent to ChatGPT;
-3. More to come.
+3. Compare Bing and ChatGPT in a tab page.
 
+## Introduction
 
-## Goals, Current Status, and Defects
-
-Goal: a plugin that puts various AI chatbots in the browser "sidebar". There are also several prompt paradigms to be launched.
-
-Currently implemented:
-
-- Chat with ChatGPT
-- Selecting text on current web page will update the input box on the right to this text (without retaining the original text, each window is independent)
+### Sidebar
 
 ![img.png](assets/demo.png)
+
+### Tab Page
+
+enter by clicking the extension icon and click the "VS" button in the popup.
+
+![img.png](assets/chatGPT-vs-Bing1.png)
+
 
 There may be some bugs:
 

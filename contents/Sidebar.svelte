@@ -64,7 +64,11 @@
         <input id="chat-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
             <!-- Navbar -->
-            <div class="absolute top-0 left-0 w-full navbar bg-base-300 flex flex-row justify-between">
+            <div class="
+  sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100
+  bg-base-100 text-base-content shadow-sm
+  ">
+                <nav class="w-full navbar bg-base-300 flex flex-row justify-between">
                 <div class="flex-none">
                     <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
                         <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
@@ -74,16 +78,7 @@
 <!--                TODO: Title-->
                 <button class="btn" on:click={openOnClick}>合上侧边栏</button>
 <!--                      TODO:  <li><a on:click={reflesh}>新对话</a></li>-->
-<!--                </div>-->
-            </div>
-<!--            TODO: remove the silly placeholder-->
-            <div class="flex w-full">
-                <div class="flex-none">
-                    <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
-                        <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
-                    </label>
-                </div>
-                <h1 class="text-2xl font-bold text-center">placeholder</h1>
+                </nav>
             </div>
             <Chat
                     bind:inputText={selectedText}

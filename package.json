@@ -1,7 +1,7 @@
 {
   "name": "teachergpt",
   "displayName": "Your Web Teacher implemented in GPT-3",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Your private teacher, who explains all things to you, has implemented GPT-3.",
   "author": "gantrol",
   "scripts": {
