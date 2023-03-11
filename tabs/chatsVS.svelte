@@ -107,6 +107,10 @@
     const openOnClick = () => isOpen = !isOpen;
 </script>
 
+<svelte:head>
+    <title>ChatAI VS</title>
+</svelte:head>
+
 <style>
     @tailwind base;
     @tailwind components;

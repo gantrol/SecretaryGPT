@@ -1,7 +1,7 @@
 <script>
     import {beforeUpdate, afterUpdate} from 'svelte';
     import SimpleSelect from "~components/SimpleSelect.svelte";
-    import {languageI18n, LinkType, modeKeys, modeValues} from "~utils/constants";
+    import {languageI18n, modeKeys, modeValues} from "~utils/constants";
     import PromptPreview from "~components/PromptPreview.svelte";
     import {chatTypeChatGPT} from "~utils/stores";
     import ChatContent from "~components/ChatContent.svelte";
@@ -115,7 +115,6 @@
             </button>
 <!--            <div>{$chatType}</div>-->
             <div class="input-group justify-end">
-                <!--            preview？-->
                 <SimpleSelect
                         bind:bind_value={mode}
                         keys={modeKeys}

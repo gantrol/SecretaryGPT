@@ -24,7 +24,7 @@
     import {chatTypeChatGPT} from "~utils/stores";
     import {chatTypes} from "~utils/constants";
 
-    let isOpen = true;
+    let isOpen = false;
 
     let selectedText = "";
 

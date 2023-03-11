@@ -23,6 +23,11 @@
           text={"VS模式"}
           type={LinkType.INNER}
   />
+  <LinkButton
+          url="/tabs/jike.html"
+          text={"即刻·关注日报"}
+          type={LinkType.INNER}
+  />
 </div>
 
 

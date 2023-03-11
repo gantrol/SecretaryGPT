@@ -1,9 +1,7 @@
 import {BingAPI, ChatGPTAPI} from "~utils/api";
 import type {API} from "~utils/api";
 import {chatTypes} from "~utils/constants";
-import {test} from "~utils/infomation/jike";
 
-export {}
 let chatAPI: API;
 let bingAPI: API;
 
@@ -11,9 +9,6 @@ let bingAPI: API;
 const init = () => {
     chatAPI = new ChatGPTAPI();
     bingAPI = new BingAPI();
-    test().then((data) => {
-        console.log(data);
-    });
 }
 
 init();
