@@ -2,7 +2,7 @@
 
 [![cn](https://img.shields.io/badge/readme-English-blue.svg?style=for-the-badge&logo=appveyor)](README.EN.md)
 
-你想有一位秘书，帮你读社交媒体的内容吗？
+你想有一位秘书，帮你刷新闻、为你解释一切吗？
 
 > 非常早期的产品
 

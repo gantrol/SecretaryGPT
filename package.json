@@ -1,7 +1,7 @@
 {
   "name": "secretary-gpt",
-  "displayName": "Your Web Teacher implemented in GPT-3",
-  "version": "0.0.3",
+  "displayName": "Your Web Secretary implemented in GPT-3",
+  "version": "0.0.4",
   "description": "Your private secretary, who explains all things to you, has implemented GPT-3.",
   "author": "gantrol",
   "scripts": {
