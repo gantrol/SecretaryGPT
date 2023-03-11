@@ -20,12 +20,6 @@ enter by clicking the extension icon and click the "VS" button in the popup.
 
 ![img.png](assets/chatGPT-vs-Bing1.png)
 
-
-There may be some bugs:
-
-- The sidebar may not appear on some pages.
-- The sidebar may not close properly on some pages.
-
 ## Reference
 
 [1] SSE code from [chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api#reverse-proxy)

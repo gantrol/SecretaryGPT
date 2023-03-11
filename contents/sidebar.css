@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#sidebar {
+#secretaire-sidebar {
   position: absolute;
 
   background-color: #eeeded;
@@ -19,15 +19,15 @@
   transition: all 0.5s ease;
 }
 
-#sidebar.open {
+#secretaire-sidebar.open {
   left: calc(var(--sidebar-width) * -1);
 }
 
-#sidebar.closed {
+#secretaire-sidebar.closed {
   left: 0;
 }
 
-#sidebar p {
+#secretaire-sidebar p {
   padding: 0 24px;
   text-align: left;
   font-family: sans-serif;

@@ -12,7 +12,16 @@
     - 中途追问：{{用户选择的文本}} || continue，用{{语言}}回复
     - 收尾：请用{{语言}}总结以上所有文本
   - 翻译？其实不如deepl
+  - 它来提问
+  - 是非明辨
+- 语言列表，输出格式的一部分？
+  - 包括编程吗？还是列入结构化？
 - 列表页
     - 本地存储
 - UI redesign https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#update-position
-- 影响全局格式了，需要隔离……
+- ChatGPT聊天置顶？
+  - 标题先搞好来
+  - 存储？indexDB?
+  - 配置？popup？
+- /模式，寻址
+- 

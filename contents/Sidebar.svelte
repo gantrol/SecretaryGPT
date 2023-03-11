@@ -8,7 +8,7 @@
         matches: ["<all_urls>"]
     }
 
-    export const getShadowHostId = () => "sidebar"
+    export const getShadowHostId = () => "secretaire-sidebar"
     // Inject into the ShadowDOM
     export const getStyle = () => {
         const style = document.createElement("style")
@@ -47,15 +47,12 @@
 
     const openOnClick = () => isOpen = !isOpen;
 
-    const newConv = () => {
-        // TODO: newConversation of the chat
-    }
 
     document.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("keyup", handleMouseUp);
 </script>
 
-<div id="sidebar" class='{isOpen ? "open" : "closed"} bg-base-200 h-full'>
+<div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} bg-base-200 h-full'>
 
     <div class="drawer">
         <input id="chat-drawer" type="checkbox" class="drawer-toggle"/>

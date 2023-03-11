@@ -7,7 +7,6 @@
     import ChatContent from "~components/ChatContent.svelte";
     import {ChatViewModel} from "~utils/viewmodel";
 
-    // TODO: “new topic”
     export let inputText = '';
     export let chatType = chatTypeChatGPT;
 
@@ -42,6 +41,8 @@
     afterUpdate(() => {
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
     });
+
+
 
     const handleKeydown = async (event) => {
         if (event.key === 'Enter' && event.shiftKey && !vm.isSending) {
@@ -87,6 +88,12 @@
             vm.isSending = false;
         }
     });
+
+
+    const newConv = () => {
+        // TODO: newConversation of the chat
+        vm.renew();
+    }
 </script>
 
 <!-- Page content here -->
@@ -103,7 +110,7 @@
             <PromptPreview {preview}></PromptPreview>
         {/if}
         <div class="flex flex-row form-control justify-between">
-            <button class="btn btn-secondary">
+            <button on:click={newConv} class="btn btn-secondary">
                 新对话
             </button>
 <!--            <div>{$chatType}</div>-->

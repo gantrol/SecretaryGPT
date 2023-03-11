@@ -1,15 +1,15 @@
 :root,
-#sidebar:host {
+#secretaire-sidebar:host {
   /*TODO: adjustable */
   --sidebar-width: 420px;
 }
 
-body.sidebar-show,
-body.sidebar-show * {
+body.secretaire-sidebar-show,
+body.secretaire-sidebar-show * {
   max-width: calc(100vw - var(--sidebar-width));
 }
 
-#sidebar {
+#secretaire-sidebar {
   position: fixed;
   z-index: 999999;
   top: 0px;
