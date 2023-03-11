@@ -59,8 +59,11 @@ export class ChatViewModel {
         } else if (this.mode === modeKeys.SUMMARY) {
             prefix = `请根据下面的片段，做出总结，注意内容可能涉及多人、也可能只是单人`;
         }
+        if (prefix) {
+            prefix = `${prefix}: \n\n`;
+        }
 
-        message = `${prefix}: \n\n${message}`;
+        message = `${prefix}${message}`;
 
         // language value
         if (this.language && this.language !== languageI18n.NONE) {
