@@ -26,7 +26,7 @@
 - /模式，寻址
 - 有个没author的bug，bing
   {"type":2,"invocationId":"undefined","item":{"firstNewMessageIndex":null,"conversationId":"1e842157-1a12-40de-9a06-aec2a720c0d5","requestId":"87f87513-57aa-4a29-bdd9-3d98193f23c5","telemetry":{"metrics":null,"startTime":"2023-03-11T06:14:25.9964441Z"},"result":{"value":"UnauthorizedRequest","message":"The conversationSignature is not set and is required to ensure that you have permission to use our APIs. IsAuthenticated=False. App ID=","error":"UnauthorizedRequest","renewCert":true,"serviceVersion":"20230310.57"}}}
-![img.png](img.png)
+![img.png](build/img.png)
 
 - 今日之星应当引入关注数，不过这样，网络请求会多？
 - 本来想做今天全部摘要的，一看好多人关注几百上千……
