@@ -1,9 +1,10 @@
 <script>
 
-  import LinkButton from "~components/LinkButton.svelte";
-  import {LinkType} from "~utils/constants";
+    import LinkButton from "~components/LinkButton.svelte";
+    import {LinkType} from "~utils/constants";
+    import Collapse from "~components/Collapse.svelte";
 
-  let debug = false;
+    let debug = false;
 </script>
 
 <style>
@@ -15,19 +16,21 @@
     }
 </style>
 <div class="main">
-  {#if debug}
+    {#if debug}
 
-  {/if}
-  <LinkButton
-          url="/tabs/chatsVS.html"
-          text={"VS模式"}
-          type={LinkType.INNER}
-  />
-  <LinkButton
-          url="/tabs/jike.html"
-          text={"即刻·关注日报"}
-          type={LinkType.INNER}
-  />
+    {/if}
+    <Collapse title="页面链接">
+        <LinkButton
+                url="/tabs/chatsVS.html"
+                text={"Chat AI VS"}
+                type={LinkType.INNER}
+        />
+        <LinkButton
+                url="/tabs/jike.html"
+                text={"即刻·关注日报"}
+                type={LinkType.INNER}
+        />
+    </Collapse>
 </div>
 
 
