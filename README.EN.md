@@ -1,7 +1,5 @@
 # ChatGPT Sidebar  Web Extension
 
-[![cn](https://img.shields.io/badge/看我-中文-blue.svg?style=for-the-badge&logo=appveyor)](README.zh_CN.md)
-
 > In very early stage, not ready for use.
 
 1. Chat with ChatGPT or Bing in the browser sidebar;

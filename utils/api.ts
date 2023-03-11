@@ -337,6 +337,8 @@ export class BingAPI implements API {
             this.wss = new WebSocket("wss://sydney.bing.com/sydney/ChatHub");
             console.log(this.wss);
             this.wss.onopen = async () => {
+                // TODO: 先复现试试
+                this.update(prompt, "harmonyv3");
                 await this.wss.send(this.append_identifier({"protocol": "json", "version": 1}))
                 // await this.wss.
             }
@@ -419,6 +421,7 @@ export class BingAPI implements API {
                         text: prompt,
                         messageType: "Chat"
                     },
+                    // TODO: fix, 有时候会没有？
                     conversationSignature: this.conversation_signature,
                     participant: {
                         id: this.client_id

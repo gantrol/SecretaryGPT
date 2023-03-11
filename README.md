@@ -1,5 +1,9 @@
 # 小秘书-浏览器插件
 
+[![cn](https://img.shields.io/badge/readme-English-blue.svg?style=for-the-badge&logo=appveyor)](README.EN.md)
+
+你想有一位秘书，帮你读社交媒体的内容吗？
+
 > 非常早期的产品
 
 1. 在浏览器侧边栏跟 ChatGPT 或 Bing 对话, 在网页选择好文字，就准备好发到 ChatGPT 了
@@ -9,6 +13,16 @@
 ![img.png](assets/demo.png)
 
 ## 介绍
+
+### 日报订阅
+
+#### 即刻关注日报
+
+希望能给你带来快乐。（几千关注的谨慎使用，随时准备关闭浏览器）
+
+#### 微博关注日报
+
+TODO: 
 
 ### 侧边栏
 
