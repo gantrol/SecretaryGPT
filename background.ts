@@ -46,7 +46,9 @@ const newCov = async (prompt: string, tabid, chatType) => {
 const getCallback = (chatType, tabid) => {
     return (data) => {
         data.chatType = chatType;
-        console.log(data);
+        if (chatType === chatTypes.Bing) {
+            console.log(data);
+        }
         if (data.type === 'ans') {
             chrome.tabs.sendMessage(tabid, data);
         } else if (data.type === 'end') {

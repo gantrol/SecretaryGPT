@@ -1,64 +1,56 @@
 <script>
-    import {chatTypeChatGPT, chatTypeBing} from "~utils/stores";
     import {ChatViewModel} from "~utils/viewmodel";
     import ChatContent from "~components/ChatContent.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
     import PromptPreview from "~components/PromptPreview.svelte";
-    import {languageI18n, modeKeys, modeValues} from "~utils/constants";
-    import iconBase64 from "~/assets/icon.png"
+    import {chatTypes, languageI18n, modeKeys, modeValues} from "~utils/constants";
+    import iconBase64 from "~/assets/icon.png";
 
-    let inputText = "";
-    let chatGptVM = new ChatViewModel($chatTypeChatGPT);
-    let bingVM = new ChatViewModel($chatTypeBing);
+    let chatGptVM = new ChatViewModel(chatTypes.ChatGPT);
+    let bingVM = new ChatViewModel(chatTypes.Bing);
 
+    let inputText = '';
     let preview;
     let language;
     let mode;
     $: {
-        // bingVM.chatType = $chatType;
+        // TODO: make config class
         if (mode) {
             bingVM.mode = mode;
         }
         if (language) {
             bingVM.language = language;
         }
-        preview = bingVM.handleMessage(inputText);
+        bingVM.typingMessage = inputText;
+        chatGptVM.typingMessage = inputText;
+        preview = bingVM.handleMessage(bingVM.typingMessage);
     }
 
+    function sendMsg() {
+        if (!inputText || check()) return;
+        chatGptVM.messages = chatGptVM.messages.concat({
+            author: 'user',
+            text: chatGptVM.typingMessage,
+        });
+        bingVM.messages = bingVM.messages.concat({
+            author: 'user',
+            text: bingVM.typingMessage,
+        });
+        inputText = '';
+        chatGptVM.sendMsg();
+        bingVM.sendMsg();
+    }
+
+    // TODO: reflect, 疑似跟Chat.svelte一样的代码。可以抽象出来
     const handleKeydown = async (event) => {
         if (event.key === 'Enter' && event.shiftKey && !check()) {
             event.preventDefault();
-            const text = event.target.value;
-            if (!text) return;
-            chatGptVM.messages = chatGptVM.messages.concat({
-                author: 'user',
-                text: text,
-            });
-            bingVM.messages = bingVM.messages.concat({
-                author: 'user',
-                text: text,
-            });
-            event.target.value = '';
-            chatGptVM.sendMsg(text);
-            bingVM.sendMsg(text);
+            sendMsg();
         }
     }
 
     const sendOnclick = async () => {
-        if (!inputText || check()) return;
-        chatGptVM.messages = chatGptVM.messages.concat({
-            author: 'user',
-            text: inputText,
-        });
-        bingVM.messages = bingVM.messages.concat({
-            author: 'user',
-            text: inputText,
-        });
-
-        chatGptVM.sendMsg(inputText);
-        bingVM.sendMsg(inputText);
-
-        inputText = '';
+        sendMsg();
     }
 
     const check = () => {
@@ -78,9 +70,17 @@
                 chatGptVM.ChatID = data.conversationId;
             } else if (request.type === 'end') {
                 console.log("end");
-                chatGptVM.messages = chatGptVM.messages.concat(chatGptVM.newMessage);
-                chatGptVM.newMessage = null;
-                chatGptVM.isSending = false;
+                if (chatGptVM.newMessage) {
+                    chatGptVM.messages = chatGptVM.messages.concat(chatGptVM.newMessage);
+                    chatGptVM.newMessage = null;
+                    chatGptVM.isSending = false;
+                } else {
+                    chatGptVM.messages = chatGptVM.messages.concat({
+                        author: 'bot',
+                        text: '请求ChatGPT出错，请检查',
+                    });
+                }
+
             }
         } else if (request.chatType === bingVM.chatType) {
             if (request.type === 'ans') {
@@ -94,9 +94,16 @@
                 bingVM.ChatID = data.conversationId;
             } else if (request.type === 'end') {
                 console.log("end");
-                bingVM.messages = bingVM.messages.concat(bingVM.newMessage);
-                bingVM.newMessage = null;
-                bingVM.isSending = false;
+                if (bingVM.newMessage) {
+                    bingVM.messages = bingVM.messages.concat(bingVM.newMessage);
+                    bingVM.newMessage = null;
+                    bingVM.isSending = false;
+                } else {
+                    bingVM.messages = bingVM.messages.concat({
+                        author: 'bot',
+                        text: '请求必应出错，请检查',
+                    });
+                }
             }
         } else {
             return;
@@ -127,7 +134,8 @@
   ">
             <nav class="w-full navbar bg-base-300 flex flex-row justify-between">
                 <div class="flex-none">
-                    <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
+<!--                    <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">-->
+                    <label class="btn btn-primary drawer-button btn-ghost">
                         <img src={iconBase64} alt="Extension Icon" width={30} height={30}/>
                     </label>
                 </div>

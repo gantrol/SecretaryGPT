@@ -139,7 +139,8 @@ export class ChatGPTAPI implements API {
                             })
                         }
                     } catch (err) {
-                        console.error(err)
+                        console.error(err);
+                        console.log(message);
                         return
                     }
                 },
@@ -312,12 +313,8 @@ export class BingAPI implements API {
         } else {
             this.invocation_id = 0;
             const data = await resp.json();
-            try {
-                if (data.result.value === "UnauthorizedRequest") {
-                    throw new Error(`UnauthorizedRequest`);
-                }
-            } catch (e) {
-                throw new Error(`request Error, check if in beta: ${e}`);
+            if (data.result.value === "UnauthorizedRequest") {
+                throw new Error(`UnauthorizedRequest, check if your account in beta: ${data.result}`);
             }
             this.conversation_id = data.conversationId;
             this.client_id = data.clientId;
@@ -337,7 +334,6 @@ export class BingAPI implements API {
             this.wss = new WebSocket("wss://sydney.bing.com/sydney/ChatHub");
             console.log(this.wss);
             this.wss.onopen = async () => {
-                // TODO: 先复现试试
                 this.update(prompt, "harmonyv3");
                 await this.wss.send(this.append_identifier({"protocol": "json", "version": 1}))
                 // await this.wss.

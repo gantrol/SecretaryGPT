@@ -11,6 +11,7 @@ export class ChatViewModel {
     // TODO: time?
     isLogin: boolean = false;
     chatType: string = chatTypes.ChatGPT;
+    typingMessage = "";
     constructor(chatType) {
         this.chatType = chatType;
     }
@@ -22,7 +23,9 @@ export class ChatViewModel {
         this.messages = messagesInit;
         this.newMessage = null;
     }
-    sendMsg = async (message) => {
+
+    sendMsg = async () => {
+        let message = this.typingMessage;
         if (!message || this.isSending) return;
 
         message = this.handleMessage(message);

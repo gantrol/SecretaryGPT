@@ -21,12 +21,18 @@
 <script>
     import Chat from "~components/Chat.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
-    import {chatTypeChatGPT} from "~utils/stores";
     import {chatTypes} from "~utils/constants";
+    import {ChatViewModel} from "~utils/viewmodel";
 
-    let isOpen = false;
+    let isOpen = true;
 
     let selectedText = "";
+
+    let chatType = chatTypes.ChatGPT;
+    
+    let vm;
+    $: vm = new ChatViewModel(chatType);
+    $: vm.typingMessage = selectedText;
 
     function handleMouseUp() {
         // 在侧边栏选中的文字不算
@@ -47,13 +53,16 @@
 
     const openOnClick = () => isOpen = !isOpen;
 
+    const newConv = () => {
+        selectedText = "";
+    }
+
 
     document.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("keyup", handleMouseUp);
 </script>
 
 <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} bg-base-200 h-full'>
-
     <div class="drawer">
         <input id="chat-drawer" type="checkbox" class="drawer-toggle"/>
         <div class="drawer-content">
@@ -68,7 +77,7 @@
                             <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         </label>
                     </div>
-                    <h1 class="text-2xl font-bold">{$chatTypeChatGPT}</h1>
+                    <h1 class="text-2xl font-bold">{chatType}</h1>
                     <div class="btn btn-primary btn-ghost">
 <!--                        three dot, ellipsis-->
                         <svg width={30} height={30} focusable="false" xmlns="http://www.w3.org/2000/svg"
@@ -76,12 +85,11 @@
                             <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
                         </svg>
                     </div>
-                    <!--                      TODO:  <li><a on:click={reflesh}>新对话</a></li>-->
+<!--                                          <li><a on:click={newConv}>新对话</a></li>-->
                 </nav>
             </div>
             <Chat
-                    bind:inputText={selectedText}
-                    chatType={chatTypeChatGPT}
+                    vm={vm}
             >
             </Chat>
 
@@ -91,18 +99,14 @@
             <ul class="menu p-4 w-80 bg-base-100">
                 <!-- Sidebar content here -->
                 <SimpleSelect
-                        bind:bind_value={$chatTypeChatGPT}
+                        bind:bind_value={chatType}
                         keys={chatTypes}
                         values={chatTypes}
                 />
-                <!--                TODO: need to reflesh? 做两套？-->
-                <!--                <li><a on:click={() => chatType = chatTypes.ChatGPT}>ChatGPT</a></li>-->
-                <!--                <li><a on:click={() => chatType = chatTypes.Bing}>Bing</a></li>-->
             </ul>
         </div>
     </div>
     <button class="sidebar-toggle" on:click={openOnClick}>
-        <!--        TODO: 换成图标？打开就是拉开，合上就是合上-->
         <img src={isOpen ? icon_opened : icon_closed} alt="Extension Icon" width={30} height={30}/>
     </button>
 </div>

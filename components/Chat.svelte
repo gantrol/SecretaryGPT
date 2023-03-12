@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
     import {beforeUpdate, afterUpdate} from 'svelte';
     import SimpleSelect from "~components/SimpleSelect.svelte";
     import {languageI18n, modeKeys, modeValues} from "~utils/constants";
     import PromptPreview from "~components/PromptPreview.svelte";
-    import {chatTypeChatGPT} from "~utils/stores";
     import ChatContent from "~components/ChatContent.svelte";
     import {ChatViewModel} from "~utils/viewmodel";
 
-    export let inputText = '';
-    export let chatType = chatTypeChatGPT;
+    export let vm: ChatViewModel;
 
     export const getShadowHostId = () => "chat"
 
@@ -16,21 +14,19 @@
     let div;
     let autoscroll;
 
-    const vm = new ChatViewModel(chatType);
 
     let language;
     let mode;
 
     let preview;
     $: {
-        vm.chatType = $chatType;
         if (mode) {
             vm.mode = mode;
         }
         if (language) {
             vm.language = language;
         }
-        preview = vm.handleMessage(inputText);
+        preview = vm.handleMessage(vm.typingMessage);
     }
 
 
@@ -43,31 +39,30 @@
     });
 
 
-
     const handleKeydown = async (event) => {
         if (event.key === 'Enter' && event.shiftKey && !vm.isSending) {
             event.preventDefault();
-            const text = event.target.value;
+            const text =vm.typingMessage;
             if (!text) return;
             vm.messages = vm.messages.concat({
                 author: 'user',
                 text
             });
-            event.target.value = '';
-            await vm.sendMsg(text);
+            await vm.sendMsg();
+            vm.typingMessage = '';
         }
     }
 
     const sendOnclick = async () => {
-        if (!inputText || vm.isSending) return;
+        if (!vm.typingMessage || vm.isSending) return;
         vm.messages = vm.messages.concat({
             author: 'user',
-            text: inputText
+            text: vm.typingMessage
         });
 
-        await vm.sendMsg(inputText);
+        await vm.sendMsg();
 
-        inputText = '';
+        vm.typingMessage = '';
     }
 
     chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
@@ -88,15 +83,10 @@
             vm.isSending = false;
         }
     });
-
-
-    const newConv = () => {
-        // TODO: newConversation of the chat
-        vm.renew();
-    }
 </script>
 
 <!-- Page content here -->
+
 <div class="chat flex flex-col w-full" id="chat-content">
     <div class="overflow-y-auto h-full mt-0 mb-[0.5em] mx-0 border-t-[#eee] border-t border-solid"
          bind:this={div}
@@ -106,14 +96,12 @@
     </div>
 
     <div class="absolute bottom-0 left-0 w-full bg-base-200">
-        {#if inputText}
+        {#if vm.typingMessage}
             <PromptPreview {preview}></PromptPreview>
         {/if}
         <div class="flex flex-row form-control justify-between">
-            <button on:click={newConv} class="btn btn-secondary">
-                新对话
-            </button>
-<!--            <div>{$chatType}</div>-->
+
+            <!--            <div>{$chatType}</div>-->
             <div class="input-group justify-end">
                 <SimpleSelect
                         bind:bind_value={mode}
@@ -128,12 +116,23 @@
                 <button on:click={sendOnclick} class="btn btn-primary" disabled={vm.isSending}>发送</button>
             </div>
         </div>
-        <textarea on:keydown={handleKeydown} bind:value={inputText} placeholder="请输入"
-                  id="sidebar-chat-input"
-                  class="textarea textarea-bordered textarea-md w-full"></textarea>
+        <div>
+            <textarea on:keydown={handleKeydown} bind:value={vm.typingMessage} placeholder="Shift+Enter 发送，Enter 换行"
+                      id="sidebar-chat-input"
+                      class="textarea textarea-bordered textarea-md w-full"></textarea>
+            <button class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                     stroke-linejoin="round" class="h-4 w-4 mr-1" height="1em" width="1em"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+
         <!--  TODO:  <div>登录状态: {isLogin}</div>-->
-<!--        <div>-->
-<!--            <p>TODO: {ChatID}</p>-->
-<!--        </div>-->
+        <!--        <div>-->
+        <!--            <p>TODO: make chat list ? {ChatID}</p>-->
+        <!--        </div>-->
     </div>
 </div>
