@@ -470,22 +470,22 @@ export class JikeFollowDaily {
                 likeCount: i.likeCount,
                 commentCount: i.commentCount,
                 shareCount: i.shareCount,
-                // TODO: 这是什么？
+                // 转发
                 repostCount: i.repostCount,
             }
         })
         this._posts = result;
 
-        this._popularList = [...result].sort((a, b) => {
-            return b.likeCount + b.commentCount - (a.likeCount + a.commentCount)
-        })
-        this._discussList = [...result].sort((a, b) => {
-            return b.commentCount + b.shareCount - (a.commentCount + a.shareCount)
-        })
+        const getList = (result, value) => {
+            return [...result].sort((a, b) => {
+                return value(b) - value(a);
+            })
+        }
+
+        this._popularList = getList(result, (item) => item.likeCount + item.commentCount);
+        this._discussList = getList(result, (item) => item.commentCount + item.shareCount + item.repostCount);
         // 找出最具社交价值的文，基础算法是：repostCount + shareCount
-        this._socialValueList = [...result].sort((a, b) => {
-            return b.shareCount - (a.shareCount)
-        })
+        this._socialValueList = getList(result, (item) => item.shareCount + item.repostCount);
         this.getStars(result);
         console.log(this);
     }

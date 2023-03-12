@@ -3,7 +3,9 @@
 
     import thumbsUp from '~/assets/icons/thumbs-up.svg';
     import sticker from '~/assets/icons/sticker.svg';
-    import share from '~/assets/icons/share.svg';
+    import exportIcon from '~/assets/icons/share.svg';
+    import share from '~/assets/icons/share-2.svg';
+
 
     // TODO: 长文本,对接 chatgpt 处理(如有)
 
@@ -28,18 +30,19 @@
         </div>
         <div class="card-actions justify-end">
             <div class="badge badge-outline">
-                <!-- 点赞                   -->
-                <img src={thumbsUp} alt="Extension Icon"/>
+                <img src={thumbsUp} alt="点赞"/>
                 {post.likeCount}
             </div>
             <div class="badge badge-outline">
-                <!--                    评论-->
-                <img src={sticker} alt="Extension Icon"/>
+                <img src={sticker} alt="评论"/>
                 {post.commentCount}
             </div>
             <div class="badge badge-outline">
-                <!--                    转发\分享数-->
-                <img src={share} alt="Extension Icon"/>
+                <img src={exportIcon} alt="转发"/>
+                {post.repostCount}
+            </div>
+            <div class="badge badge-outline">
+                <img src={share} alt="分享"/>
                 {post.shareCount}
             </div>
             <div class="badge badge-outline">
