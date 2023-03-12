@@ -7,24 +7,12 @@
 > 非常早期的产品
 
 1. 在浏览器侧边栏跟 ChatGPT 或 Bing 对话, 在网页选择好文字，就准备好发到 ChatGPT 了
-2. 比较模式, ChatGPT vs Bing
+2. 在新的标签页, 同时与 ChatGPT 跟 Bing 聊天
 3. “扮演解释”模式，让ChatGPT自动判定上下文大体是怎样的角色，然后给出解释
 
 ![img.png](assets/demo.png)
 
 ## 介绍
-
-### 日报订阅
-
-#### 即刻关注日报
-
-希望能给你带来快乐。（关注多的谨慎使用）
-
-![img_1.png](assets/img_1.png)
-
-#### 微博关注日报
-
-TODO: 
 
 ### 侧边栏
 
@@ -36,6 +24,17 @@ TODO:
 
 ![img.png](assets/chatGPT-vs-Bing1.png)
 
+### 日报订阅
+
+#### 即刻关注日报
+
+希望能给你带来快乐。（关注多的谨慎使用）
+
+![img_1.png](assets/jike.png)
+
+#### 微博关注日报
+
+TODO: 
 
 ## 参考
 
