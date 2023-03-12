@@ -38,51 +38,19 @@
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
     });
 
-
+    const callback = () => {
+        vm = vm;
+    };
     const handleKeydown = async (event) => {
-        if (event.key === 'Enter' && event.shiftKey && !vm.isSending) {
-            event.preventDefault();
-            const text =vm.typingMessage;
-            if (!text) return;
-            vm.messages = vm.messages.concat({
-                author: 'user',
-                text
-            });
-            await vm.sendMsg();
-            vm.typingMessage = '';
-        }
+        await vm.handleKeydown(event, callback);
     }
 
-    const sendOnclick = async () => {
-        if (!vm.typingMessage || vm.isSending) return;
-        vm.messages = vm.messages.concat({
-            author: 'user',
-            text: vm.typingMessage
-        });
-
-        await vm.sendMsg();
-
-        vm.typingMessage = '';
+    const sendOnclick = async (event) => {
+        await vm.sendOnclick(event, callback);
     }
 
-    chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
-        if (request.type === 'ans' && request.chatType === vm.chatType) {
-            const data = request.data;
-            vm.newMessage = {
-                id: data.messageId,
-                author: "bot",
-                text: data.text,
-            }
-            // console.log(data);
+    vm.initListener(callback)
 
-            vm.ChatID = data.conversationId;
-        } else if (request.type === 'end' && request.chatType === vm.chatType) {
-            console.log("end");
-            vm.messages = vm.messages.concat(vm.newMessage);
-            vm.newMessage = null;
-            vm.isSending = false;
-        }
-    });
 </script>
 
 <!-- Page content here -->

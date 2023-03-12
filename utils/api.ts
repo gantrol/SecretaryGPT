@@ -327,6 +327,7 @@ export class BingAPI implements API {
         }
     }
 
+    // TODO: fix "Conversation '51D|BingProd|xxx' doesn't exist or has expired. Conversations expire after 06:00:00 minutes."
     ask = async (conversation_id: string, parent_message_id: string, prompt: string, callback: AskResultCallback) => {
         // Ask a question to the bot
         // Check if websocket is closed

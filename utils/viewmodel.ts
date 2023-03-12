@@ -16,6 +16,35 @@ export class ChatViewModel {
         this.chatType = chatType;
     }
 
+    initListener = (callback) => {
+        chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
+            if (request.type === 'ans' && request.chatType === this.chatType) {
+                const data = request.data;
+                this.newMessage = {
+                    id: data.messageId,
+                    author: "bot",
+                    text: data.text,
+                }
+                // console.log(data);
+
+                this.ChatID = data.conversationId;
+            } else if (request.type === 'end' && request.chatType === this.chatType) {
+                console.log("end");
+                if (this.newMessage) {
+                    this.messages = this.messages.concat(this.newMessage);
+                    this.newMessage = null;
+                } else {
+                    this.messages = this.messages.concat({
+                        author: 'bot',
+                        text: `请求${this.chatType}出错，请检查是否登录`,
+                    });
+                }
+                this.isSending = false;
+            }
+            callback();
+        });
+    }
+
     renew = (chatType) => {
         this.chatType = chatType;
         this.ChatID = null;
@@ -24,11 +53,8 @@ export class ChatViewModel {
         this.newMessage = null;
     }
 
-    sendMsg = async () => {
-        let message = this.typingMessage;
-        if (!message || this.isSending) return;
+    sendMsg = async (message) => {
 
-        message = this.handleMessage(message);
         this.isSending = true;
 
         if (this.ChatID) {
@@ -50,8 +76,9 @@ export class ChatViewModel {
                 }
             });
         }
-
+        
     }
+
 
     handleMessage = (message) => {
         // mode value
@@ -60,7 +87,7 @@ export class ChatViewModel {
         if (this.mode === modeKeys.EXPLAIN) {
             prefix = `请根据下面的片段，推断写作者是什么角色。并模仿这类角色做出解释`;
         } else if (this.mode === modeKeys.SUMMARY) {
-            prefix = `请根据下面的片段，做出总结，注意内容可能涉及多人、也可能只是单人`;
+            prefix = `请根据下面的片段，做出总结要求长度至多为原来的十分之一。注意内容可能涉及多人、也可能只是单人`;
         }
         if (prefix) {
             prefix = `${prefix}: \n\n`;
@@ -76,4 +103,28 @@ export class ChatViewModel {
         return message;
     }
 
+    _helper = async () => {
+        if (!this.typingMessage || this.isSending) return;
+
+        const message = this.handleMessage(this.typingMessage);
+        this.messages = this.messages.concat({
+            author: 'user',
+            text: this.typingMessage,
+        });
+        await this.sendMsg(message);
+        this.typingMessage = '';
+    }
+
+    handleKeydown = async (event, callback) => {
+        if (event.key === 'Enter' && event.shiftKey) {
+            event.preventDefault();
+            await this._helper();
+        }
+        callback();
+    }
+
+    sendOnclick = async (_event, callback) => {
+        await this._helper();
+        callback();
+    }
 }

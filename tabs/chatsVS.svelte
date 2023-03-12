@@ -26,89 +26,31 @@
         preview = bingVM.handleMessage(bingVM.typingMessage);
     }
 
-    function sendMsg() {
-        if (!inputText || check()) return;
-        chatGptVM.messages = chatGptVM.messages.concat({
-            author: 'user',
-            text: chatGptVM.typingMessage,
-        });
-        bingVM.messages = bingVM.messages.concat({
-            author: 'user',
-            text: bingVM.typingMessage,
-        });
-        inputText = '';
-        chatGptVM.sendMsg();
-        bingVM.sendMsg();
-    }
-
     // TODO: reflect, 疑似跟Chat.svelte一样的代码。可以抽象出来
     const handleKeydown = async (event) => {
-        if (event.key === 'Enter' && event.shiftKey && !check()) {
-            event.preventDefault();
-            sendMsg();
-        }
+        chatGptVM.handleKeydown(event, chatGptCallback);
+        bingVM.handleKeydown(event, bingCallback);
     }
 
-    const sendOnclick = async () => {
-        sendMsg();
+    const sendOnclick = async (event) => {
+        chatGptVM.sendOnclick(event, chatGptCallback);
+        bingVM.sendOnclick(event, bingCallback);
     }
 
     const check = () => {
         return chatGptVM.isSending || bingVM.isSending;
     }
 
-    chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
-        if (request.chatType === chatGptVM.chatType) {
-            if (request.type === 'ans') {
-                const data = request.data;
-                chatGptVM.newMessage = {
-                    id: data.messageId,
-                    author: "bot",
-                    text: data.text,
-                }
+    const chatGptCallback = () => {
+        chatGptVM = chatGptVM;
+    };
 
-                chatGptVM.ChatID = data.conversationId;
-            } else if (request.type === 'end') {
-                console.log("end");
-                if (chatGptVM.newMessage) {
-                    chatGptVM.messages = chatGptVM.messages.concat(chatGptVM.newMessage);
-                    chatGptVM.newMessage = null;
-                    chatGptVM.isSending = false;
-                } else {
-                    chatGptVM.messages = chatGptVM.messages.concat({
-                        author: 'bot',
-                        text: '请求ChatGPT出错，请检查',
-                    });
-                }
+    const bingCallback = () => {
+        bingVM = bingVM;
+    };
 
-            }
-        } else if (request.chatType === bingVM.chatType) {
-            if (request.type === 'ans') {
-                const data = request.data;
-                bingVM.newMessage = {
-                    id: data.messageId,
-                    author: "bot",
-                    text: data.text,
-                }
-
-                bingVM.ChatID = data.conversationId;
-            } else if (request.type === 'end') {
-                console.log("end");
-                if (bingVM.newMessage) {
-                    bingVM.messages = bingVM.messages.concat(bingVM.newMessage);
-                    bingVM.newMessage = null;
-                    bingVM.isSending = false;
-                } else {
-                    bingVM.messages = bingVM.messages.concat({
-                        author: 'bot',
-                        text: '请求必应出错，请检查',
-                    });
-                }
-            }
-        } else {
-            return;
-        }
-    });
+    chatGptVM.initListener(chatGptCallback);
+    bingVM.initListener(bingCallback);
 
     let isOpen = false;
     const openOnClick = () => isOpen = !isOpen;

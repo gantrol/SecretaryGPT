@@ -30,7 +30,6 @@
 
     let chatType = chatTypes.ChatGPT;
     
-    let vm;
     $: vm = new ChatViewModel(chatType);
     $: vm.typingMessage = selectedText;
 
@@ -89,7 +88,7 @@
                 </nav>
             </div>
             <Chat
-                    vm={vm}
+                    bind:vm={vm}
             >
             </Chat>
 
