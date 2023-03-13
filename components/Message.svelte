@@ -12,7 +12,7 @@
 </script>
 
 {#if message && message.text}
-    <article class="prose {userClass} pt-6 pb-6">
+    <article class="{userClass} pt-6 pb-6">
         <MarkdownToHTML text={message.text}></MarkdownToHTML>
     </article>
 {/if}
