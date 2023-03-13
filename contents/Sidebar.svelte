@@ -97,6 +97,7 @@
     }
 
     function onMouseUp(e) {
+        handleMouseUp();
         window.removeEventListener('mousemove', onMouseMove);
     }
 
@@ -111,40 +112,40 @@
 
 
 <PromiseWaiting promises={promises}>
-    <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} h-full bg-base-100'
-         bind:this={sidebar}>
+    <div bind:this={sidebar} class='{isOpen ? "open" : "closed"} h-full bg-base-100'
+         id="secretaire-sidebar">
         <div class="drawer bg-base-100">
-            <input id="chat-drawer" type="checkbox" class="drawer-toggle"/>
+            <input class="drawer-toggle" id="chat-drawer" type="checkbox"/>
             <div class="drawer-content bg-base-100">
                 <!-- Navbar -->
-                <div id="secretaire-sidebar-holder"
-                     class="absolute left-0 h-screen w-1 bg-base-300 active:cursor-col-resize hover:cursor-col-resize"
-                     bind:this={dragholder}
+
+                <div bind:this={dragholder}
+                     class="absolute left-0 h-screen w-1 bg-base-300
+                        active:cursor-col-resize hover:cursor-col-resize"
+                     id="secretaire-sidebar-holder"
                      on:mousedown={onMouseDown}
                      on:mouseup={onMouseUp}
-                >
-                </div>
-
+                ></div>
                 <div class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100
                     text-base-content shadow-sm
                     bg-base-100
                     ">
                     <nav class="w-full navbar bg-base-300 flex flex-row justify-between">
                         <div class="flex-none">
-                            <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
-                                <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg" fill="none"
-                                     viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M4 6h16M4 12h16M4 18h16"></path>
+                            <label class="btn btn-primary drawer-button btn-ghost" for="chat-drawer">
+                                <svg class="inline-block w-6 h-6 stroke-current" fill="none" height={30} viewBox="0 0 24 24"
+                                     width={30} xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"
+                                          stroke-width="2"></path>
                                 </svg>
                             </label>
                         </div>
                         <h1 class="text-2xl font-bold">{chatType}</h1>
                         <div class="dropdown dropdown-bottom dropdown-end">
                             <!--                        three dot, ellipsis-->
-                            <label tabindex="0" class="btn btn-ghost">
-                                <svg width={30} height={30} focusable="false" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 24 24">
+                            <label class="btn btn-ghost" tabindex="0">
+                                <svg focusable="false" height={30} viewBox="0 0 24 24" width={30}
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
                                 </svg>
                             </label>
@@ -171,17 +172,20 @@
                 >
                 </Chat>
 
+
+
             </div>
             <div class="drawer-side">
-                <label for="chat-drawer" class="drawer-overlay"></label>
+                <label class="drawer-overlay" for="chat-drawer"></label>
                 <ul class="menu p-4 w-80 bg-base-100">
                     <li>施工中pin tab?</li>
                 </ul>
             </div>
         </div>
-        <div class="btn btn-ghost sidebar-toggle" on:click={openOnClick}>
-            <div class="rounded-full {isOpen ? '' : 'ring ring-accent'} ring-offset-base-100 ring-offset-2">
-                <Icon src={isOpen ? icon_opened : icon_closed} alt={isOpen ? "打开": "合上"}/>
+
+        <div class="btn btn-ghost {isOpen ? '' : 'glass'} sidebar-toggle" on:click={openOnClick}>
+            <div class="rounded-full {isOpen ? 'ring ring-pink-50' : ''} ring-offset-base-100 ring-offset-2">
+                <Icon alt={isOpen ? "打开": "合上"} src={isOpen ? icon_opened : icon_closed}/>
             </div>
         </div>
     </div>

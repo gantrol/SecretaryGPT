@@ -6,8 +6,6 @@
     import ChatContent from "~components/ChatContent.svelte";
     import {ChatViewModel} from "~utils/viewmodel";
     import Icon from "~components/Icon.svelte";
-
-    import send from "~assets/icons/send.svg";
     import plus_circle from "~assets/icons/plus-circle.svg";
     import {log2} from "~utils/log";
     import {isDebugModeSetting} from "~utils/store/stores";
@@ -85,11 +83,13 @@
 
 
 </div>
-<div class="absolute bottom-0 left-0 w-full">
+<div class="sticky bottom-0 left-0 w-full bg-base-300">
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
-    <div class="flex flex-row form-control justify-end">
+    <div class="flex flex-row form-control justify-between bg-base-300 p-1">
+        <div class="btn btn-warning">新对话</div>
+        <div class="btn btn-info text-base-100">继续</div>
         <SimpleSelect
                 bind:bind_value={vm.mode}
                 keys={modeKeys}
@@ -101,9 +101,24 @@
                 values={languageI18n}>
         </SimpleSelect>
     </div>
-    <div class="flex flex-row items-end max-h-1/2">
-        <button class="btn btn-ghost p-2 mb-3" on:click={show_more_button}>
-            <Icon src={plus_circle} alt="show more"></Icon>
+    <div class="flex flex-row items-end max-h-1/2 p-1">
+        <button class="btn glass p-2 mb-3" on:click={show_more_button}>
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-info"
+            >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
         </button>
         <!--            TODO: 编辑模式？ 直接改成row等于十?-->
         <textarea
@@ -115,11 +130,25 @@
                 placeholder="Shift+Enter 发送，Enter 换行"
                 id="sidebar-chat-input"
                 class="textarea textarea-bordered textarea-md
-                      overflow-y-auto
-                      w-full resize-none mb-2"
+                      overflow-y-hidden bg-base-100
+                      w-full resize-none mb-2 ml-2 mr-2"
         ></textarea>
-        <button class="absolute right-0.5 btn btn-ghost p-2 mb-3 mr-2" on:click={sendOnclick} disabled={vm.isSending}>
-            <Icon src={send} alt="send"></Icon>
+        <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick} disabled={vm.isSending}>
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="27"
+                    height="27"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-info"
+            >
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
         </button>
     </div>
 
