@@ -17,16 +17,17 @@
         // TODO: make config class
         if (mode) {
             bingVM.mode = mode;
+            chatGptVM.mode = mode;
         }
         if (language) {
             bingVM.language = language;
+            chatGptVM.language = language;
         }
         bingVM.typingMessage = inputText;
         chatGptVM.typingMessage = inputText;
         preview = bingVM.handleMessage(bingVM.typingMessage);
     }
 
-    // TODO: reflect, 疑似跟Chat.svelte一样的代码。可以抽象出来
     const handleKeydown = async (event) => {
         chatGptVM.handleKeydown(event, chatGptCallback);
         bingVM.handleKeydown(event, bingCallback);

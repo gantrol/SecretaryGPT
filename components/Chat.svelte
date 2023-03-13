@@ -5,6 +5,11 @@
     import PromptPreview from "~components/PromptPreview.svelte";
     import ChatContent from "~components/ChatContent.svelte";
     import {ChatViewModel} from "~utils/viewmodel";
+    import Icon from "~components/Icon.svelte";
+
+    import send from "~assets/icons/send.svg";
+    import plus_circle from "~assets/icons/plus-circle.svg";
+    import {log2} from "~utils/log";
 
     export let vm: ChatViewModel;
 
@@ -14,18 +19,8 @@
     let div;
     let autoscroll;
 
-
-    let language;
-    let mode;
-
     let preview;
     $: {
-        if (mode) {
-            vm.mode = mode;
-        }
-        if (language) {
-            vm.language = language;
-        }
         preview = vm.handleMessage(vm.typingMessage);
     }
 
@@ -50,7 +45,19 @@
     }
 
     vm.initListener(callback)
+    let show_more_button = () => {
+        // TODO: vm.show_more_button();
+    }
 
+    function textAreaAdjust(element, max) {
+        log2(element.scrollHeight);
+        element.style.height = 'auto';
+        const result = Math.min(max, element.scrollHeight);
+        element.style.height = `${result}px`;
+    }
+
+    const MAX_INPUT_HEIGHT = screen.height / 2;
+    const textAreaOnChange = (event) => textAreaAdjust(event.target, MAX_INPUT_HEIGHT)
 </script>
 
 <!-- Page content here -->
@@ -67,35 +74,38 @@
         {#if vm.typingMessage}
             <PromptPreview {preview}></PromptPreview>
         {/if}
-        <div class="flex flex-row form-control justify-between">
+        <div class="flex flex-row form-control justify-end">
 
-            <!--            <div>{$chatType}</div>-->
-            <div class="input-group justify-end">
-                <SimpleSelect
-                        bind:bind_value={mode}
-                        keys={modeKeys}
-                        values={modeValues}>
-                </SimpleSelect>
-                <SimpleSelect
-                        bind:bind_value={language}
-                        keys={languageI18n}
-                        values={languageI18n}>
-                </SimpleSelect>
-                <button on:click={sendOnclick} class="btn btn-primary" disabled={vm.isSending}>发送</button>
-            </div>
+            <SimpleSelect
+                    bind:bind_value={vm.mode}
+                    keys={modeKeys}
+                    values={modeValues}>
+            </SimpleSelect>
+            <SimpleSelect
+                    bind:bind_value={vm.language}
+                    keys={languageI18n}
+                    values={languageI18n}>
+            </SimpleSelect>
         </div>
-        <div>
-<!--            TODO: new-->
-            <textarea on:keydown={handleKeydown} bind:value={vm.typingMessage} placeholder="Shift+Enter 发送，Enter 换行"
-                      id="sidebar-chat-input"
-                      class="textarea textarea-bordered textarea-md w-full"></textarea>
-            <button class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent">
-                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-                     stroke-linejoin="round" class="h-4 w-4 mr-1" height="1em" width="1em"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+        <div class="flex flex-row items-end max-h-1/2">
+
+            <button class="btn btn-ghost p-2 mb-3" on:click={show_more_button}>
+                <Icon src={plus_circle} alt="show more"></Icon>
+            </button>
+            <!--            TODO: 编辑模式？ 直接改成row等于十?-->
+            <textarea
+                    rows="1"
+                    on:keydown={handleKeydown}
+                    on:input={textAreaOnChange}
+                    on:keydown={textAreaOnChange}
+                    bind:value={vm.typingMessage}
+                    placeholder="Shift+Enter 发送，Enter 换行"
+                    id="sidebar-chat-input"
+                    class="textarea textarea-bordered textarea-md
+                      w-full resize-none mb-2"
+            ></textarea>
+            <button class="btn btn-ghost p-2 mb-3 mr-2" on:click={sendOnclick} disabled={vm.isSending}>
+                <Icon src={send} alt="send"></Icon>
             </button>
         </div>
 

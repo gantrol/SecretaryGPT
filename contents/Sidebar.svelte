@@ -21,12 +21,12 @@
 <script>
     import Chat from "~components/Chat.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
-    import {chatTypes, LinkType, Settings} from "~utils/constants";
+    import {chatTypes, Settings} from "~utils/constants";
     import {ChatViewModel} from "~utils/viewmodel";
     import PromiseWaiting from "~components/PromiseWaiting.svelte";
     import {browserSyncStorage} from "~utils/store/browser";
-    import LinkButton from "~components/LinkButton.svelte";
     import Links from "~components/Links.svelte";
+    import Icon from "~components/Icon.svelte";
 
     let isOpen;
 
@@ -136,9 +136,11 @@
                 </ul>
             </div>
         </div>
-        <button class="sidebar-toggle" on:click={openOnClick}>
-            <img src={isOpen ? icon_opened : icon_closed} alt="Extension Icon" width={30} height={30}/>
-        </button>
+        <div class="btn btn-ghost sidebar-toggle" on:click={openOnClick}>
+            <div class="rounded-full {isOpen ? '' : 'ring ring-accent'} ring-offset-base-100 ring-offset-2">
+                <Icon src={isOpen ? icon_opened : icon_closed} alt={isOpen ? "打开": "合上"}/>
+            </div>
+        </div>
     </div>
 
 </PromiseWaiting>
