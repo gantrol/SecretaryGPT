@@ -1,24 +1,32 @@
 <script>
 
-  export let url;
-  export let text;
-  export let type = "inner";
-
-  const handleClassByType = (type) => {
-    if (type === "bing") {
-      return "btn-secondary";
-    } else if (type === "inner") {
-      return "btn-primary";
-    } else {
-      return "";
-    }
-  };
+    export let url;
+    export let text;
+    export let type = "inner";
+    export let isLink = false;
+    const handleClassByType = (type) => {
+        if (type === "bing") {
+            return "secondary";
+        } else if (type === "inner") {
+            return "primary";
+        } else {
+            return "";
+        }
+    };
 </script>
 
-<button class="btn btn-sm {handleClassByType(type)}" on:click={() => {
+{#if isLink}
+    <li>
+        <a class="{handleClassByType(type)}"
+           href={chrome.runtime.getURL(url)} target="_blank">{text}
+        </a>
+    </li>
+{:else}
+    <button class="btn btn-sm btn-{handleClassByType(type)}" on:click={() => {
         chrome.tabs.create({
-          url: url
+          url: chrome.runtime.getURL(url)
         })
       }}>
-  {text}
-</button>
+        {text}
+    </button>
+{/if}

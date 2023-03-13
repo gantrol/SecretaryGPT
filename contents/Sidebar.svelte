@@ -21,10 +21,12 @@
 <script>
     import Chat from "~components/Chat.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
-    import {chatTypes, Settings} from "~utils/constants";
+    import {chatTypes, LinkType, Settings} from "~utils/constants";
     import {ChatViewModel} from "~utils/viewmodel";
     import PromiseWaiting from "~components/PromiseWaiting.svelte";
     import {browserSyncStorage} from "~utils/store/browser";
+    import LinkButton from "~components/LinkButton.svelte";
+    import Links from "~components/Links.svelte";
 
     let isOpen;
 
@@ -74,14 +76,14 @@
 </script>
 
 <PromiseWaiting promises={promises}>
-    <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} bg-base-200 h-full'>
+    <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} h-full'>
         <div class="drawer">
             <input id="chat-drawer" type="checkbox" class="drawer-toggle"/>
             <div class="drawer-content">
                 <!-- Navbar -->
                 <div class="
   sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100
-  bg-base-100 text-base-content shadow-sm
+   text-base-content shadow-sm
   ">
                     <nav class="w-full navbar bg-base-300 flex flex-row justify-between">
                         <div class="flex-none">
@@ -94,12 +96,29 @@
                             </label>
                         </div>
                         <h1 class="text-2xl font-bold">{chatType}</h1>
-                        <div class="btn btn-primary btn-ghost">
+                        <div class="dropdown dropdown-bottom dropdown-end">
                             <!--                        three dot, ellipsis-->
-                            <svg width={30} height={30} focusable="false" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 24 24">
-                                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
-                            </svg>
+                            <label tabindex="0" class="btn btn-ghost">
+                                <svg width={30} height={30} focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 24 24">
+                                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                                </svg>
+                            </label>
+
+                            <ul class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
+                                <li class="menu-title">
+                                    <span>插件功能</span>
+                                </li>
+                                <Links isLink={true}></Links>
+                                <li class="menu-title">
+                                    <span>聊天后端</span>
+                                </li>
+                                <SimpleSelect
+                                        bind:bind_value={chatType}
+                                        keys={chatTypes}
+                                        values={chatTypes}
+                                />
+                            </ul>
                         </div>
                         <!--                                          <li><a on:click={newConv}>新对话</a></li>-->
                     </nav>
@@ -113,12 +132,7 @@
             <div class="drawer-side">
                 <label for="chat-drawer" class="drawer-overlay"></label>
                 <ul class="menu p-4 w-80 bg-base-100">
-                    <!-- Sidebar content here -->
-                    <SimpleSelect
-                            bind:bind_value={chatType}
-                            keys={chatTypes}
-                            values={chatTypes}
-                    />
+                    <li>施工中pin tab?</li>
                 </ul>
             </div>
         </div>

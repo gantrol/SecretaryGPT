@@ -83,3 +83,8 @@ const popupPageI18nKey = {
     isDebugModeSetting: "setting_debug",
 }
 export const popupPageI18nValue = objectMap(popupPageI18nKey, getText);
+
+export const URLS = {
+    chatsVS: chrome.runtime.getURL("/tabs/chatsVS.html"),
+    jike: chrome.runtime.getURL("/tabs/jike.html"),
+}

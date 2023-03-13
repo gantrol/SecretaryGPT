@@ -85,6 +85,7 @@
             </div>
         </div>
         <div>
+<!--            TODO: new-->
             <textarea on:keydown={handleKeydown} bind:value={vm.typingMessage} placeholder="Shift+Enter 发送，Enter 换行"
                       id="sidebar-chat-input"
                       class="textarea textarea-bordered textarea-md w-full"></textarea>

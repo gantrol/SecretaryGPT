@@ -48,6 +48,16 @@
     "host_permissions": [
       "<all_urls>"
     ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "tabs/*"
+        ],
+        "matches": [
+          "<all_urls>"
+        ]
+      }
+    ],
     "default_locale": "zh_CN"
   }
 }
