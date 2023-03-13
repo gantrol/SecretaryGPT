@@ -3,8 +3,8 @@
     import LinkButton from "~components/LinkButton.svelte";
     import {LinkType} from "~utils/constants";
     import Collapse from "~components/Collapse.svelte";
+    import UISettings from "~components/setting/UISettings.svelte";
 
-    let debug = false;
 </script>
 
 <style>
@@ -16,9 +16,6 @@
     }
 </style>
 <div class="main">
-    {#if debug}
-
-    {/if}
     <Collapse title="页面链接">
         <LinkButton
                 url="/tabs/chatsVS.html"
@@ -30,6 +27,9 @@
                 text={"即刻·关注日报"}
                 type={LinkType.INNER}
         />
+    </Collapse>
+    <Collapse title="界面设置">
+        <UISettings></UISettings>
     </Collapse>
 </div>
 

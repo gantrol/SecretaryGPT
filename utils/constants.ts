@@ -72,3 +72,14 @@ export const messagesInit = [
     //         "最后，我们还为这个插件编写了详细的文档和使用说明，以便用户能够更好地了解插件的使用和配置。我们会不断更新和改进这个插件，以提供更好的用户体验和更强大的功能。"
     // }
 ]
+
+export const Settings = {
+    debug: "setting_debug",
+    alwaysOpen: "setting_always_open",
+}
+
+const popupPageI18nKey = {
+    isAlwaysOpenedSetting: "setting_always_open",
+    isDebugModeSetting: "setting_debug",
+}
+export const popupPageI18nValue = objectMap(popupPageI18nKey, getText);

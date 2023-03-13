@@ -11,6 +11,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@plasmohq/storage": "^1.2.3",
     "dexie": "^3.2.3",
     "elizabot": "^0.0.3",
     "eventsource-parser": "^0.0.5",
@@ -43,8 +44,7 @@
   },
   "manifest": {
     "name": "__MSG_extensionName__",
-    "permissions": [
-    ],
+    "permissions": [],
     "host_permissions": [
       "<all_urls>"
     ],

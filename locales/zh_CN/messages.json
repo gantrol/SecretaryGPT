@@ -18,5 +18,11 @@
   },
   "chat_mode_none": {
     "message": "不选择模式"
+  },
+  "setting_always_open": {
+    "message": "侧边栏常开"
+  },
+  "setting_debug": {
+    "message": "调试模式"
   }
 }
