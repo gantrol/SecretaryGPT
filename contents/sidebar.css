@@ -20,11 +20,13 @@
 }
 
 #secretaire-sidebar.open {
-  left: calc(var(--sidebar-width) * -1);
+  left: initial;
+  right:0;
 }
 
 #secretaire-sidebar.closed {
   left: 0;
+  right: initial;
 }
 
 #secretaire-sidebar p {

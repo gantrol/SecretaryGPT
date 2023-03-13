@@ -22,7 +22,7 @@
     import Chat from "~components/Chat.svelte";
     import SimpleSelect from "~components/SimpleSelect.svelte";
     import {chatTypes, Settings} from "~utils/constants";
-    import {ChatViewModel} from "~utils/viewmodel";
+    import {ChatViewModel, SidebarViewModel} from "~utils/viewmodel";
     import PromiseWaiting from "~components/PromiseWaiting.svelte";
     import {browserSyncStorage} from "~utils/store/browser";
     import Links from "~components/Links.svelte";
@@ -44,10 +44,21 @@
 
     let chatType = chatTypes.ChatGPT;
 
+    let sidebar;
+    let sidebarVM = new SidebarViewModel(420);
+    let dragholder;
+    let x;
+    let w;
+
+    $: if (sidebar) {
+        // change value of --sidebar-width
+        sidebar.style.setProperty('--sidebar-width', `${sidebarVM.width}px`);
+    }
+
     $: vm = new ChatViewModel(chatType);
     $: vm.typingMessage = selectedText;
 
-    function handleMouseUp() {
+    const handleMouseUp = () => {
         // 在侧边栏选中的文字不算
         if (window.getSelection()?.baseNode?.tagName === 'HTML') {
             return;
@@ -59,7 +70,7 @@
         }
     }
 
-    function getSelected() {
+    const getSelected = () => {
         const selection = window.getSelection();
         return selection.toString().trim();
     }
@@ -71,20 +82,53 @@
     }
 
 
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("keyup", handleMouseUp);
+    window.addEventListener("mouseup", onMouseUp);
+
+    function onMouseMove(e) {
+        e.preventDefault();
+        const dx = x - e.clientX;
+        sidebarVM.width = w + dx;
+    }
+
+    function onMouseDown(e) {
+        x = e.clientX;
+        w = sidebarVM.width;
+        window.addEventListener('mousemove', onMouseMove);
+    }
+
+    function onMouseUp(e) {
+        window.removeEventListener('mousemove', onMouseMove);
+    }
+
 </script>
 
+<svelte:window
+        on:mouseup={(e) => {
+            onMouseUp(e);
+        }}
+
+/>
+
+
 <PromiseWaiting promises={promises}>
-    <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} h-full'>
-        <div class="drawer">
+    <div id="secretaire-sidebar" class='{isOpen ? "open" : "closed"} h-full bg-base-100'
+         bind:this={sidebar}>
+        <div class="drawer bg-base-100">
             <input id="chat-drawer" type="checkbox" class="drawer-toggle"/>
-            <div class="drawer-content">
+            <div class="drawer-content bg-base-100">
                 <!-- Navbar -->
-                <div class="
-  sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100
-   text-base-content shadow-sm
-  ">
+                <div id="secretaire-sidebar-holder"
+                     class="absolute left-0 h-screen w-1 bg-base-300 active:cursor-col-resize hover:cursor-col-resize"
+                     bind:this={dragholder}
+                     on:mousedown={onMouseDown}
+                     on:mouseup={onMouseUp}
+                >
+                </div>
+
+                <div class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100
+                    text-base-content shadow-sm
+                    bg-base-100
+                    ">
                     <nav class="w-full navbar bg-base-300 flex flex-row justify-between">
                         <div class="flex-none">
                             <label for="chat-drawer" class="btn btn-primary drawer-button btn-ghost">
@@ -120,7 +164,6 @@
                                 />
                             </ul>
                         </div>
-                        <!--                                          <li><a on:click={newConv}>新对话</a></li>-->
                     </nav>
                 </div>
                 <Chat
@@ -142,5 +185,4 @@
             </div>
         </div>
     </div>
-
 </PromiseWaiting>

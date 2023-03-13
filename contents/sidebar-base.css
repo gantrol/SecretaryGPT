@@ -1,6 +1,5 @@
 :root,
 #secretaire-sidebar:host {
-  /*TODO: adjustable */
   --sidebar-width: 420px;
 }
 
@@ -12,8 +11,8 @@ body.secretaire-sidebar-show * {
 #secretaire-sidebar {
   position: fixed;
   z-index: 999999;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   /*不知道为何DaisyUI没编译出来，于是手工补*/
   --pf: 258.89 94.378% 40.941%;
   --sf: 314 100% 37.647%;

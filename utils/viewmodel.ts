@@ -1,17 +1,19 @@
 import {chatTypes, languageI18n, messagesInit, modeKeys} from "~utils/constants";
+import {log2} from "~utils/log";
 
 
 export class ChatViewModel {
     mode: string = modeKeys.NONE;
     language: string = languageI18n.NONE;
     newMessage: { id: number, author: string, text: string };
-    messages = messagesInit;
+    messages = [];
     ChatID: string;
     isSending: boolean = false;
     // TODO: time?
     isLogin: boolean = false;
     chatType: string = chatTypes.ChatGPT;
     typingMessage = "";
+
     constructor(chatType) {
         this.chatType = chatType;
     }
@@ -76,7 +78,7 @@ export class ChatViewModel {
                 }
             });
         }
-        
+
     }
 
 
@@ -126,5 +128,54 @@ export class ChatViewModel {
     sendOnclick = async (_event, callback) => {
         await this._helper();
         callback();
+    }
+}
+
+export class SidebarViewModel {
+    width: number;
+    min_width: number = window.screen.width * 0.2;
+    max_width: number = window.screen.width * 0.8;
+    grabberWidth = 6
+    expanding = null;
+    start = null;
+    initial = null;
+
+    constructor(width) {
+        this.width = width;
+    }
+
+    startResizeWidth = (event, type = 'left') => {
+        log2('startResizeWidth')
+        this.expanding = type;
+        this.start = event.pageX;
+        this.initial = this.width;
+    }
+
+    stopResizeWidth = () => {
+        this.expanding = null;
+        this.start = null;
+        this.initial = null;
+    }
+
+    handleResizeWidth = (event, callback) => {
+        if (!this.expanding) return false
+
+        if (this.expanding == 'left') {
+            const delta = this.start - event.pageX
+            // x = this.initial.x - delta
+            this.width = Math.max(this.initial + delta, this.min_width);
+            this.width = Math.min(this.width, this.max_width);
+            return false
+        }
+
+        if (this.expanding == 'right') {
+            const delta = event.pageX - this.start
+            this.width = this.initial + delta
+            return false
+        }
+    }
+
+    isLeft = () => {
+        return this.expanding === 'left';
     }
 }

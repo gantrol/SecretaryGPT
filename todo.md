@@ -33,3 +33,7 @@
 - 改成区域？
 - 微博关注日报
 - 在button处看目录……
+- tailwindcss 代码显示
+- lg的时候，侧边栏直接显示，菜单栏也显示
+- 一个显示bug
+- links target _blank
