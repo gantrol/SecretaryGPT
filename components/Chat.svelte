@@ -5,8 +5,6 @@
     import PromptPreview from "~components/PromptPreview.svelte";
     import ChatContent from "~components/ChatContent.svelte";
     import {ChatViewModel} from "~utils/viewmodel";
-    import Icon from "~components/Icon.svelte";
-    import plus_circle from "~assets/icons/plus-circle.svg";
     import {log2} from "~utils/log";
     import {isDebugModeSetting} from "~utils/store/stores";
 
@@ -83,7 +81,7 @@
 
 
 </div>
-<div class="sticky bottom-0 left-0 w-full bg-base-300">
+<div class="absolute bottom-0 left-0 w-full bg-base-300">
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
