@@ -15,6 +15,7 @@
     "dexie": "^3.2.3",
     "elizabot": "^0.0.3",
     "eventsource-parser": "^0.0.5",
+    "gpt-3-encoder": "github:gantrol/GPT-3-Encoder-browser#no-fs-count-tokens",
     "keyv": "^4.5.2",
     "marked": "^4.2.12",
     "modern-screenshot": "^4.4.0",

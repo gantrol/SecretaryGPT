@@ -13,6 +13,7 @@ specifiers:
   dexie: ^3.2.3
   elizabot: ^0.0.3
   eventsource-parser: ^0.0.5
+  gpt-3-encoder: github:gantrol/GPT-3-Encoder-browser#no-fs-count-tokens
   jest: 29.4.1
   jest-environment-jsdom: 29.4.1
   jest-webextension-mock: 3.8.8
@@ -35,6 +36,7 @@ dependencies:
   dexie: 3.2.3
   elizabot: 0.0.3
   eventsource-parser: 0.0.5
+  gpt-3-encoder: github.com/gantrol/GPT-3-Encoder-browser/98a8be563564510b3e4f792a271055b8866ab612
   keyv: 4.5.2
   marked: 4.2.12
   modern-screenshot: 4.4.3
@@ -7450,4 +7452,10 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.1
+    dev: false
+
+  github.com/gantrol/GPT-3-Encoder-browser/98a8be563564510b3e4f792a271055b8866ab612:
+    resolution: {tarball: https://codeload.github.com/gantrol/GPT-3-Encoder-browser/tar.gz/98a8be563564510b3e4f792a271055b8866ab612}
+    name: gpt-3-encoder
+    version: 1.1.4
     dev: false
