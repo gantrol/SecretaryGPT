@@ -1,4 +1,5 @@
 import type {API, AskResultCallback} from "~utils/api/api";
+import {RequestText} from "~utils/constants";
 
 export class BingAPI implements API {
 
@@ -54,13 +55,13 @@ export class BingAPI implements API {
             // ask first question
             console.log(data);
             console.log(this);
-            await this.ask(this.conversation_id, "", prompt, callback);
+            await this.ask(prompt, callback);
             return data;
         }
     }
 
     // TODO: fix "Conversation '51D|BingProd|xxx' doesn't exist or has expired. Conversations expire after 06:00:00 minutes."
-    ask = async (conversation_id: string, parent_message_id: string, prompt: string, callback: AskResultCallback) => {
+    ask = async (prompt: string, callback: AskResultCallback) => {
         // Ask a question to the bot
         // Check if websocket is closed
         if (this.wss && this.wss.closed || !this.wss) {
@@ -103,10 +104,10 @@ export class BingAPI implements API {
                             }
                         })
                     } else if (resp_type === 2) {
-                        console.log("end");
+                        console.log(RequestText.DONE);
                         console.log(obj);
                         callback({
-                            type: "end",
+                            type: RequestText.DONE,
                         })
                     } else {
                         // ignore type 6 or other

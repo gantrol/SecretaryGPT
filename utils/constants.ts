@@ -88,3 +88,9 @@ export const URLS = {
     chatsVS: chrome.runtime.getURL("/tabs/chatsVS.html"),
     jike: chrome.runtime.getURL("/tabs/jike.html"),
 }
+
+export const RequestText = {
+    ANS: "ans",
+    DONE: "done", // 一段话的结束
+    END: "end",  //  一段话或多段话结束
+}

@@ -1,8 +1,8 @@
-export {}
+import type {RequestText} from "~utils/constants";
 
 
 type AskResult = {
-    type: "ans" | "end",
+    type: typeof RequestText.ANS | typeof RequestText.DONE,
     data?: {
         text: string,
         messageId: string,
@@ -43,12 +43,10 @@ export interface API {
 
     /**
      * @description Send prompt to API
-     * @param conversation_id
-     * @param parent_message_id
      * @param prompt
      * @param callback
      */
-    ask(conversation_id: string, parent_message_id: string, prompt: string, callback: AskResultCallback);
+    ask(prompt: string, callback: AskResultCallback);
 
     // TODO: title()
 }

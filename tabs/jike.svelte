@@ -10,6 +10,8 @@
     let discussList = [];
     let socialValueList = [];
     let starList = [];
+    // TODO: 0 发往 open ai
+
     // TODO: 时间可以控制得精确一些...
     let lastPageEarliestTime = new Date(); // get the current timestamp as the initial value
     let lastReadTime = new Date(lastPageEarliestTime.getFullYear(),
