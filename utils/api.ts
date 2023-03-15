@@ -279,8 +279,7 @@ export class BingAPI implements API {
     DELIMITER = "\x1e";
 
 
-    FORWARDED_IP = `1.36.8.9`
-    // TODO: random  e.g.   f"13.{random.randint(104, 107)}.{random.randint(0, 255)}.{random.randint(0, 255)}"
+    // FORWARDED_IP = `1.36.8.9`
 
     auth(): Promise<string> {
         // no used...?
@@ -299,7 +298,7 @@ export class BingAPI implements API {
                 "sec-ch-ua": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Microsoft Edge\";v=\"110\"",
                 "sec-fetch-mode": "cors",
                 "sec-fetch-site": "same-origin",
-                "x-forwarded-for": this.FORWARDED_IP,
+                // "x-forwarded-for": this.FORWARDED_IP,
             },
             "referrer": "https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx",
             "referrerPolicy": "origin-when-cross-origin",
