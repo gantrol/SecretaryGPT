@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@plasmohq/storage": "^1.2.3",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "dexie": "^3.2.3",
     "elizabot": "^0.0.3",
     "eventsource-parser": "^0.0.5",

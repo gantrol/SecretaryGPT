@@ -76,12 +76,10 @@
          bind:this={div}
     >
         <ChatContent messages={vm.messages} newMessage={vm.newMessage}></ChatContent>
-        <div class="w-full h-64 md:h-64 flex-shrink-0"></div>
+        <div class="w-full h-screen md:h-screen flex-shrink-0"></div>
     </div>
-
-
 </div>
-<div class="absolute bottom-0 left-0 w-full bg-base-300">
+<footer class="sticky bottom-0 left-0 w-full bg-base-300" aria-labelledby="footer-heading">
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
@@ -154,4 +152,4 @@
     <!--        <div>-->
     <!--            <p>TODO: make chat list ? {ChatID}</p>-->
     <!--        </div>-->
-</div>
+</footer>
