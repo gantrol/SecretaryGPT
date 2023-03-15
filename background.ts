@@ -1,6 +1,8 @@
-import {BingAPI, ChatGPTAPI} from "~utils/api";
-import type {API} from "~utils/api";
+
 import {chatTypes} from "~utils/constants";
+import type {API} from "~utils/api/api";
+import {BingAPI} from "~utils/api/bingAPI";
+import {ChatGPTAPI} from "~utils/api/chatGPTAPI";
 
 let chatAPI: API;
 let bingAPI: API;
