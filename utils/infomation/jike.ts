@@ -1,4 +1,3 @@
-// TODO: 貌似需要将 https://web.okjike.com/ 的静态部分合进来
 const queryOfBlog = `
 query FetchSelfFeeds($loadMoreKey: JSON) {
   viewer {

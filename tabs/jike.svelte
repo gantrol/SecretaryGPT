@@ -4,6 +4,7 @@
     import '~/base.css';
     import '~/base-var.css';
     import PostGroup from "~components/infomation/PostGroup.svelte";
+    import Summary from "~components/infomation/Summary.svelte";
 
     let posts = []; // an array to store the posts
     let popularList = [];
@@ -11,6 +12,8 @@
     let socialValueList = [];
     let starList = [];
     // TODO: 0 发往 open ai
+    //   先总结一下star们的文本
+    //  TODO: 然后考虑优化
 
     // TODO: 时间可以控制得精确一些...
     let lastPageEarliestTime = new Date(); // get the current timestamp as the initial value
@@ -41,6 +44,10 @@
     };
 
     let userId;
+    let curStarPosts = [];
+    $: if (userId) {
+        curStarPosts = posts.filter(post => post.user_id === userId)
+    }
 </script>
 
 <svelte:head>
@@ -95,8 +102,9 @@
                     </div>
                 {/each}
             </div>
+            <Summary posts={curStarPosts}></Summary>
             <PostGroup
-                    posts={posts.filter(post => post.user_id === userId)}
+                    posts={curStarPosts}
             ></PostGroup>
         </div>
         <div class="w-1/2">
@@ -200,7 +208,8 @@
                 </svg>
             </a>
         </div>
-        <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2020 Your Company, Inc. All rights
+        <p class="mt-10 text-center text-xs leading-5 text-gray-500">
+            &copy; 2020 Gantrol. All rights
             reserved.</p>
     </div>
 </footer>

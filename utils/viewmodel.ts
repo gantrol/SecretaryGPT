@@ -10,14 +10,14 @@ export class ChatViewModel {
     isSending: boolean = false;
     // TODO: time?
     isLogin: boolean = false;
-    chatType: string = chatTypes.ChatGPT;
+    chatType: string;
     typingMessage = "";
 
-    constructor(chatType) {
+    constructor(chatType = chatTypes.ChatGPT) {
         this.chatType = chatType;
     }
 
-    initListener = (callback) => {
+        initListener = (callback) => {
         chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
             if (request.type === RequestText.ANS && request.chatType === this.chatType) {
                 const data = request.data;
@@ -128,6 +128,12 @@ export class ChatViewModel {
     }
 
     sendOnclick = async (_event, callback) => {
+        await this._helper();
+        callback();
+    }
+
+    sendAuto = async (message, callback) => {
+        this.typingMessage = message;
         await this._helper();
         callback();
     }
