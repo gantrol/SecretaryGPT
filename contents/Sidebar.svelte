@@ -56,6 +56,7 @@
         sidebar.style.setProperty('--sidebar-width', `${sidebarVM.width}px`);
     }
 
+    let vm;
     $: vm = new ChatViewModel(chatType);
     $: vm.typingMessage = selectedText;
 
@@ -97,7 +98,7 @@
         window.addEventListener('mousemove', onMouseMove);
     }
 
-    function onMouseUp(e) {
+    function onMouseUp(_e) {
         handleMouseUp();
         window.removeEventListener('mousemove', onMouseMove);
     }

@@ -1,4 +1,4 @@
-import {chatTypes, RequestText} from "~utils/constants";
+import {chatTypes} from "~utils/constants";
 import type {API} from "~utils/api/api";
 import {BingAPI} from "~utils/api/bingAPI";
 import {ChatGPTAPI} from "~utils/api/chatGPTAPI";
@@ -49,11 +49,7 @@ const getCallback = (chatType, tabid) => {
         if (chatType === chatTypes.Bing) {
             console.log(data);
         }
-        if (data.type === RequestText.ANS) {
-            chrome.tabs.sendMessage(tabid, data);
-        } else if (data.type === RequestText.DONE) {
-            chrome.tabs.sendMessage(tabid, data);
-        }
+        chrome.tabs.sendMessage(tabid, data);
     };
 }
 

@@ -7,7 +7,7 @@
 import {fetchSSE} from "~utils/sse/sse";
 import {getUUID} from "~utils/uuid";
 import type {API, AskResultCallback} from "~utils/api/api";
-import {text2tokenAndSplit, tokensList2text} from "~utils/prompt/tokenize";
+import {text2tokenAndSplit} from "~utils/prompt/tokenize";
 import {RequestText} from "~utils/constants";
 
 type Model = {
@@ -116,14 +116,11 @@ export class ChatGPTAPI implements API {
     }
 
     ask = async (prompt: string, callback: AskResultCallback): Promise<any> => {
-        const result = await this.sendMessage(prompt, callback);
+        await this.sendMessage(prompt, callback);
         return true;
     }
 
     private sendMessage = async (prompt, callback: AskResultCallback) => {
-        if (text2tokenAndSplit(prompt).length < 1) {
-            return true;
-        }
         const tokenSplits = text2tokenAndSplit(prompt);
         console.log(tokenSplits, tokenSplits.length);
         for (let split of tokenSplits) {
