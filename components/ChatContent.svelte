@@ -10,7 +10,5 @@
     <Message {message}></Message>
 {/each}
 {#if newMessage !== undefined && newMessage !== null}
-    <article class="prose">
-        <Message message={newMessage}></Message>
-    </article>
+    <Message message={newMessage}></Message>
 {/if}

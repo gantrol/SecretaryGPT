@@ -1,6 +1,7 @@
-import {BingAPI, ChatGPTAPI} from "~utils/api";
-import type {API} from "~utils/api";
-import {chatTypes} from "~utils/constants";
+import {chatTypes, RequestText} from "~utils/constants";
+import type {API} from "~utils/api/api";
+import {BingAPI} from "~utils/api/bingAPI";
+import {ChatGPTAPI} from "~utils/api/chatGPTAPI";
 
 let chatAPI: API;
 let bingAPI: API;
@@ -24,10 +25,9 @@ const chat = async (prompt: string, callback, chatType, conversation_id: string 
     } else {
         throw new Error("chatType error: no chat type of " + chatType);
     }
+    // TODO: 重构...
     if (conversation_id && parent_message_id) {
         await api.ask(
-            conversation_id,
-            parent_message_id,
             prompt,
             callback
         );
@@ -49,9 +49,9 @@ const getCallback = (chatType, tabid) => {
         if (chatType === chatTypes.Bing) {
             console.log(data);
         }
-        if (data.type === 'ans') {
+        if (data.type === RequestText.ANS) {
             chrome.tabs.sendMessage(tabid, data);
-        } else if (data.type === 'end') {
+        } else if (data.type === RequestText.DONE) {
             chrome.tabs.sendMessage(tabid, data);
         }
     };

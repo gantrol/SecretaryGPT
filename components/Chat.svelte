@@ -19,7 +19,7 @@
     let autoscroll;
 
     let preview;
-    const MAX_INPUT_HEIGHT = screen.height / 2;
+    const MAX_INPUT_HEIGHT = screen.height / 4;
 
     $: {
         preview = vm.handleMessage(vm.typingMessage);
@@ -76,12 +76,10 @@
          bind:this={div}
     >
         <ChatContent messages={vm.messages} newMessage={vm.newMessage}></ChatContent>
-        <div class="w-full h-64 md:h-64 flex-shrink-0"></div>
+        <div class="w-full h-screen md:h-screen flex-shrink-0"></div>
     </div>
-
-
 </div>
-<div class="absolute bottom-0 left-0 w-full bg-base-300">
+<footer class="sticky bottom-0 left-0 w-full bg-base-300" aria-labelledby="footer-heading">
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
@@ -128,7 +126,7 @@
                 placeholder="Shift+Enter 发送，Enter 换行"
                 id="sidebar-chat-input"
                 class="textarea textarea-bordered textarea-md
-                      overflow-y-hidden bg-base-100
+                      overflow-y-auto bg-base-100
                       w-full resize-none mb-2 ml-2 mr-2"
         ></textarea>
         <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick} disabled={vm.isSending}>
@@ -154,4 +152,4 @@
     <!--        <div>-->
     <!--            <p>TODO: make chat list ? {ChatID}</p>-->
     <!--        </div>-->
-</div>
+</footer>

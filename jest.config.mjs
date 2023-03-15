@@ -11,7 +11,7 @@ const tsconfig = require("./tsconfig.json")
 const config = {
   setupFiles: ["jest-webextension-mock"],
   extensionsToTreatAsEsm: [".ts", ".tsx"],
-  testRegex: ["^.+\\.test.tsx?$"],
+  testRegex: ["^.+\\.test.[tj]sx?$"],
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
     prefix: "<rootDir>/"
   }),

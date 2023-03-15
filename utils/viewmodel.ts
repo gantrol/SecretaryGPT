@@ -1,6 +1,5 @@
-import {chatTypes, languageI18n, messagesInit, modeKeys} from "~utils/constants";
+import {chatTypes, languageI18n, messagesInit, modeKeys, RequestText} from "~utils/constants";
 import {log2} from "~utils/log";
-
 
 export class ChatViewModel {
     mode: string = modeKeys.NONE;
@@ -11,16 +10,16 @@ export class ChatViewModel {
     isSending: boolean = false;
     // TODO: time?
     isLogin: boolean = false;
-    chatType: string = chatTypes.ChatGPT;
+    chatType: string;
     typingMessage = "";
 
-    constructor(chatType) {
+    constructor(chatType = chatTypes.ChatGPT) {
         this.chatType = chatType;
     }
 
-    initListener = (callback) => {
+        initListener = (callback) => {
         chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
-            if (request.type === 'ans' && request.chatType === this.chatType) {
+            if (request.type === RequestText.ANS && request.chatType === this.chatType) {
                 const data = request.data;
                 this.newMessage = {
                     id: data.messageId,
@@ -30,8 +29,8 @@ export class ChatViewModel {
                 // console.log(data);
 
                 this.ChatID = data.conversationId;
-            } else if (request.type === 'end' && request.chatType === this.chatType) {
-                console.log("end");
+            } else if (request.type === RequestText.DONE && request.chatType === this.chatType) {
+                console.log(RequestText.DONE);
                 if (this.newMessage) {
                     this.messages = this.messages.concat(this.newMessage);
                     this.newMessage = null;
@@ -41,6 +40,8 @@ export class ChatViewModel {
                         text: `请求${this.chatType}出错，请检查是否登录`,
                     });
                 }
+            } else if (request.type === RequestText.END && request.chatType === this.chatType) {
+                console.log(RequestText.END);
                 this.isSending = false;
             }
             callback();
@@ -64,6 +65,7 @@ export class ChatViewModel {
                 type: 'sendMsg',
                 body: {
                     prompt: message,
+                    // TODO: 不需要下面俩？只需要一个判断是new，还是ask的标志？还是说后续可以选择conversation_id
                     conversation_id: this.ChatID,
                     parent_message_id: this.messages[this.messages.length - 2].id,  // 上一个回复在倒数第二个
                     chatType: this.chatType,
@@ -89,7 +91,7 @@ export class ChatViewModel {
         if (this.mode === modeKeys.EXPLAIN) {
             prefix = `请根据下面的片段，推断写作者是什么角色。并模仿这类角色做出解释`;
         } else if (this.mode === modeKeys.SUMMARY) {
-            prefix = `请根据下面的片段，做出总结要求长度至多为原来的十分之一。注意内容可能涉及多人、也可能只是单人`;
+            prefix = `请根据下面的片段，做出总结要求长度至多为原来的十分之一。注意内容可能涉及多人、也可能只是单人。请注意内容后续内容都需要总结`;
         }
         if (prefix) {
             prefix = `${prefix}: \n\n`;
@@ -126,6 +128,12 @@ export class ChatViewModel {
     }
 
     sendOnclick = async (_event, callback) => {
+        await this._helper();
+        callback();
+    }
+
+    sendAuto = async (message, callback) => {
+        this.typingMessage = message;
         await this._helper();
         callback();
     }

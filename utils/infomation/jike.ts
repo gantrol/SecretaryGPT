@@ -1,4 +1,3 @@
-// TODO: 貌似需要将 https://web.okjike.com/ 的静态部分合进来
 const queryOfBlog = `
 query FetchSelfFeeds($loadMoreKey: JSON) {
   viewer {
@@ -458,7 +457,8 @@ export class JikeFollowDaily {
     }
 
     private refresh() {
-        // Uncaught (in promise) TypeError: Cannot read properties of null (reading 'nodes')
+        // TODO: 提醒登录？
+        //  Uncaught (in promise) TypeError: Cannot read properties of null (reading 'nodes')
         const notes = this._response.data.viewer.followingUpdates.nodes
         const result = notes.filter(i => i.isPrivate === false || i.isPrivate === null).map(i => {
             return {

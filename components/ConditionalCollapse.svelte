@@ -7,7 +7,7 @@
 </script>
 
 {#if has_collapse}
-    <Collapse {title} {default_open}>
+    <Collapse {title} bind:default_open={default_open}>
         <slot></slot>
     </Collapse>
 {:else}

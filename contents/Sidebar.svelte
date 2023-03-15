@@ -27,6 +27,7 @@
     import {browserSyncStorage} from "~utils/store/browser";
     import Links from "~components/Links.svelte";
     import Icon from "~components/Icon.svelte";
+    import VerticalNavList from "~components/tailwind/VerticalNavList.svelte";
 
     let isOpen;
 
@@ -178,7 +179,8 @@
             <div class="drawer-side">
                 <label class="drawer-overlay" for="chat-drawer"></label>
                 <ul class="menu p-4 w-80 bg-base-100">
-                    <li>施工中pin tab?</li>
+                    <VerticalNavList></VerticalNavList>
+
                 </ul>
             </div>
         </div>
@@ -189,4 +191,6 @@
             </div>
         </div>
     </div>
+
 </PromiseWaiting>
+

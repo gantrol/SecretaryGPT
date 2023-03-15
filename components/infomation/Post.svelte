@@ -6,9 +6,6 @@
     import exportIcon from '~/assets/icons/share.svg';
     import share from '~/assets/icons/share-2.svg';
 
-
-    // TODO: 长文本,对接 chatgpt 处理(如有)
-
     const host = "https://web.okjike.com/";
 </script>
 
@@ -46,6 +43,7 @@
                 {post.shareCount}
             </div>
             <div class="badge badge-outline">
+<!--                TODO: 分成 repost跟originalPost两种……抽象为function-->
                 <a href={`${host}originalPost/${post.id}`} target="_blank">
                     去看看
                 </a>
