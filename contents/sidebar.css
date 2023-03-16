@@ -6,7 +6,6 @@
 
 #secretaire-sidebar {
   position: absolute;
-
   background-color: #eeeded;
   width: var(--sidebar-width);
   height: 100vh;
@@ -16,6 +15,7 @@
   justify-content: space-between;
   flex-direction: column;
 
+  /*TODO: 根据宽度实时计算，最好弄到svelte代码里面去 */
   transition: all 0.5s ease;
 }
 
@@ -40,7 +40,7 @@
   right: 4.7px;
   top: 4rem;
   visibility: visible;
-  /*z-index: 2147483647;*/
+  z-index: 2147483647;
 }
 
 .drawer-overlay {
