@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="collapse-content" on:dbclick={() => isOpen = !isOpen}>
-        <article class="bg-white-100 pt-6 pb-6">
+        <article class="bg-white-100 pt-6 pb-6 max-h-36 overflow-y-auto">
             <MarkdownToHTML text={preview}/>
         </article>
     </div>
