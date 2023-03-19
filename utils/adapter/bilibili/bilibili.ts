@@ -40,11 +40,18 @@ export class BilibiliAdapter implements Adapter {
         this._currentSelect = value;
     }
 
+    private PLAY_HOLDER_NUMBER = Number.MAX_SAFE_INTEGER
     constructor(page_text: string, api = chatTypes.ChatGPT) {
         this.page_text = page_text;
-        this.firstPartLimit = MAX_TOKENS - tokenCount(BilibiliAdapter.promptFirstPartTemplate("", "", 0, 0, 0))
-        this.secondPartLimit = MAX_TOKENS - tokenCount(BilibiliAdapter.promptMiddlePartTemplate("", "", 0, 0, 0))
-        this.endPartLimit = MAX_TOKENS - tokenCount(BilibiliAdapter.promptFinishPartTemplate("", 0, 0, 0))
+        this.firstPartLimit = MAX_TOKENS - tokenCount(
+            `${BilibiliAdapter.promptFirstPartTemplate("", "", 
+                this.PLAY_HOLDER_NUMBER, this.PLAY_HOLDER_NUMBER)}
+                ${BilibiliAdapter.FirstPartPromptPrefix(this.PLAY_HOLDER_NUMBER)}`
+        )
+        this.secondPartLimit = MAX_TOKENS - tokenCount(BilibiliAdapter.promptMiddlePartTemplate("", "",
+            this.PLAY_HOLDER_NUMBER, this.PLAY_HOLDER_NUMBER, this.PLAY_HOLDER_NUMBER))
+        this.endPartLimit = MAX_TOKENS - tokenCount(BilibiliAdapter.promptFinishPartTemplate("",
+            this.PLAY_HOLDER_NUMBER, this.PLAY_HOLDER_NUMBER, this.PLAY_HOLDER_NUMBER))
         this.api = api;
     }
 
@@ -78,11 +85,15 @@ export class BilibiliAdapter implements Adapter {
     // TODO：改成英文，更节省tokens
     // TODO: links
     static promptTemplate = (start: number, end: number): string => {
-         return `这部分总结请用[${start}-${end}]开头`
+         return `这部分总结请用[${start}-${end}]开头。`
+    }
+    
+    static FirstPartPromptPrefix = (count): string => {
+        return `总结以下这段视频的部分字幕，请注意一共有${count}段。`;
     }
 
-    static promptFirstPartTemplate = (first_part: string, lang, start: number, end: number, count): string => {
-        return `请用${lang}总结以下这段视频的部分字幕，字幕的第一部分是${first_part}。\n注意一共有${count}段。${this.promptTemplate(start, end)}`;
+    static promptFirstPartTemplate = (first_part: string, lang, start: number, end: number): string => {
+        return `请用${lang}表达。字幕的第一部分是${first_part}。${this.promptTemplate(start, end)}`;
     }
 
     static promptMiddlePartTemplate = (other_part: string, lang, start: number, end: number, index): string => {
@@ -90,7 +101,7 @@ export class BilibiliAdapter implements Adapter {
     }
 
     static promptFinishPartTemplate = (lang, start: number, end: number, count): string => {
-        return `请用${lang}总结你的回答，请注意一共有${count}段，字幕时间是从${start}到${end}。${this.promptTemplate(start, end)};`
+        return `请用${lang}总结你上述${count}部分回答。${this.promptTemplate(start, end)};`
     }
 
     _getMaxLimit = () => {
@@ -187,7 +198,7 @@ export class BilibiliAdapter implements Adapter {
             } else {
                 if (tmp_string.length > 0) {  // normals case
                     result.push(
-                        BilibiliAdapter.promptFirstPartTemplate(tmp_string, this._lang, body[begin_time_index].from, body[i].to, body.length)
+                        BilibiliAdapter.promptFirstPartTemplate(tmp_string, this._lang, body[begin_time_index].from, body[i].to)
                     );
                 } else {
                     // edge case: asset the context string length is less than limit, if not? split it
@@ -199,7 +210,7 @@ export class BilibiliAdapter implements Adapter {
                             if (result.length > 0) {
                                 return BilibiliAdapter.promptMiddlePartTemplate(str, this._lang, body[begin_time_index].from, body[i].to, result.length + 1)
                             } else {
-                                return BilibiliAdapter.promptFirstPartTemplate(str, this._lang, body[begin_time_index].from, body[i].to, split_string.length)
+                                return BilibiliAdapter.promptFirstPartTemplate(str, this._lang, body[begin_time_index].from, body[i].to)
                             }
                         }));
                     }
@@ -217,7 +228,7 @@ export class BilibiliAdapter implements Adapter {
             if (result.length === 0) {
                 result.push(
                     BilibiliAdapter.promptFirstPartTemplate(tmp_string, this._lang, body[0].from,
-                        body[body.length - 1].to, 1)
+                        body[body.length - 1].to)
                 )
             } else {
                 result.push(
@@ -225,6 +236,9 @@ export class BilibiliAdapter implements Adapter {
                         body[body.length - 1].to, result.length)
                 );
             }
+        }
+        if (result.length > 0) {
+            result[0] = `${BilibiliAdapter.FirstPartPromptPrefix(result.length)}\n${result[0]}`
         }
         if (result.length > 2) {
         // add last part if prompt split length > 2

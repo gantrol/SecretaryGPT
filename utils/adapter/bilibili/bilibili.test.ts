@@ -1089,7 +1089,11 @@ test('test subtitleSplitText short zh', () => {
     bba.lang = "中文"
     const result = bba.subtitleSplitText(example_short_zh_json);
     // TODO: why a \n more?
-    expect(result).toEqual(['请用中文总结以下这段视频的部分字幕，字幕时间是从0.12到0.72，字幕的第一部分是\n' + '在这里雄心勃勃\n' + '我真的在努力让模特通过测试\n' + '我们要试试Q\n' + '如果你想一下这个\n' + '我想让观众真正思考\n' + '你如何做一篇以Q开头的文章摘要\n' + '不容易\n' + '挺好的\n' + '那很好\n' + '所有的权利\n' + '我已经向你展示了一篇现有文章的总结\n' + '我想向你展示如何灵活地将不同文章之间的想法结合起来\n' + '所以我要把昨天黑客新闻上的这篇文章\n' + '复制粘贴并进行相同的对话\n' + '所以它有我们刚刚做的所有背景\n' + '我要说\n' + '在本文和GP Four博客之间找到一个共同的主题\n' + '所以这是一篇关于松果的文章\n' + '它是一个Python Web应用程序开发框架\n' + '它使这项技术更容易获得\n' + '用户友好\n' + '如果你认为这还不够有洞察力\n' + '你总是可以给出一些反馈，说这没有洞察力。\n' + "注意一共有1段。"]);
+    expect(result).toEqual([
+        '总结以下这段视频的部分字幕，请注意一共有1段。\n'
+            + '请用中文表达。字幕的第一部分是\n'
+            + '在这里雄心勃勃\n' + '我真的在努力让模特通过测试\n' + '我们要试试Q\n' + '如果你想一下这个\n' + '我想让观众真正思考\n' + '你如何做一篇以Q开头的文章摘要\n' + '不容易\n' + '挺好的\n' + '那很好\n' + '所有的权利\n' + '我已经向你展示了一篇现有文章的总结\n' + '我想向你展示如何灵活地将不同文章之间的想法结合起来\n' + '所以我要把昨天黑客新闻上的这篇文章\n' + '复制粘贴并进行相同的对话\n' + '所以它有我们刚刚做的所有背景\n' + '我要说\n' + '在本文和GP Four博客之间找到一个共同的主题\n' + '所以这是一篇关于松果的文章\n' + '它是一个Python Web应用程序开发框架\n' + '它使这项技术更容易获得\n' + '用户友好\n' + '如果你认为这还不够有洞察力\n'
+            + "你总是可以给出一些反馈，说这没有洞察力。这部分总结请用[0.12-68.22]开头。"]);
 })
 
 
@@ -1099,7 +1103,8 @@ test('test subtitleSplitText long en', () => {
     const result = bba.subtitleSplitText(example_long_en_json);
     expect(result.length).toEqual(2);
     expect(result[1]).toEqual(
-        "请用中文总结以下这段视频的部分字幕，字幕时间是从1188.8到1189.8，字幕第1部分是\n" +
+        "请用中文总结以下这段视频的部分字幕，字幕第1部分是\n" +
+        "So thank you, everyone, for tuning in.\nI hope you learned something about what the model can do,\nhow to work with it.\nAnd honestly, we're just really excited to see\n" +
         "what you're going to build.\n" +
         "I've talked about OpenAI evals.\n" +
         "Please contribute.\n" +
@@ -1110,7 +1115,7 @@ test('test subtitleSplitText long en', () => {
         "And we want your help to do that.\n" +
         "So thank you very much.\n" +
         "We're so excited to see what you're going to build.\n" +
-        "Thank you.。"
+        "Thank you.。这部分总结请用[1188.8-1189.8]开头。"
     );
 })
 
