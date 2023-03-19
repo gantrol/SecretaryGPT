@@ -121,7 +121,7 @@
          id="secretaire-sidebar">
         <div class="drawer bg-base-100">
             <input class="drawer-toggle" id="chat-drawer" type="checkbox"/>
-            <div class="drawer-content bg-base-100">
+            <div class="drawer-content bg-base-100 h-full" style="overflow-y: hidden">
                 <!-- Navbar -->
 
                 <div bind:this={dragholder}

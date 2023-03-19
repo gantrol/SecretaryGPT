@@ -87,6 +87,7 @@ export class ChatViewModel {
     handleMessage = (message) => {
         // mode value
         // TODO: i18n？
+        // TODO: 弄一个Adapter...
         let prefix = '';
         if (this.mode === modeKeys.EXPLAIN) {
             prefix = `请根据下面的片段，推断写作者是什么角色。并模仿这类角色做出解释`;

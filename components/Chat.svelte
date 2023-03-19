@@ -10,6 +10,7 @@
     import PlusCircle from "~components/icons/PlusCircle.svelte";
     import Send from "~components/icons/Send.svelte";
     import BiliBiliSubtitleSummary from "~components/video/BiliBiliSubtitleSummary.svelte";
+    import MyMediaFooter from "~components/tailwind/MyMediaFooter.svelte";
 
 
 
@@ -80,15 +81,18 @@
 </script>
 
 
-<div class="chat flex flex-col w-full bg-base-100" id="chat-content">
-    <div class="overflow-y-auto h-full mt-0 mb-[0.5em] mx-0"
+<div class="chat flex flex-col w-full bg-base-100 h-full relative" id="chat-content">
+    <div class="absolute inset-0 mt-0 mb-[0.5em] mx-0 overflow-y-auto"
          bind:this={div}
     >
         <ChatContent messages={vm.messages} newMessage={vm.newMessage}></ChatContent>
-        <div class="w-full h-screen md:h-screen flex-shrink-0"></div>
+<!--        TODO: 加一个模型选择-->
+        <MyMediaFooter/>
     </div>
 </div>
-<footer class="sticky bottom-0 left-0 w-full bg-base-300" aria-labelledby="footer-heading">
+
+
+<div class="absolute bottom-0 left-0 w-full bg-base-300" aria-labelledby="footer-heading">
 <!--    TODO: 暂不抽离-->
 <!--    <ActionBar {vm}></ActionBar>-->
     {#if VideoSites.BILIBILI.test(window.location.href)}
@@ -100,7 +104,7 @@
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
-    <div class="flex flex-row form-control justify-between bg-base-300 p-1">
+    <div class="flex flex-row form-control justify-end bg-base-300 p-1">
         <div class="btn btn-warning" on:click={() => vm.renew()}>新对话</div>
         <div class="btn btn-info text-base-100">继续</div>
         <SimpleSelect
@@ -140,4 +144,4 @@
     <!--        <div>-->
     <!--            <p>TODO: make chat list ? {ChatID}</p>-->
     <!--        </div>-->
-</footer>
+</div>
