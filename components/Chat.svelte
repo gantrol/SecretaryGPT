@@ -31,11 +31,13 @@
 
 
     beforeUpdate(() => {
-        autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 20);
+        autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 500);
+        console.log("beforeUpdate", autoscroll)
     });
 
     afterUpdate(() => {
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
+        console.log("afterUpdate", div.scrollHeight, div)
     });
 
     const callback = () => {

@@ -108,7 +108,7 @@ export class ChatViewModel {
         return message;
     }
 
-    _helper = async () => {
+    _helper = async (callback) => {
         if (!this.typingMessage || this.isSending) return;
 
         const message = this.handleMessage(this.typingMessage);
@@ -116,6 +116,7 @@ export class ChatViewModel {
             author: 'user',
             text: this.typingMessage,
         });
+        callback()
         await this.sendMsg(message);
         this.typingMessage = '';
     }
@@ -123,19 +124,19 @@ export class ChatViewModel {
     handleKeydown = async (event, callback) => {
         if (event.key === 'Enter' && event.shiftKey) {
             event.preventDefault();
-            await this._helper();
+            await this._helper(callback);
         }
         callback();
     }
 
     sendOnclick = async (_event, callback) => {
-        await this._helper();
+        await this._helper(callback);
         callback();
     }
 
     sendAuto = async (message, callback) => {
         this.typingMessage = message;
-        await this._helper();
+        await this._helper(callback);
         callback();
     }
 

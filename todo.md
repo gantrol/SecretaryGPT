@@ -1,8 +1,9 @@
-- 迭代总结？
-- 登录提示
-  - 有个没author的bug，bing
-      - {"type":2,"invocationId":"undefined","item":{"firstNewMessageIndex":null,"conversationId":"1e842157-1a12-40de-9a06-aec2a720c0d5","requestId":"87f87513-57aa-4a29-bdd9-3d98193f23c5","telemetry":{"metrics":null,"startTime":"2023-03-11T06:14:25.9964441Z"},"result":{"value":"UnauthorizedRequest","message":"The conversationSignature is not set and is required to ensure that you have permission to use our APIs. IsAuthenticated=False. App ID=","error":"UnauthorizedRequest","renewCert":true,"serviceVersion":"20230310.57"}}}
-      - （本地图片）![img.png](build/img.png)
+- 请求的通用事项？
+  - 登录提示
+    - 有个没author的bug，bing
+        - {"type":2,"invocationId":"undefined","item":{"firstNewMessageIndex":null,"conversationId":"1e842157-1a12-40de-9a06-aec2a720c0d5","requestId":"87f87513-57aa-4a29-bdd9-3d98193f23c5","telemetry":{"metrics":null,"startTime":"2023-03-11T06:14:25.9964441Z"},"result":{"value":"UnauthorizedRequest","message":"The conversationSignature is not set and is required to ensure that you have permission to use our APIs. IsAuthenticated=False. App ID=","error":"UnauthorizedRequest","renewCert":true,"serviceVersion":"20230310.57"}}}
+        - （本地图片）![img.png](build/img.png)
+  - 请求失败（很可能是网络问题）
 - ChatGPT 模型选择：GPT4（现在逻辑是选官方推荐的，也就是3.5）
 - ChatGPT Key
 - 回复的复制按钮
