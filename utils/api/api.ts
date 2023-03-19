@@ -1,7 +1,7 @@
 import type {RequestText} from "~utils/constants";
 
 
-type AskResult = {
+export type AskResult = {
     type: typeof RequestText.ANS | typeof RequestText.DONE,
     data?: {
         text: string,
@@ -18,6 +18,8 @@ export type AskResultCallback = (result: AskResult) => void
  *
  */
 export interface API {
+    // TODO: queue (just gpt for now)
+
     auth(): Promise<string>;
 
     /**
@@ -49,6 +51,8 @@ export interface API {
     ask(prompt: string, callback: AskResultCallback);
 
     // TODO: title()
+
+    askAll (prompts: string[], chatid, callback: AskResultCallback);
 }
 
 

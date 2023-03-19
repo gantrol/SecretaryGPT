@@ -2,6 +2,7 @@ import {chatTypes, languageI18n, messagesInit, modeKeys, RequestText} from "~uti
 import {log2} from "~utils/log";
 
 export class ChatViewModel {
+    // TODO: 重构
     mode: string = modeKeys.NONE;
     language: string = languageI18n.NONE;
     newMessage: { id: number, author: string, text: string };
@@ -48,7 +49,7 @@ export class ChatViewModel {
         });
     }
 
-    renew = (chatType) => {
+    renew = (chatType = this.chatType) => {
         this.chatType = chatType;
         this.ChatID = null;
         this.isSending = false;
@@ -80,7 +81,6 @@ export class ChatViewModel {
                 }
             });
         }
-
     }
 
 
@@ -136,6 +136,25 @@ export class ChatViewModel {
         this.typingMessage = message;
         await this._helper();
         callback();
+    }
+
+    bulkSendPrompts = async (prompts, callback) => {
+        if (chatTypes.ChatGPT === this.chatType) {
+            // send prompts
+            console.log("bulkSend", 'content script to background script')
+            // TODO: add bulkSend to constant?
+            chrome.runtime.sendMessage({
+                type: 'bulkSend',
+                body: {
+                    prompts: prompts,
+                    chatType: this.chatType,
+                    conversation_id: this.ChatID,
+                }
+            });
+            callback();
+        } else {
+            new Error(`暂不支持${this.chatType}批量发送`);
+        }
     }
 }
 

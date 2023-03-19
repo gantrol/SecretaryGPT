@@ -94,3 +94,8 @@ export const RequestText = {
     DONE: "done", // 一段话的结束
     END: "end",  //  一段话或多段话结束
 }
+
+export const VideoSites = {
+    BILIBILI: /^https:\/\/.*\.bilibili\.com\/video\/.*/,
+    YOUTUBE: /^https:\/\/.*\.youtube\.com\/watch\?.*/,
+}

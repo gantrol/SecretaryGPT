@@ -11,11 +11,11 @@ const tsconfig = require("./tsconfig.json")
 const config = {
   setupFiles: ["jest-webextension-mock"],
   extensionsToTreatAsEsm: [".ts", ".tsx"],
-  testRegex: ["^.+\\.test.[tj]sx?$"],
+  testRegex: ["^.+\\.test.[jt]sx?$"],
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
     prefix: "<rootDir>/"
   }),
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   transform: {
     "^.+\\.ts?$": ["ts-jest", { isolatedModules: true, useESM: true }],
     "^.+\\.tsx?$": ["ts-jest", { useESM: true, tsconfig: { jsx: "react-jsx" } }]

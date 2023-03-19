@@ -1,6 +1,12 @@
-
-- 获取标题
-- prompt workflow
+- bilibili前端按钮
+- ChatGPT 模型选择：GPT4（现在逻辑是选官方推荐的，也就是3.5）
+- ChatGPT Key
+- 登录提示
+  - 有个没author的bug，bing
+      - {"type":2,"invocationId":"undefined","item":{"firstNewMessageIndex":null,"conversationId":"1e842157-1a12-40de-9a06-aec2a720c0d5","requestId":"87f87513-57aa-4a29-bdd9-3d98193f23c5","telemetry":{"metrics":null,"startTime":"2023-03-11T06:14:25.9964441Z"},"result":{"value":"UnauthorizedRequest","message":"The conversationSignature is not set and is required to ensure that you have permission to use our APIs. IsAuthenticated=False. App ID=","error":"UnauthorizedRequest","renewCert":true,"serviceVersion":"20230310.57"}}}
+      - （本地图片）![img.png](build/img.png)
+- 回复的复制按钮
+- prompt workflow（最近写的bili adapter其实有点符合了，感觉可以抽象出总结的逻辑，毕竟里面相关的函数应该都是可以static的）
   - 扮演解释
     - 开场白：请根据下面的片段，推断写作者是什么角色。并模仿这类角色，并用{{语言}}解释这段话：{{用户选择的文本}}
     - 过程：同开场白
@@ -11,34 +17,34 @@
     - 过程：请你用{{语言}}总结这段话：{{用户选择的文本}}
     - 中途追问：{{用户选择的文本}} || continue，用{{语言}}回复
     - 收尾：请用{{语言}}总结以上所有文本
-  - 翻译？其实不如deepl
+  - 翻译？其实不如deepl，但确实多合一是最大的优势
   - 它来提问
+    - 面试官
+    - 考试复习
+    - 哲理辩论
   - 是非明辨
+- autoscroll: 聊天框在发送消息后，怎么自动滚动到底部 -> 问一下gpt4
+- ChatGPT获取标题
+- 取消按钮
+- 下一句的提示？
 - 语言列表，输出格式的一部分？
   - 包括编程吗？还是列入结构化？
 - 列表页
     - 本地存储
 - UI redesign https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#update-position
+  - 尤其是更改宽度时，要了命……
+  - 界面的小问题
+    - 发送文字后，输入框高度不变
+    - 发送文字后，到底。
+    - 侧边栏要有最小最大宽度？
 - ChatGPT聊天置顶？
   - 标题先搞好来
   - 存储？indexDB?
   - 配置？popup？
 - /模式，寻址
-- 有个没author的bug，bing
-  {"type":2,"invocationId":"undefined","item":{"firstNewMessageIndex":null,"conversationId":"1e842157-1a12-40de-9a06-aec2a720c0d5","requestId":"87f87513-57aa-4a29-bdd9-3d98193f23c5","telemetry":{"metrics":null,"startTime":"2023-03-11T06:14:25.9964441Z"},"result":{"value":"UnauthorizedRequest","message":"The conversationSignature is not set and is required to ensure that you have permission to use our APIs. IsAuthenticated=False. App ID=","error":"UnauthorizedRequest","renewCert":true,"serviceVersion":"20230310.57"}}}
-![img.png](build/img.png)
-
-- 今日之星应当引入关注数，不过这样，网络请求会多？
-- 本来想做今天全部摘要的，一看好多人关注几百上千……
+- 即刻日报，全部摘要……
 - 改成区域？
 - 微博关注日报
-- 在button处看目录……
 - 一个显示bug
 - links target _blank
-- 需要“过场语”？“摘要总结”无法应对多种情况？
-- 界面的小问题
-  - 发送文字后，输入框高度不变
-  - 发送文字后，到底。
-  - preview的宽度
-  - newMessage宽度？
-  - 侧边栏要有最小最大宽度？
+

@@ -34,7 +34,6 @@
     let promises = [
         new Promise(async (resolve) => {
             let test = browserSyncStorage(Settings.alwaysOpen, false);
-            console.log("isOpen", test);
             await test.init();
             isOpen = await test.get();
             resolve(isOpen);
@@ -60,6 +59,9 @@
     $: vm = new ChatViewModel(chatType);
     $: vm.typingMessage = selectedText;
 
+    /**
+     * 选择并更新输入框的文字，鼠标抬起时触发。在侧边栏选中的文字除外
+     */
     const handleMouseUp = () => {
         // 在侧边栏选中的文字不算
         if (window.getSelection()?.baseNode?.tagName === 'HTML') {
@@ -72,6 +74,7 @@
         }
     }
 
+    // TODO: 重构到 SidebarViewModel
     const getSelected = () => {
         const selection = window.getSelection();
         return selection.toString().trim();
@@ -112,7 +115,7 @@
 
 />
 
-
+<!--TODO: 拆分为更细颗粒度的组件, 可能涉及 store-->
 <PromiseWaiting promises={promises}>
     <div bind:this={sidebar} class='{isOpen ? "open" : "closed"} h-full bg-base-100'
          id="secretaire-sidebar">
@@ -171,6 +174,7 @@
                 </div>
                 <Chat
                         bind:vm={vm}
+                        bind:isOpen={isOpen}
                 >
                 </Chat>
 

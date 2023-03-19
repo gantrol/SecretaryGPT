@@ -120,6 +120,10 @@ export class BingAPI implements API {
         return true;
     }
 
+    askAll(prompts: string[], callback: AskResultCallback) {
+        new Error("Not implemented");
+    }
+
 
     private append_identifier(msg: object) {
         return `${JSON.stringify(msg)}${this.DELIMITER}`;
