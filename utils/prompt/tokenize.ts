@@ -1,6 +1,7 @@
 const gpt3 = require('gpt-3-encoder');
-const MAX_TOKENS = 4096;
-const SPLIT_TOKEN = 4000;
+// TODO: 配置到API
+export const MAX_TOKENS = 4096;
+export const SPLIT_TOKEN = 4000;
 
 const encode = (text: string): number[] => {
     return gpt3.encode(text);
@@ -10,9 +11,30 @@ export const tokenCount = (text: string): number => {
     return encode(text).length;
 }
 
-export const text2tokenAndSplit = (text: string): string[] => {
+/**
+ *
+ * @param text assume it contains prefix string, assert text is not over limit
+ * @param addText text to be added
+ * @param limit
+ */
+export const addStringAvoidOverLimit = (text: string, addText: string, limit = SPLIT_TOKEN, sep="\n"
+): [boolean, string] => {
+    const result = `${text}${sep}${addText}`;
+    if (isOverLimit(result, limit)) {
+        return [false, text];
+    } else {
+        return [true, result];
+    }
+}
+
+export const isOverLimit = (text: string, limit = MAX_TOKENS): boolean => {
+    return tokenCount(text) > limit;
+}
+
+// TODO: limit
+export const text2tokenAndSplit = (text: string, limit = MAX_TOKENS): string[] => {
     const tokens = encode(text);
-    if (tokens.length <= MAX_TOKENS) {
+    if (tokens.length <= limit) {
         return [text];
     } else {
         let count = Math.ceil(tokens.length / SPLIT_TOKEN);

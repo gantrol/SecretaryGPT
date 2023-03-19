@@ -61,6 +61,10 @@ const ask = async (prompt: string, conversation_id: string, parent_message_id: s
     return chat(prompt, getCallback(chatType, tabid), chatType, conversation_id, parent_message_id);
 }
 
+function bulkSend(prompts, chatType, conversation_id, tabid) {
+    return chatAPI.askAll(prompts, conversation_id, getCallback(chatType, tabid));
+}
+
 chrome.runtime.onMessage.addListener(
     async (request, sender, sendResponse) => {
         console.debug(sender.tab ?
@@ -68,11 +72,14 @@ chrome.runtime.onMessage.addListener(
             "from the extension");
         if (request.type === 'newCov') {
             await newCov(request.body.prompt, sender.tab.id, request.body.chatType);
-            sendResponse({status: 'ok'});
         } else if (request.type === 'sendMsg') {
             const body = request.body;
             ask(body.prompt, body.conversation_id, body.parent_message_id, sender.tab.id, body.chatType);
+        } else if (request.type === 'bulkSend') {
+            const body = request.body;
+            bulkSend(body.prompts, body.chatType, body.conversation_id, sender.tab.id);
         }
+        sendResponse({status: 'ok'});
         return true;
     }
 );
