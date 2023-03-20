@@ -2,7 +2,6 @@
     import {onMount} from 'svelte';
     import {JikeFollowDaily} from '~utils/infomation/jike'; // import from the given path
     import '~/base.css';
-    import '~/base-var.css';
     import PostGroup from "~components/infomation/PostGroup.svelte";
     import Summary from "~components/infomation/Summary.svelte";
     import MyMediaFooter from "~components/tailwind/MyMediaFooter.svelte";
