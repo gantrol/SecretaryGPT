@@ -6,9 +6,10 @@
 
 
 <div tabindex="0"
-     class="collapse collapse-arrow border bg-base-100">
-  <input type="checkbox" bind:checked={default_open} on:click={() => default_open = !default_open} />
-  <div class="collapse-title text-lg font-medium">
+     class="collapse collapse-arrow {default_open? 'collapse-open' : 'collapse-close'} border bg-base-100"
+     >
+  <input type="checkbox"/>
+  <div class="collapse-title text-lg font-medium" on:click={() => default_open = !default_open}>
     {title}
   </div>
   <div class="collapse-content">
