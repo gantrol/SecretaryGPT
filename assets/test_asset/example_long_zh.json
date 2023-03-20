@@ -1,0 +1,3113 @@
+{
+  "font_size": 0.4,
+  "font_color": "#FFFFFF",
+  "background_alpha": 0.5,
+  "background_color": "#9C27B0",
+  "Stroke": "none",
+  "type": "AIsubtitle",
+  "lang": "zh",
+  "version": "en-v1.2.0.4-t0.3.c",
+  "body": [
+    {
+      "from": 0.12,
+      "to": 0.72,
+      "sid": 1,
+      "location": 2,
+      "content": "在这里雄心勃勃"
+    },
+    {
+      "from": 0.72,
+      "to": 2.36,
+      "sid": 2,
+      "location": 2,
+      "content": "我真的在努力让模特通过测试"
+    },
+    {
+      "from": 2.36,
+      "to": 4.09,
+      "sid": 3,
+      "location": 2,
+      "content": "我们要试试Q"
+    },
+    {
+      "from": 4.09,
+      "to": 5.51,
+      "sid": 4,
+      "location": 2,
+      "content": "如果你想一下这个"
+    },
+    {
+      "from": 5.51,
+      "to": 7.35,
+      "sid": 5,
+      "location": 2,
+      "content": "我想让观众真正思考"
+    },
+    {
+      "from": 7.35,
+      "to": 11.34,
+      "sid": 6,
+      "location": 2,
+      "content": "你如何做一篇以Q开头的文章摘要"
+    },
+    {
+      "from": 11.34,
+      "to": 12.62,
+      "sid": 7,
+      "location": 2,
+      "content": "不容易"
+    },
+    {
+      "from": 21.58,
+      "to": 22.54,
+      "sid": 8,
+      "location": 2,
+      "content": "挺好的"
+    },
+    {
+      "from": 22.54,
+      "to": 24.0,
+      "sid": 9,
+      "location": 2,
+      "content": "那很好"
+    },
+    {
+      "from": 24.0,
+      "to": 25.0,
+      "sid": 10,
+      "location": 2,
+      "content": "所有的权利"
+    },
+    {
+      "from": 25.0,
+      "to": 29.189,
+      "sid": 11,
+      "location": 2,
+      "content": "我已经向你展示了一篇现有文章的总结"
+    },
+    {
+      "from": 29.189,
+      "to": 33.589,
+      "sid": 12,
+      "location": 2,
+      "content": "我想向你展示如何灵活地将不同文章之间的想法结合起来"
+    },
+    {
+      "from": 33.589,
+      "to": 37.62,
+      "sid": 13,
+      "location": 2,
+      "content": "所以我要把昨天黑客新闻上的这篇文章"
+    },
+    {
+      "from": 38.74,
+      "to": 42.4,
+      "sid": 14,
+      "location": 2,
+      "content": "复制粘贴并进行相同的对话"
+    },
+    {
+      "from": 42.4,
+      "to": 44.28,
+      "sid": 15,
+      "location": 2,
+      "content": "所以它有我们刚刚做的所有背景"
+    },
+    {
+      "from": 44.28,
+      "to": 45.349,
+      "sid": 16,
+      "location": 2,
+      "content": "我要说"
+    },
+    {
+      "from": 45.349,
+      "to": 51.64,
+      "sid": 17,
+      "location": 2,
+      "content": "在本文和GP Four博客之间找到一个共同的主题"
+    },
+    {
+      "from": 54.86,
+      "to": 57.34,
+      "sid": 18,
+      "location": 2,
+      "content": "所以这是一篇关于松果的文章"
+    },
+    {
+      "from": 57.34,
+      "to": 59.52,
+      "sid": 19,
+      "location": 2,
+      "content": "它是一个Python Web应用程序开发框架"
+    },
+    {
+      "from": 59.52,
+      "to": 61.58,
+      "sid": 20,
+      "location": 2,
+      "content": "它使这项技术更容易获得"
+    },
+    {
+      "from": 61.58,
+      "to": 62.53,
+      "sid": 21,
+      "location": 2,
+      "content": "用户友好"
+    },
+    {
+      "from": 62.53,
+      "to": 63.85,
+      "sid": 22,
+      "location": 2,
+      "content": "如果你认为这还不够有洞察力"
+    },
+    {
+      "from": 63.85,
+      "to": 68.22,
+      "sid": 23,
+      "location": 2,
+      "content": "你总是可以给出一些反馈，说这没有洞察力"
+    },
+    {
+      "from": 70.5,
+      "to": 71.18,
+      "sid": 24,
+      "location": 2,
+      "content": "拜托了"
+    },
+    {
+      "from": 71.18,
+      "to": 71.58,
+      "sid": 25,
+      "location": 2,
+      "content": "否"
+    },
+    {
+      "from": 71.58,
+      "to": 74.5,
+      "sid": 26,
+      "location": 2,
+      "content": "我甚至会把它留在那里，让模特来决定"
+    },
+    {
+      "from": 74.5,
+      "to": 75.02,
+      "sid": 27,
+      "location": 2,
+      "content": "所以说"
+    },
+    {
+      "from": 75.02,
+      "to": 79.34,
+      "sid": 28,
+      "location": 2,
+      "content": "在强大的技术和实际应用之间架起桥梁似乎不错"
+    },
+    {
+      "from": 79.34,
+      "to": 82.62,
+      "sid": 29,
+      "location": 2,
+      "content": "当然你可以要求任何你想要的任务"
+    },
+    {
+      "from": 82.62,
+      "to": 84.22,
+      "sid": 30,
+      "location": 2,
+      "content": "使用其灵活的语言"
+    },
+    {
+      "from": 84.22,
+      "to": 85.96,
+      "sid": 31,
+      "location": 2,
+      "content": "理解与综合"
+    },
+    {
+      "from": 85.96,
+      "to": 88.66,
+      "sid": 32,
+      "location": 2,
+      "content": "你可以要求像现在这样的东西"
+    },
+    {
+      "from": 88.66,
+      "to": 93.92,
+      "sid": 33,
+      "location": 2,
+      "content": "把GT Four的博客文章变成一首押韵的诗"
+    },
+    {
+      "from": 101.4,
+      "to": 102.36,
+      "sid": 34,
+      "location": 2,
+      "content": "捡到的"
+    },
+    {
+      "from": 102.36,
+      "to": 103.94,
+      "sid": 35,
+      "location": 2,
+      "content": "在Openai evals上发现的"
+    },
+    {
+      "from": 103.94,
+      "to": 104.98,
+      "sid": 36,
+      "location": 2,
+      "content": "面向所有人的开源"
+    },
+    {
+      "from": 104.98,
+      "to": 105.76,
+      "sid": 37,
+      "location": 2,
+      "content": "帮助引导"
+    },
+    {
+      "from": 105.76,
+      "to": 106.58,
+      "sid": 38,
+      "location": 2,
+      "content": "接听电话"
+    },
+    {
+      "from": 106.58,
+      "to": 106.86,
+      "sid": 39,
+      "location": 2,
+      "content": "那个"
+    },
+    {
+      "from": 106.86,
+      "to": 107.42,
+      "sid": 40,
+      "location": 2,
+      "content": "顺便说一句"
+    },
+    {
+      "from": 107.42,
+      "to": 109.3,
+      "sid": 41,
+      "location": 2,
+      "content": "如果你想为这个模型做出贡献"
+    },
+    {
+      "from": 109.3,
+      "to": 110.78,
+      "sid": 42,
+      "location": 2,
+      "content": "请给我们邪恶的"
+    },
+    {
+      "from": 110.78,
+      "to": 113.48,
+      "sid": 43,
+      "location": 2,
+      "content": "我们有一个开放源码的评估框架，将帮助我们指导"
+    },
+    {
+      "from": 113.48,
+      "to": 116.92,
+      "sid": 44,
+      "location": 2,
+      "content": "我们所有的用户都明白这个模型的能力"
+    },
+    {
+      "from": 116.92,
+      "to": 118.66,
+      "sid": 45,
+      "location": 2,
+      "content": "并把它提升到下一个水平"
+    },
+    {
+      "from": 119.16,
+      "to": 120.14,
+      "sid": 46,
+      "location": 2,
+      "content": "所以我们开始了"
+    },
+    {
+      "from": 120.14,
+      "to": 122.24,
+      "sid": 47,
+      "location": 2,
+      "content": "这是在消耗现有的内容"
+    },
+    {
+      "from": 122.24,
+      "to": 125.82,
+      "sid": 48,
+      "location": 2,
+      "content": "使用GPT 4，上面有一点创造力"
+    },
+    {
+      "from": 126.88,
+      "to": 130.639,
+      "sid": 49,
+      "location": 2,
+      "content": "但接下来我想向您展示如何使用GPT构建"
+    },
+    {
+      "from": 130.639,
+      "to": 131.76,
+      "sid": 50,
+      "location": 2,
+      "content": "为了它的样子"
+    },
+    {
+      "from": 131.76,
+      "to": 134.06,
+      "sid": 51,
+      "location": 2,
+      "content": "作为合作伙伴与它一起创作"
+    },
+    {
+      "from": 135.0,
+      "to": 137.2,
+      "sid": 52,
+      "location": 2,
+      "content": "所以我们要做的是"
+    },
+    {
+      "from": 137.2,
+      "to": 139.72,
+      "sid": 53,
+      "location": 2,
+      "content": "我们实际上要建立一个不和谐机器人"
+    },
+    {
+      "from": 140.9,
+      "to": 141.94,
+      "sid": 54,
+      "location": 2,
+      "content": "我会现场建造它"
+    },
+    {
+      "from": 141.94,
+      "to": 142.94,
+      "sid": 55,
+      "location": 2,
+      "content": "并向大家展示过程"
+    },
+    {
+      "from": 142.94,
+      "to": 144.06,
+      "sid": 56,
+      "location": 2,
+      "content": "向您展示调试"
+    },
+    {
+      "from": 144.06,
+      "to": 145.4,
+      "sid": 57,
+      "location": 2,
+      "content": "告诉你模型能做什么"
+    },
+    {
+      "from": 145.4,
+      "to": 146.46,
+      "sid": 58,
+      "location": 2,
+      "content": "它的局限性在哪里"
+    },
+    {
+      "from": 146.46,
+      "to": 148.98,
+      "sid": 59,
+      "location": 2,
+      "content": "以及如何与他们合作"
+    },
+    {
+      "from": 148.98,
+      "to": 149.94,
+      "sid": 60,
+      "location": 2,
+      "content": "再创新高"
+    },
+    {
+      "from": 149.94,
+      "to": 151.92,
+      "sid": 61,
+      "location": 2,
+      "content": "所以我要做的第一件事就是告诉模特"
+    },
+    {
+      "from": 151.92,
+      "to": 155.52,
+      "sid": 62,
+      "location": 2,
+      "content": "这次应该是人工智能编程助手"
+    },
+    {
+      "from": 155.54,
+      "to": 158.34,
+      "sid": 63,
+      "location": 2,
+      "content": "它的工作是先用伪代码写出东西"
+    },
+    {
+      "from": 158.34,
+      "to": 160.12,
+      "sid": 64,
+      "location": 2,
+      "content": "然后实际编写代码"
+    },
+    {
+      "from": 160.14,
+      "to": 166.14,
+      "sid": 65,
+      "location": 2,
+      "content": "这种方法非常有助于让模型将问题分解成更小的部分"
+    },
+    {
+      "from": 166.14,
+      "to": 168.42,
+      "sid": 66,
+      "location": 2,
+      "content": "这样你就不会要求它"
+    },
+    {
+      "from": 168.42,
+      "to": 171.52,
+      "sid": 67,
+      "location": 2,
+      "content": "只是想出一个超级难的问题解决方案"
+    },
+    {
+      "from": 171.52,
+      "to": 172.84,
+      "sid": 68,
+      "location": 2,
+      "content": "一气呵成"
+    },
+    {
+      "from": 172.94,
+      "to": 174.66,
+      "sid": 69,
+      "location": 2,
+      "content": "它也使它很容易解释"
+    },
+    {
+      "from": 174.66,
+      "to": 176.92,
+      "sid": 70,
+      "location": 2,
+      "content": "因为你可以准确地看到模型在想什么"
+    },
+    {
+      "from": 176.92,
+      "to": 179.26,
+      "sid": 71,
+      "location": 2,
+      "content": "如果你愿意，你甚至可以提供更正"
+    },
+    {
+      "from": 179.32,
+      "to": 183.459,
+      "sid": 72,
+      "location": 2,
+      "content": "所以这是我们要问它的提示"
+    },
+    {
+      "from": 183.489,
+      "to": 186.219,
+      "sid": 73,
+      "location": 2,
+      "content": "这是那种3.5会完全窒息的事情"
+    },
+    {
+      "from": 186.219,
+      "to": 187.819,
+      "sid": 74,
+      "location": 2,
+      "content": "如果你尝试过类似的事情"
+    },
+    {
+      "from": 187.819,
+      "to": 189.86,
+      "sid": 75,
+      "location": 2,
+      "content": "但我们要找一个不和机器人"
+    },
+    {
+      "from": 189.86,
+      "to": 194.96,
+      "sid": 76,
+      "location": 2,
+      "content": "它使用GPT Four API读取图像和文本"
+    },
+    {
+      "from": 195.299,
+      "to": 197.199,
+      "sid": 77,
+      "location": 2,
+      "content": "现在这里有一个问题"
+    },
+    {
+      "from": 197.199,
+      "to": 201.64,
+      "sid": 78,
+      "location": 2,
+      "content": "也就是这个模型的训练截止时间是在2021年"
+    },
+    {
+      "from": 201.64,
+      "to": 204.76,
+      "sid": 79,
+      "location": 2,
+      "content": "这意味着它还没有看到我们新的聊天完成格式"
+    },
+    {
+      "from": 204.76,
+      "to": 207.7,
+      "sid": 80,
+      "location": 2,
+      "content": "所以我刚看了两周前的博客文章"
+    },
+    {
+      "from": 207.7,
+      "to": 209.54,
+      "sid": 81,
+      "location": 2,
+      "content": "从博客文章粘贴的副本"
+    },
+    {
+      "from": 209.54,
+      "to": 210.94,
+      "sid": 82,
+      "location": 2,
+      "content": "包括回应格式"
+    },
+    {
+      "from": 210.94,
+      "to": 213.7,
+      "sid": 83,
+      "location": 2,
+      "content": "它还没有看到新的图像扩展到那个"
+    },
+    {
+      "from": 213.7,
+      "to": 215.1,
+      "sid": 84,
+      "location": 2,
+      "content": "所以我就把它写下来了"
+    },
+    {
+      "from": 215.1,
+      "to": 215.66,
+      "sid": 85,
+      "location": 2,
+      "content": "你知道"
+    },
+    {
+      "from": 215.66,
+      "to": 219.74,
+      "sid": 86,
+      "location": 2,
+      "content": "关于如何包括图像的最小细节"
+    },
+    {
+      "from": 219.82,
+      "to": 223.52,
+      "sid": 87,
+      "location": 2,
+      "content": "现在模型实际上可以利用这些文档"
+    },
+    {
+      "from": 223.52,
+      "to": 225.5,
+      "sid": 88,
+      "location": 2,
+      "content": "它没有记住"
+    },
+    {
+      "from": 225.5,
+      "to": 226.66,
+      "sid": 89,
+      "location": 2,
+      "content": "它不知道"
+    },
+    {
+      "from": 233.88,
+      "to": 234.52,
+      "sid": 90,
+      "location": 2,
+      "content": "和一般情况下"
+    },
+    {
+      "from": 234.52,
+      "to": 239.26,
+      "sid": 91,
+      "location": 2,
+      "content": "这些模型非常善于使用它已经以新的方式训练过的信息"
+    },
+    {
+      "from": 239.26,
+      "to": 240.6,
+      "sid": 92,
+      "location": 2,
+      "content": "并合成新内容"
+    },
+    {
+      "from": 240.6,
+      "to": 246.15,
+      "sid": 93,
+      "location": 2,
+      "content": "你可以在这里看到它现在实际上写了一个全新的机器人"
+    },
+    {
+      "from": 246.15,
+      "to": 250.03,
+      "sid": 94,
+      "location": 2,
+      "content": "让我们看看这个机器人在实践中是否有效"
+    },
+    {
+      "from": 250.03,
+      "to": 253.47,
+      "sid": 95,
+      "location": 2,
+      "content": "因此，您应该经常查看代码，以了解它的功能"
+    },
+    {
+      "from": 253.47,
+      "to": 257.709,
+      "sid": 96,
+      "location": 2,
+      "content": "不要从人类或AIS运行不受信任的代码"
+    },
+    {
+      "from": 257.709,
+      "to": 262.72,
+      "sid": 97,
+      "location": 2,
+      "content": "需要注意的是，随着时间的推移，不和谐的API发生了很大的变化"
+    },
+    {
+      "from": 262.72,
+      "to": 268.1,
+      "sid": 98,
+      "location": 2,
+      "content": "特别是有一个特点自从这个模型被训练以来发生了很大的变化"
+    },
+    {
+      "from": 268.92,
+      "to": 270.02,
+      "sid": 99,
+      "location": 2,
+      "content": "试试看"
+    },
+    {
+      "from": 270.08,
+      "to": 270.82,
+      "sid": 100,
+      "location": 2,
+      "content": "事实上"
+    },
+    {
+      "from": 270.82,
+      "to": 271.2,
+      "sid": 101,
+      "location": 2,
+      "content": "是呀"
+    },
+    {
+      "from": 271.2,
+      "to": 273.42,
+      "sid": 102,
+      "location": 2,
+      "content": "我们错过了激烈的关键字"
+    },
+    {
+      "from": 273.42,
+      "to": 276.09,
+      "sid": 103,
+      "location": 2,
+      "content": "这是20世纪20年代出现的东西"
+    },
+    {
+      "from": 276.09,
+      "to": 277.65,
+      "sid": 104,
+      "location": 2,
+      "content": "所以模型确实知道它的存在"
+    },
+    {
+      "from": 277.65,
+      "to": 281.22,
+      "sid": 105,
+      "location": 2,
+      "content": "但它不知道我们使用的是哪个版本的不和谐API"
+    },
+    {
+      "from": 281.24,
+      "to": 282.72,
+      "sid": 106,
+      "location": 2,
+      "content": "我们运气不好吗"
+    },
+    {
+      "from": 282.72,
+      "to": 283.22,
+      "sid": 107,
+      "location": 2,
+      "content": "嗯"
+    },
+    {
+      "from": 283.22,
+      "to": 284.17,
+      "sid": 108,
+      "location": 2,
+      "content": "不完全是"
+    },
+    {
+      "from": 284.17,
+      "to": 286.31,
+      "sid": 109,
+      "location": 2,
+      "content": "我们可以简单地粘贴到模型上"
+    },
+    {
+      "from": 286.31,
+      "to": 287.67,
+      "sid": 110,
+      "location": 2,
+      "content": "准确地说是错误消息"
+    },
+    {
+      "from": 287.67,
+      "to": 288.77,
+      "sid": 111,
+      "location": 2,
+      "content": "甚至不打算说"
+    },
+    {
+      "from": 288.77,
+      "to": 289.19,
+      "sid": 112,
+      "location": 2,
+      "content": "嘿"
+    },
+    {
+      "from": 289.19,
+      "to": 290.49,
+      "sid": 113,
+      "location": 2,
+      "content": "这是运行您的代码"
+    },
+    {
+      "from": 290.49,
+      "to": 291.74,
+      "sid": 114,
+      "location": 2,
+      "content": "你能修好它吗"
+    },
+    {
+      "from": 292.4,
+      "to": 293.74,
+      "sid": 115,
+      "location": 2,
+      "content": "我们就让它运行"
+    },
+    {
+      "from": 294.74,
+      "to": 295.5,
+      "sid": 116,
+      "location": 2,
+      "content": "模型说"
+    },
+    {
+      "from": 295.5,
+      "to": 295.88,
+      "sid": 117,
+      "location": 2,
+      "content": "哦耶"
+    },
+    {
+      "from": 295.88,
+      "to": 296.22,
+      "sid": 118,
+      "location": 2,
+      "content": "呜呜"
+    },
+    {
+      "from": 296.22,
+      "to": 296.94,
+      "sid": 119,
+      "location": 2,
+      "content": "激烈的争论"
+    },
+    {
+      "from": 296.94,
+      "to": 297.82,
+      "sid": 120,
+      "location": 2,
+      "content": "这是正确的"
+    },
+    {
+      "from": 297.82,
+      "to": 299.1,
+      "sid": 121,
+      "location": 2,
+      "content": "这是正确的代码"
+    },
+    {
+      "from": 301.94,
+      "to": 303.7,
+      "sid": 122,
+      "location": 2,
+      "content": "现在让我们再试一次"
+    },
+    {
+      "from": 303.7,
+      "to": 306.62,
+      "sid": 123,
+      "location": 2,
+      "content": "确保我们理解代码在做什么"
+    },
+    {
+      "from": 311.12,
+      "to": 313.26,
+      "sid": 124,
+      "location": 2,
+      "content": "现在可以出现的第二个问题"
+    },
+    {
+      "from": 313.26,
+      "to": 315.38,
+      "sid": 125,
+      "location": 2,
+      "content": "它不知道我在什么环境中运行"
+    },
+    {
+      "from": 315.38,
+      "to": 317.72,
+      "sid": 126,
+      "location": 2,
+      "content": "如果你注意到它说嘿"
+    },
+    {
+      "from": 317.82,
+      "to": 319.88,
+      "sid": 127,
+      "location": 2,
+      "content": "这是一个高深莫测的错误消息"
+    },
+    {
+      "from": 319.88,
+      "to": 322.9,
+      "sid": 128,
+      "location": 2,
+      "content": "如果你没有经常使用木星笔记本异步"
+    },
+    {
+      "from": 322.9,
+      "to": 325.64,
+      "sid": 129,
+      "location": 2,
+      "content": "你可能不知道这意味着什么"
+    },
+    {
+      "from": 326.4,
+      "to": 327.64,
+      "sid": 130,
+      "location": 2,
+      "content": "但幸运的是"
+    },
+    {
+      "from": 329.72,
+      "to": 330.48,
+      "sid": 131,
+      "location": 2,
+      "content": "再一次"
+    },
+    {
+      "from": 330.48,
+      "to": 331.9,
+      "sid": 132,
+      "location": 2,
+      "content": "你可以对模特说"
+    },
+    {
+      "from": 331.9,
+      "to": 332.6,
+      "sid": 133,
+      "location": 2,
+      "content": "嘿嘿"
+    },
+    {
+      "from": 332.6,
+      "to": 333.54,
+      "sid": 134,
+      "location": 2,
+      "content": "i"
+    },
+    {
+      "from": 333.54,
+      "to": 338.12,
+      "sid": 135,
+      "location": 2,
+      "content": "我正在使用木星，并希望使这一工作"
+    },
+    {
+      "from": 340.4,
+      "to": 341.44,
+      "sid": 136,
+      "location": 2,
+      "content": "你把它修好"
+    },
+    {
+      "from": 342.719,
+      "to": 345.619,
+      "sid": 137,
+      "location": 2,
+      "content": "具体的问题是已经有一个事件循环在运行"
+    },
+    {
+      "from": 345.619,
+      "to": 347.079,
+      "sid": 138,
+      "location": 2,
+      "content": "所以您需要使用这个Nest异步"
+    },
+    {
+      "from": 347.079,
+      "to": 348.64,
+      "sid": 139,
+      "location": 2,
+      "content": "i o图书馆"
+    },
+    {
+      "from": 348.96,
+      "to": 350.28,
+      "sid": 140,
+      "location": 2,
+      "content": "您需要调用异步"
+    },
+    {
+      "from": 350.28,
+      "to": 351.44,
+      "sid": 141,
+      "location": 2,
+      "content": "i o点pi"
+    },
+    {
+      "from": 351.44,
+      "to": 353.13,
+      "sid": 142,
+      "location": 2,
+      "content": "模特知道这一切"
+    },
+    {
+      "from": 353.13,
+      "to": 357.62,
+      "sid": 143,
+      "location": 2,
+      "content": "正确地将所有这些部分实例化到机器人中"
+    },
+    {
+      "from": 357.62,
+      "to": 359.22,
+      "sid": 144,
+      "location": 2,
+      "content": "它甚至帮助你有益地告诉你"
+    },
+    {
+      "from": 359.22,
+      "to": 359.38,
+      "sid": 145,
+      "location": 2,
+      "content": "哦"
+    },
+    {
+      "from": 359.38,
+      "to": 360.3,
+      "sid": 146,
+      "location": 2,
+      "content": "你在木星上奔跑"
+    },
+    {
+      "from": 360.3,
+      "to": 360.5,
+      "sid": 147,
+      "location": 2,
+      "content": "嗯"
+    },
+    {
+      "from": 360.5,
+      "to": 363.42,
+      "sid": 148,
+      "location": 2,
+      "content": "您可以这样做Bang PIP安装，以便安装包"
+    },
+    {
+      "from": 363.42,
+      "to": 364.64,
+      "sid": 149,
+      "location": 2,
+      "content": "如果你还没有"
+    },
+    {
+      "from": 364.64,
+      "to": 366.04,
+      "sid": 150,
+      "location": 2,
+      "content": "这很有帮助"
+    },
+    {
+      "from": 367.46,
+      "to": 370.62,
+      "sid": 151,
+      "location": 2,
+      "content": "现在我们要跑了，看起来好像发生了什么事"
+    },
+    {
+      "from": 370.62,
+      "to": 376.18,
+      "sid": 152,
+      "location": 2,
+      "content": "所以我要做的第一件事就是去解决我们的不和"
+    },
+    {
+      "from": 376.18,
+      "to": 382.35,
+      "sid": 153,
+      "location": 2,
+      "content": "我会粘贴我们不和本身的截图"
+    },
+    {
+      "from": 382.35,
+      "to": 383.07,
+      "sid": 154,
+      "location": 2,
+      "content": "所以要记住"
+    },
+    {
+      "from": 383.07,
+      "to": 385.99,
+      "sid": 155,
+      "location": 2,
+      "content": "GPT4不仅仅是一个语言模型"
+    },
+    {
+      "from": 385.99,
+      "to": 388.58,
+      "sid": 156,
+      "location": 2,
+      "content": "它也是一个视觉模型"
+    },
+    {
+      "from": 388.58,
+      "to": 393.42,
+      "sid": 157,
+      "location": 2,
+      "content": "事实上，它可以灵活地接受穿插图像和文本的输入"
+    },
+    {
+      "from": 393.42,
+      "to": 395.49,
+      "sid": 158,
+      "location": 2,
+      "content": "任意地像一份文件"
+    },
+    {
+      "from": 395.49,
+      "to": 398.77,
+      "sid": 159,
+      "location": 2,
+      "content": "现在图像功能正在预览中"
+    },
+    {
+      "from": 398.77,
+      "to": 400.75,
+      "sid": 160,
+      "location": 2,
+      "content": "所以这将是一个小小的先睹为快"
+    },
+    {
+      "from": 400.75,
+      "to": 402.13,
+      "sid": 161,
+      "location": 2,
+      "content": "它还没有公开"
+    },
+    {
+      "from": 402.13,
+      "to": 404.11,
+      "sid": 162,
+      "location": 2,
+      "content": "这是我们和一个合作伙伴合作的东西，叫做"
+    },
+    {
+      "from": 404.11,
+      "to": 404.83,
+      "sid": 163,
+      "location": 2,
+      "content": "做我的眼睛"
+    },
+    {
+      "from": 404.83,
+      "to": 407.88,
+      "sid": 164,
+      "location": 2,
+      "content": "为了真正开始开发它并为黄金时段做好准备"
+    },
+    {
+      "from": 408.219,
+      "to": 409.659,
+      "sid": 165,
+      "location": 2,
+      "content": "但你可以问任何你喜欢的问题"
+    },
+    {
+      "from": 409.659,
+      "to": 410.359,
+      "sid": 166,
+      "location": 2,
+      "content": "比如说"
+    },
+    {
+      "from": 410.359,
+      "to": 411.579,
+      "sid": 167,
+      "location": 2,
+      "content": "我不能"
+    },
+    {
+      "from": 411.579,
+      "to": 411.899,
+      "sid": 168,
+      "location": 2,
+      "content": "你知道的"
+    },
+    {
+      "from": 411.899,
+      "to": 412.679,
+      "sid": 169,
+      "location": 2,
+      "content": "我会说"
+    },
+    {
+      "from": 412.679,
+      "to": 414.26,
+      "sid": 170,
+      "location": 2,
+      "content": "GP 4"
+    },
+    {
+      "from": 415.36,
+      "to": 416.64,
+      "sid": 171,
+      "location": 2,
+      "content": "你好世界"
+    },
+    {
+      "from": 425.04,
+      "to": 425.78,
+      "sid": 172,
+      "location": 2,
+      "content": "所有的权利"
+    },
+    {
+      "from": 425.78,
+      "to": 428.4,
+      "sid": 173,
+      "location": 2,
+      "content": "首先想想你自己会怎么做"
+    },
+    {
+      "from": 428.4,
+      "to": 430.24,
+      "sid": 174,
+      "location": 2,
+      "content": "你可以掌握很多不同的东西"
+    },
+    {
+      "from": 430.24,
+      "to": 432.52,
+      "sid": 175,
+      "location": 2,
+      "content": "你可以描述系统的许多不同部分"
+    },
+    {
+      "from": 432.52,
+      "to": 434.2,
+      "sid": 176,
+      "location": 2,
+      "content": "我们可以转到实际的代码"
+    },
+    {
+      "from": 434.2,
+      "to": 435.2,
+      "sid": 177,
+      "location": 2,
+      "content": "我们可以看到是的"
+    },
+    {
+      "from": 435.2,
+      "to": 437.04,
+      "sid": 178,
+      "location": 2,
+      "content": "我们实际上收到了消息"
+    },
+    {
+      "from": 437.04,
+      "to": 440.82,
+      "sid": 179,
+      "location": 2,
+      "content": "已经为我们的API格式化了适当的请求"
+    },
+    {
+      "from": 441.52,
+      "to": 442.8,
+      "sid": 180,
+      "location": 2,
+      "content": "现在我们等待"
+    },
+    {
+      "from": 442.8,
+      "to": 444.04,
+      "sid": 181,
+      "location": 2,
+      "content": "因为你知道"
+    },
+    {
+      "from": 444.04,
+      "to": 445.08,
+      "sid": 182,
+      "location": 2,
+      "content": "我们要做的一件事是"
+    },
+    {
+      "from": 445.08,
+      "to": 446.34,
+      "sid": 183,
+      "location": 2,
+      "content": "我们必须使系统更快"
+    },
+    {
+      "from": 446.34,
+      "to": 448.57,
+      "sid": 184,
+      "location": 2,
+      "content": "这是我们正在努力优化的事情之一"
+    },
+    {
+      "from": 448.57,
+      "to": 449.55,
+      "sid": 185,
+      "location": 2,
+      "content": "同时"
+    },
+    {
+      "from": 449.55,
+      "to": 451.45,
+      "sid": 186,
+      "location": 2,
+      "content": "我只想对正在观看的观众说"
+    },
+    {
+      "from": 451.45,
+      "to": 453.07,
+      "sid": 187,
+      "location": 2,
+      "content": "接下来我们将接受观众的要求"
+    },
+    {
+      "from": 453.07,
+      "to": 456.919,
+      "sid": 188,
+      "location": 2,
+      "content": "所以如果你有一个形象和一个你喜欢完成的任务"
+    },
+    {
+      "from": 456.919,
+      "to": 458.559,
+      "sid": 189,
+      "location": 2,
+      "content": "请把它提交给不和"
+    },
+    {
+      "from": 458.559,
+      "to": 461.14,
+      "sid": 190,
+      "location": 2,
+      "content": "我们的版主会选择一个运行"
+    },
+    {
+      "from": 465.28,
+      "to": 467.4,
+      "sid": 191,
+      "location": 2,
+      "content": "所以我们可以看到不和谐"
+    },
+    {
+      "from": 467.4,
+      "to": 467.68,
+      "sid": 192,
+      "location": 2,
+      "content": "哦"
+    },
+    {
+      "from": 467.68,
+      "to": 469.2,
+      "sid": 193,
+      "location": 2,
+      "content": "看起来我们有反应了"
+    },
+    {
+      "from": 470.58,
+      "to": 473.02,
+      "sid": 194,
+      "location": 2,
+      "content": "所以这是一个不和谐的应用程序界面的截图"
+    },
+    {
+      "from": 473.02,
+      "to": 473.72,
+      "sid": 195,
+      "location": 2,
+      "content": "挺好的"
+    },
+    {
+      "from": 473.72,
+      "to": 474.7,
+      "sid": 196,
+      "location": 2,
+      "content": "甚至没有描述它"
+    },
+    {
+      "from": 474.7,
+      "to": 476.08,
+      "sid": 197,
+      "location": 2,
+      "content": "它知道这是不和"
+    },
+    {
+      "from": 476.08,
+      "to": 476.96,
+      "sid": 198,
+      "location": 2,
+      "content": "可能是不和"
+    },
+    {
+      "from": 476.96,
+      "to": 477.36,
+      "sid": 199,
+      "location": 2,
+      "content": "写在那里"
+    },
+    {
+      "from": 477.36,
+      "to": 479.04,
+      "sid": 200,
+      "location": 2,
+      "content": "在某个地方，它只是知道这一点"
+    },
+    {
+      "from": 479.04,
+      "to": 480.26,
+      "sid": 201,
+      "location": 2,
+      "content": "根据以前的经验"
+    },
+    {
+      "from": 480.26,
+      "to": 485.02,
+      "sid": 202,
+      "location": 2,
+      "content": "UM服务器图标标签GD四详细描述了界面"
+    },
+    {
+      "from": 485.02,
+      "to": 487.86,
+      "sid": 203,
+      "location": 2,
+      "content": "谈论所有的人告诉我，我应该做"
+    },
+    {
+      "from": 487.86,
+      "to": 490.31,
+      "sid": 204,
+      "location": 2,
+      "content": "Q我非常非常善良的观众"
+    },
+    {
+      "from": 491.51,
+      "to": 493.51,
+      "sid": 205,
+      "location": 2,
+      "content": "并描述了"
+    },
+    {
+      "from": 493.51,
+      "to": 494.73,
+      "sid": 206,
+      "location": 2,
+      "content": "通知消息"
+    },
+    {
+      "from": 494.73,
+      "to": 496.6,
+      "sid": 207,
+      "location": 2,
+      "content": "和频道中的用户"
+    },
+    {
+      "from": 496.6,
+      "to": 497.46,
+      "sid": 208,
+      "location": 2,
+      "content": "所以你去那里"
+    },
+    {
+      "from": 497.46,
+      "to": 497.88,
+      "sid": 209,
+      "location": 2,
+      "content": "那是一些"
+    },
+    {
+      "from": 497.88,
+      "to": 500.3,
+      "sid": 210,
+      "location": 2,
+      "content": "这是一个相当好的理解现在"
+    },
+    {
+      "from": 500.3,
+      "to": 501.08,
+      "sid": 211,
+      "location": 2,
+      "content": "下一个"
+    },
+    {
+      "from": 501.08,
+      "to": 503.96,
+      "sid": 212,
+      "location": 2,
+      "content": "如果你注意到首先我们有一个帖子"
+    },
+    {
+      "from": 503.96,
+      "to": 507.88,
+      "sid": 213,
+      "location": 2,
+      "content": "但模型实际上并没有看到信息"
+    },
+    {
+      "from": 507.88,
+      "to": 511.5,
+      "sid": 214,
+      "location": 2,
+      "content": "那么这是模型的失败还是模型周围的系统的失败"
+    },
+    {
+      "from": 511.5,
+      "to": 511.94,
+      "sid": 215,
+      "location": 2,
+      "content": "嗯"
+    },
+    {
+      "from": 511.94,
+      "to": 513.039,
+      "sid": 216,
+      "location": 2,
+      "content": "我们可以看一下"
+    },
+    {
+      "from": 513.36,
+      "to": 515.059,
+      "sid": 217,
+      "location": 2,
+      "content": "如果你注意到这里"
+    },
+    {
+      "from": 515.059,
+      "to": 516.36,
+      "sid": 218,
+      "location": 2,
+      "content": "内容是空字符串"
+    },
+    {
+      "from": 516.36,
+      "to": 518.979,
+      "sid": 219,
+      "location": 2,
+      "content": "我们收到一条空白消息内容"
+    },
+    {
+      "from": 519.559,
+      "to": 523.0,
+      "sid": 220,
+      "location": 2,
+      "content": "原因是我们在人工智能上玩的一个肮脏的把戏"
+    },
+    {
+      "from": 523.0,
+      "to": 526.66,
+      "sid": 221,
+      "location": 2,
+      "content": "所以如果你去不和谐文档"
+    },
+    {
+      "from": 528.04,
+      "to": 532.94,
+      "sid": 222,
+      "location": 2,
+      "content": "你一直滚动到我"
+    },
+    {
+      "from": 532.94,
+      "to": 534.28,
+      "sid": 223,
+      "location": 2,
+      "content": "我能看到这对我来说很难"
+    },
+    {
+      "from": 534.28,
+      "to": 537.8,
+      "sid": 224,
+      "location": 2,
+      "content": "甚至诚实地找到消息内容的意图"
+    },
+    {
+      "from": 537.8,
+      "to": 538.22,
+      "sid": 225,
+      "location": 2,
+      "content": "你会看到的"
+    },
+    {
+      "from": 538.22,
+      "to": 541.06,
+      "sid": 226,
+      "location": 2,
+      "content": "这是在22年9月添加的"
+    },
+    {
+      "from": 541.06,
+      "to": 542.53,
+      "sid": 227,
+      "location": 2,
+      "content": "作为必填字段"
+    },
+    {
+      "from": 542.53,
+      "to": 546.03,
+      "sid": 228,
+      "location": 2,
+      "content": "因此，为了接收没有显式标记您的消息"
+    },
+    {
+      "from": 546.03,
+      "to": 549.92,
+      "sid": 229,
+      "location": 2,
+      "content": "您现在必须在代码中包含这个新的意图"
+    },
+    {
+      "from": 549.92,
+      "to": 552.2,
+      "sid": 230,
+      "location": 2,
+      "content": "记得我说过随着时间的推移，密集的变化很多吗"
+    },
+    {
+      "from": 552.2,
+      "to": 554.66,
+      "sid": 231,
+      "location": 2,
+      "content": "这比尽可能新的型号要更新得多"
+    },
+    {
+      "from": 554.66,
+      "to": 556.29,
+      "sid": 232,
+      "location": 2,
+      "content": "有可能知道"
+    },
+    {
+      "from": 556.29,
+      "to": 557.83,
+      "sid": 233,
+      "location": 2,
+      "content": "所以也许我们运气不好"
+    },
+    {
+      "from": 557.83,
+      "to": 559.21,
+      "sid": 234,
+      "location": 2,
+      "content": "我们必须手工调试这个"
+    },
+    {
+      "from": 559.21,
+      "to": 560.09,
+      "sid": 235,
+      "location": 2,
+      "content": "但又一次"
+    },
+    {
+      "from": 560.09,
+      "to": 566.4,
+      "sid": 236,
+      "location": 2,
+      "content": "我们现在可以尝试使用GPT 4的语言理解能力来解决这个问题"
+    },
+    {
+      "from": 566.4,
+      "to": 566.72,
+      "sid": 237,
+      "location": 2,
+      "content": "记住"
+    },
+    {
+      "from": 566.72,
+      "to": 567.94,
+      "sid": 238,
+      "location": 2,
+      "content": "这是一份类似的文件"
+    },
+    {
+      "from": 567.94,
+      "to": 571.03,
+      "sid": 239,
+      "location": 2,
+      "content": "我想这就像一万一万五千字"
+    },
+    {
+      "from": 571.03,
+      "to": 571.85,
+      "sid": 240,
+      "location": 2,
+      "content": "类似的东西"
+    },
+    {
+      "from": 571.85,
+      "to": 573.15,
+      "sid": 241,
+      "location": 2,
+      "content": "它的格式不是很好"
+    },
+    {
+      "from": 573.15,
+      "to": 574.35,
+      "sid": 242,
+      "location": 2,
+      "content": "今天是一个命令日"
+    },
+    {
+      "from": 574.35,
+      "to": 575.319,
+      "sid": 243,
+      "location": 2,
+      "content": "复制粘贴"
+    },
+    {
+      "from": 575.319,
+      "to": 575.759,
+      "sid": 244,
+      "location": 2,
+      "content": "就像"
+    },
+    {
+      "from": 575.759,
+      "to": 577.559,
+      "sid": 245,
+      "location": 2,
+      "content": "这是它应该解析的"
+    },
+    {
+      "from": 577.559,
+      "to": 579.739,
+      "sid": 246,
+      "location": 2,
+      "content": "在那份文件中间发现"
+    },
+    {
+      "from": 579.739,
+      "to": 580.199,
+      "sid": 247,
+      "location": 2,
+      "content": "哦耶"
+    },
+    {
+      "from": 580.199,
+      "to": 582.03,
+      "sid": 248,
+      "location": 2,
+      "content": "现在需要的消息内容"
+    },
+    {
+      "from": 582.03,
+      "to": 583.64,
+      "sid": 249,
+      "location": 2,
+      "content": "但让我们看看我们能不能做到"
+    },
+    {
+      "from": 583.74,
+      "to": 585.68,
+      "sid": 250,
+      "location": 2,
+      "content": "所以我们会要求"
+    },
+    {
+      "from": 585.68,
+      "to": 590.339,
+      "sid": 251,
+      "location": 2,
+      "content": "我收到空白消息内容"
+    },
+    {
+      "from": 590.68,
+      "to": 591.4,
+      "sid": 252,
+      "location": 2,
+      "content": "你能不能"
+    },
+    {
+      "from": 592.4,
+      "to": 593.719,
+      "sid": 253,
+      "location": 2,
+      "content": "为什么会发生这种事"
+    },
+    {
+      "from": 596.18,
+      "to": 597.5,
+      "sid": 254,
+      "location": 2,
+      "content": "我怎么修好它"
+    },
+    {
+      "from": 600.74,
+      "to": 601.9,
+      "sid": 255,
+      "location": 2,
+      "content": "所以有一件事是新的"
+    },
+    {
+      "from": 601.9,
+      "to": 604.079,
+      "sid": 256,
+      "location": 2,
+      "content": "GPT四是上下文长度"
+    },
+    {
+      "from": 604.2,
+      "to": 608.04,
+      "sid": 257,
+      "location": 2,
+      "content": "三万两千张代币是我们现在支持的上限"
+    },
+    {
+      "from": 608.04,
+      "to": 612.38,
+      "sid": 258,
+      "location": 2,
+      "content": "该模型能够灵活地使用长文档"
+    },
+    {
+      "from": 613.38,
+      "to": 614.94,
+      "sid": 259,
+      "location": 2,
+      "content": "这是我们仍在优化的东西"
+    },
+    {
+      "from": 614.94,
+      "to": 617.94,
+      "sid": 260,
+      "location": 2,
+      "content": "所以我们建议尝试一下"
+    },
+    {
+      "from": 617.94,
+      "to": 620.58,
+      "sid": 261,
+      "location": 2,
+      "content": "但不一定要把它放大"
+    },
+    {
+      "from": 620.58,
+      "to": 621.38,
+      "sid": 262,
+      "location": 2,
+      "content": "还没有"
+    },
+    {
+      "from": 621.38,
+      "to": 624.11,
+      "sid": 263,
+      "location": 2,
+      "content": "除非您有一个真正从中受益的应用程序"
+    },
+    {
+      "from": 624.11,
+      "to": 626.01,
+      "sid": 264,
+      "location": 2,
+      "content": "所以如果你真的对长上下文感兴趣"
+    },
+    {
+      "from": 626.01,
+      "to": 630.13,
+      "sid": 265,
+      "location": 2,
+      "content": "请告诉我们，我们想看看它解锁了什么样的应用程序"
+    },
+    {
+      "from": 630.13,
+      "to": 631.9,
+      "sid": 266,
+      "location": 2,
+      "content": "但如果你看到它说"
+    },
+    {
+      "from": 631.9,
+      "to": 632.3,
+      "sid": 267,
+      "location": 2,
+      "content": "哦耶"
+    },
+    {
+      "from": 632.3,
+      "to": 634.2,
+      "sid": 268,
+      "location": 2,
+      "content": "未启用网格内容意图"
+    },
+    {
+      "from": 634.2,
+      "to": 636.58,
+      "sid": 269,
+      "location": 2,
+      "content": "所以你可以让模型为你写一些代码"
+    },
+    {
+      "from": 636.58,
+      "to": 638.459,
+      "sid": 270,
+      "location": 2,
+      "content": "或者你可以"
+    },
+    {
+      "from": 638.54,
+      "to": 640.32,
+      "sid": 271,
+      "location": 2,
+      "content": "我其实只是"
+    },
+    {
+      "from": 640.32,
+      "to": 641.12,
+      "sid": 272,
+      "location": 2,
+      "content": "你知道的"
+    },
+    {
+      "from": 641.12,
+      "to": 642.84,
+      "sid": 273,
+      "location": 2,
+      "content": "用老式的方法做"
+    },
+    {
+      "from": 642.84,
+      "to": 644.3,
+      "sid": 274,
+      "location": 2,
+      "content": "哪一种都可以"
+    },
+    {
+      "from": 645.4,
+      "to": 647.38,
+      "sid": 275,
+      "location": 2,
+      "content": "我认为这是一个增强工具"
+    },
+    {
+      "from": 647.38,
+      "to": 648.66,
+      "sid": 276,
+      "location": 2,
+      "content": "让你更有效率"
+    },
+    {
+      "from": 648.66,
+      "to": 651.38,
+      "sid": 277,
+      "location": 2,
+      "content": "但你在驾驶座上仍然很重要"
+    },
+    {
+      "from": 651.38,
+      "to": 654.31,
+      "sid": 278,
+      "location": 2,
+      "content": "是经理，知道发生了什么"
+    },
+    {
+      "from": 654.31,
+      "to": 655.63,
+      "sid": 279,
+      "location": 2,
+      "content": "所以现在我们又联系在一起了"
+    },
+    {
+      "from": 656.63,
+      "to": 657.55,
+      "sid": 280,
+      "location": 2,
+      "content": "还有鲍里斯"
+    },
+    {
+      "from": 657.55,
+      "to": 659.76,
+      "sid": 281,
+      "location": 2,
+      "content": "您想重新运行消息吗"
+    },
+    {
+      "from": 670.88,
+      "to": 673.16,
+      "sid": 282,
+      "location": 2,
+      "content": "我们再一次看到我们收到了它"
+    },
+    {
+      "from": 673.16,
+      "to": 675.579,
+      "sid": 283,
+      "location": 2,
+      "content": "即使机器人没有显式标记"
+    },
+    {
+      "from": 676.42,
+      "to": 678.04,
+      "sid": 284,
+      "location": 2,
+      "content": "似乎是一个相当不错的"
+    },
+    {
+      "from": 680.42,
+      "to": 682.48,
+      "sid": 285,
+      "location": 2,
+      "content": "很好的描述有趣"
+    },
+    {
+      "from": 682.48,
+      "to": 683.62,
+      "sid": 286,
+      "location": 2,
+      "content": "这是一个有趣的图像"
+    },
+    {
+      "from": 683.62,
+      "to": 685.28,
+      "sid": 287,
+      "location": 2,
+      "content": "实际上看起来像是洋娃娃生成的"
+    },
+    {
+      "from": 685.28,
+      "to": 688.38,
+      "sid": 288,
+      "location": 2,
+      "content": "让我们也试试这个"
+    },
+    {
+      "from": 694.16,
+      "to": 695.82,
+      "sid": 289,
+      "location": 2,
+      "content": "这个图像有什么好笑的"
+    },
+    {
+      "from": 695.82,
+      "to": 696.3,
+      "sid": 290,
+      "location": 2,
+      "content": "哦"
+    },
+    {
+      "from": 696.3,
+      "to": 697.5,
+      "sid": 291,
+      "location": 2,
+      "content": "已经提交了"
+    },
+    {
+      "from": 700.76,
+      "to": 702.6,
+      "sid": 292,
+      "location": 2,
+      "content": "我们可以再次验证这一点"
+    },
+    {
+      "from": 702.6,
+      "to": 704.04,
+      "sid": 293,
+      "location": 2,
+      "content": "进行正确的API调用"
+    },
+    {
+      "from": 706.98,
+      "to": 708.46,
+      "sid": 294,
+      "location": 2,
+      "content": "松鼠通常吃坚果"
+    },
+    {
+      "from": 708.46,
+      "to": 711.28,
+      "sid": 295,
+      "location": 2,
+      "content": "我们不指望他们使用相机或表现得像人"
+    },
+    {
+      "from": 711.28,
+      "to": 712.4,
+      "sid": 296,
+      "location": 2,
+      "content": "所以我想这是"
+    },
+    {
+      "from": 712.4,
+      "to": 715.21,
+      "sid": 297,
+      "location": 2,
+      "content": "这很好地解释了为什么那个图像很有趣"
+    },
+    {
+      "from": 715.21,
+      "to": 716.41,
+      "sid": 298,
+      "location": 2,
+      "content": "所以我要给你看"
+    },
+    {
+      "from": 716.41,
+      "to": 720.979,
+      "sid": 299,
+      "location": 2,
+      "content": "你可以用这个模型做什么的另一个例子"
+    },
+    {
+      "from": 721.82,
+      "to": 726.86,
+      "sid": 300,
+      "location": 2,
+      "content": "所以我这里有一个很好的手绘笑话网站的模型"
+    },
+    {
+      "from": 726.86,
+      "to": 729.66,
+      "sid": 301,
+      "location": 2,
+      "content": "绝对值得贴在我的冰箱上"
+    },
+    {
+      "from": 730.38,
+      "to": 732.54,
+      "sid": 302,
+      "location": 2,
+      "content": "所以我要拿出我的手机"
+    },
+    {
+      "from": 734.06,
+      "to": 738.52,
+      "sid": 303,
+      "location": 2,
+      "content": "照一张这个模型的照片"
+    },
+    {
+      "from": 739.7,
+      "to": 744.04,
+      "sid": 304,
+      "location": 2,
+      "content": "我要把它送到我们的不和"
+    },
+    {
+      "from": 753.5,
+      "to": 754.26,
+      "sid": 305,
+      "location": 2,
+      "content": "所有的权利"
+    },
+    {
+      "from": 754.26,
+      "to": 755.959,
+      "sid": 306,
+      "location": 2,
+      "content": "要把它送到我们的不和"
+    },
+    {
+      "from": 764.94,
+      "to": 765.54,
+      "sid": 307,
+      "location": 2,
+      "content": "这是"
+    },
+    {
+      "from": 765.54,
+      "to": 765.86,
+      "sid": 308,
+      "location": 2,
+      "content": "当然啦"
+    },
+    {
+      "from": 765.86,
+      "to": 767.0,
+      "sid": 309,
+      "location": 2,
+      "content": "最岩石的部分"
+    },
+    {
+      "from": 767.0,
+      "to": 769.5,
+      "sid": 310,
+      "location": 2,
+      "content": "确保我们真的把它发送到正确的频道"
+    },
+    {
+      "from": 772.96,
+      "to": 773.58,
+      "sid": 311,
+      "location": 2,
+      "content": "事实上"
+    },
+    {
+      "from": 773.58,
+      "to": 775.4,
+      "sid": 312,
+      "location": 2,
+      "content": "我想也许我没有"
+    },
+    {
+      "from": 778.72,
+      "to": 780.219,
+      "sid": 313,
+      "location": 2,
+      "content": "发送到错误的频道"
+    },
+    {
+      "from": 780.7,
+      "to": 781.3,
+      "sid": 314,
+      "location": 2,
+      "content": "这很有趣"
+    },
+    {
+      "from": 781.3,
+      "to": 782.52,
+      "sid": 315,
+      "location": 2,
+      "content": "总是"
+    },
+    {
+      "from": 782.52,
+      "to": 786.479,
+      "sid": 316,
+      "location": 2,
+      "content": "这些演示中最难做的非人工智能部分"
+    },
+    {
+      "from": 793.1,
+      "to": 793.86,
+      "sid": 317,
+      "location": 2,
+      "content": "开始了"
+    },
+    {
+      "from": 795.54,
+      "to": 797.099,
+      "sid": 318,
+      "location": 2,
+      "content": "技术现在解决了"
+    },
+    {
+      "from": 799.42,
+      "to": 801.06,
+      "sid": 319,
+      "location": 2,
+      "content": "现在我们等待"
+    },
+    {
+      "from": 803.64,
+      "to": 808.1,
+      "sid": 320,
+      "location": 2,
+      "content": "所以在我脑海中令人惊讶的是，发生了什么"
+    },
+    {
+      "from": 808.1,
+      "to": 810.3,
+      "sid": 321,
+      "location": 2,
+      "content": "我们在和一个神经网络说话"
+    },
+    {
+      "from": 810.32,
+      "to": 814.349,
+      "sid": 322,
+      "location": 2,
+      "content": "这个神经网络被训练来预测接下来会发生什么"
+    },
+    {
+      "from": 814.349,
+      "to": 817.749,
+      "sid": 323,
+      "location": 2,
+      "content": "是的我玩了这个游戏有人给我看了部分文件"
+    },
+    {
+      "from": 817.749,
+      "to": 821.99,
+      "sid": 324,
+      "location": 2,
+      "content": "然后在难以想象的大量内容中预测接下来会发生什么"
+    },
+    {
+      "from": 821.99,
+      "to": 824.41,
+      "sid": 325,
+      "location": 2,
+      "content": "从那里它学会了所有这些技能"
+    },
+    {
+      "from": 824.41,
+      "to": 827.53,
+      "sid": 326,
+      "location": 2,
+      "content": "你可以用所有这些非常灵活的方式来应用"
+    },
+    {
+      "from": 827.53,
+      "to": 830.47,
+      "sid": 327,
+      "location": 2,
+      "content": "所以我们现在可以把这个输出"
+    },
+    {
+      "from": 830.47,
+      "to": 831.09,
+      "sid": 328,
+      "location": 2,
+      "content": "所以字面上"
+    },
+    {
+      "from": 831.09,
+      "to": 835.68,
+      "sid": 329,
+      "location": 2,
+      "content": "我们只是说从图片中输出html"
+    },
+    {
+      "from": 837.76,
+      "to": 841.36,
+      "sid": 330,
+      "location": 2,
+      "content": "现在我们开始实际工作的JavaScript"
+    },
+    {
+      "from": 842.4,
+      "to": 845.14,
+      "sid": 331,
+      "location": 2,
+      "content": "填写笑话进行比较"
+    },
+    {
+      "from": 853.1,
+      "to": 857.74,
+      "sid": 332,
+      "location": 2,
+      "content": "就这样从手绘美丽的艺术品"
+    },
+    {
+      "from": 857.74,
+      "to": 861.68,
+      "sid": 333,
+      "location": 2,
+      "content": "如果我自己对工作网站这么说"
+    },
+    {
+      "from": 862.06,
+      "to": 863.54,
+      "sid": 334,
+      "location": 2,
+      "content": "这一切都是潜在的"
+    },
+    {
+      "from": 863.54,
+      "to": 863.9,
+      "sid": 335,
+      "location": 2,
+      "content": "对呀"
+    },
+    {
+      "from": 863.9,
+      "to": 866.4,
+      "sid": 336,
+      "location": 2,
+      "content": "你可以看到很多不同的应用程序"
+    },
+    {
+      "from": 866.4,
+      "to": 869.12,
+      "sid": 337,
+      "location": 2,
+      "content": "我们自己还在想新的方法来使用这个"
+    },
+    {
+      "from": 869.12,
+      "to": 871.16,
+      "sid": 338,
+      "location": 2,
+      "content": "所以我们要和我们的搭档一起工作"
+    },
+    {
+      "from": 871.16,
+      "to": 872.24,
+      "sid": 339,
+      "location": 2,
+      "content": "我们要从那里缩放"
+    },
+    {
+      "from": 872.24,
+      "to": 873.12,
+      "sid": 340,
+      "location": 2,
+      "content": "但请耐心等待"
+    },
+    {
+      "from": 873.12,
+      "to": 876.699,
+      "sid": 341,
+      "location": 2,
+      "content": "因为我们需要一些时间才能真正为每个人提供这个"
+    },
+    {
+      "from": 878.3,
+      "to": 880.26,
+      "sid": 342,
+      "location": 2,
+      "content": "我还有最后一件事要给你看"
+    },
+    {
+      "from": 880.26,
+      "to": 883.219,
+      "sid": 343,
+      "location": 2,
+      "content": "我已经向你展示了阅读现有内容"
+    },
+    {
+      "from": 883.22,
+      "to": 888.2,
+      "sid": 344,
+      "location": 2,
+      "content": "我已经向您展示了如何作为合作伙伴使用系统进行构建"
+    },
+    {
+      "from": 888.2,
+      "to": 892.3,
+      "sid": 345,
+      "location": 2,
+      "content": "我要展示的最后一件事是如何使用这个系统"
+    },
+    {
+      "from": 892.3,
+      "to": 894.6,
+      "sid": 346,
+      "location": 2,
+      "content": "完成一项我们都不喜欢做的任务"
+    },
+    {
+      "from": 894.6,
+      "to": 895.8,
+      "sid": 347,
+      "location": 2,
+      "content": "但我们都得"
+    },
+    {
+      "from": 896.8,
+      "to": 899.08,
+      "sid": 348,
+      "location": 2,
+      "content": "所以你可能已经猜到了我们要做的事情是税收"
+    },
+    {
+      "from": 901.44,
+      "to": 904.87,
+      "sid": 349,
+      "location": 2,
+      "content": "现在请注意，GPT不是认证的税务专业人员"
+    },
+    {
+      "from": 904.87,
+      "to": 905.43,
+      "sid": 350,
+      "location": 2,
+      "content": "我也不是"
+    },
+    {
+      "from": 905.43,
+      "to": 908.21,
+      "sid": 351,
+      "location": 2,
+      "content": "所以你应该经常和你的税务顾问核实"
+    },
+    {
+      "from": 908.21,
+      "to": 911.3,
+      "sid": 352,
+      "location": 2,
+      "content": "但理解一些密集的内容可能会有所帮助"
+    },
+    {
+      "from": 911.3,
+      "to": 915.14,
+      "sid": 353,
+      "location": 2,
+      "content": "能够赋予自己解决问题的能力"
+    },
+    {
+      "from": 915.14,
+      "to": 917.76,
+      "sid": 354,
+      "location": 2,
+      "content": "当你不能的时候，了解正在发生的事情"
+    },
+    {
+      "from": 917.76,
+      "to": 918.46,
+      "sid": 355,
+      "location": 2,
+      "content": "否则"
+    },
+    {
+      "from": 918.46,
+      "to": 920.84,
+      "sid": 356,
+      "location": 2,
+      "content": "所以在这种情况下，我将再次执行系统消息"
+    },
+    {
+      "from": 920.84,
+      "to": 923.06,
+      "sid": 357,
+      "location": 2,
+      "content": "我要告诉它，它的税GPT"
+    },
+    {
+      "from": 923.06,
+      "to": 926.52,
+      "sid": 358,
+      "location": 2,
+      "content": "这不是我们训练到这个模型中的一个特定的东西"
+    },
+    {
+      "from": 926.52,
+      "to": 927.56,
+      "sid": 359,
+      "location": 2,
+      "content": "你可以很有创造力"
+    },
+    {
+      "from": 927.56,
+      "to": 930.69,
+      "sid": 360,
+      "location": 2,
+      "content": "如果你想通过系统消息让模型真正处于"
+    },
+    {
+      "from": 930.69,
+      "to": 931.45,
+      "sid": 361,
+      "location": 2,
+      "content": "你是做什么工作的"
+    },
+    {
+      "from": 931.45,
+      "to": 932.29,
+      "sid": 362,
+      "location": 2,
+      "content": "你应该怎么做"
+    },
+    {
+      "from": 933.37,
+      "to": 936.46,
+      "sid": 363,
+      "location": 2,
+      "content": "所以我粘贴了税法"
+    },
+    {
+      "from": 936.46,
+      "to": 939.19,
+      "sid": 364,
+      "location": 2,
+      "content": "这是大约16页的税法"
+    },
+    {
+      "from": 939.19,
+      "to": 941.21,
+      "sid": 365,
+      "location": 2,
+      "content": "有一个关于爱丽丝和鲍勃的问题"
+    },
+    {
+      "from": 941.21,
+      "to": 942.57,
+      "sid": 366,
+      "location": 2,
+      "content": "他们一度结婚了"
+    },
+    {
+      "from": 942.57,
+      "to": 944.57,
+      "sid": 367,
+      "location": 2,
+      "content": "这是他们的收入"
+    },
+    {
+      "from": 944.57,
+      "to": 945.63,
+      "sid": 368,
+      "location": 2,
+      "content": "他们接受标准扣除"
+    },
+    {
+      "from": 945.63,
+      "to": 946.59,
+      "sid": 369,
+      "location": 2,
+      "content": "他们一起申请"
+    },
+    {
+      "from": 946.59,
+      "to": 947.68,
+      "sid": 370,
+      "location": 2,
+      "content": "所以第一个问题"
+    },
+    {
+      "from": 947.68,
+      "to": 950.64,
+      "sid": 371,
+      "location": 2,
+      "content": "他们2018年的标准扣除额是多少"
+    },
+    {
+      "from": 951.34,
+      "to": 953.24,
+      "sid": 372,
+      "location": 2,
+      "content": "所以当模型嘎嘎作响的时候"
+    },
+    {
+      "from": 953.24,
+      "to": 955.56,
+      "sid": 373,
+      "location": 2,
+      "content": "我要亲手解决这个问题。"
+    },
+    {
+      "from": 955.56,
+      "to": 956.819,
+      "sid": 374,
+      "location": 2,
+      "content": "向你展示其中的内容"
+    },
+    {
+      "from": 956.819,
+      "to": 960.059,
+      "sid": 375,
+      "location": 2,
+      "content": "所以标准扣除额是基本标准扣除额"
+    },
+    {
+      "from": 960.059,
+      "to": 960.919,
+      "sid": 376,
+      "location": 2,
+      "content": "加上额外的"
+    },
+    {
+      "from": 960.919,
+      "to": 965.69,
+      "sid": 377,
+      "location": 2,
+      "content": "基本的是两个百分之百的联合返回c分段"
+    },
+    {
+      "from": 965.69,
+      "to": 966.67,
+      "sid": 378,
+      "location": 2,
+      "content": "就在这里"
+    },
+    {
+      "from": 966.67,
+      "to": 967.09,
+      "sid": 379,
+      "location": 2,
+      "content": "好的"
+    },
+    {
+      "from": 967.09,
+      "to": 968.7,
+      "sid": 380,
+      "location": 2,
+      "content": "所以额外的不适用"
+    },
+    {
+      "from": 968.7,
+      "to": 970.46,
+      "sid": 381,
+      "location": 2,
+      "content": "限制不适用"
+    },
+    {
+      "from": 970.46,
+      "to": 971.6,
+      "sid": 382,
+      "location": 2,
+      "content": "我很好"
+    },
+    {
+      "from": 971.6,
+      "to": 972.42,
+      "sid": 383,
+      "location": 2,
+      "content": "现在这些适用于"
+    },
+    {
+      "from": 972.42,
+      "to": 975.33,
+      "sid": 384,
+      "location": 2,
+      "content": "哦，等等，应税年度218的特殊规则"
+    },
+    {
+      "from": 975.33,
+      "to": 978.17,
+      "sid": 385,
+      "location": 2,
+      "content": "也就是我们在25年中关心的那个"
+    },
+    {
+      "from": 978.17,
+      "to": 980.65,
+      "sid": 386,
+      "location": 2,
+      "content": "你得用一万二千代替三千"
+    },
+    {
+      "from": 980.65,
+      "to": 982.85,
+      "sid": 387,
+      "location": 2,
+      "content": "所以一万两千人中的百分之二百"
+    },
+    {
+      "from": 982.85,
+      "to": 984.939,
+      "sid": 388,
+      "location": 2,
+      "content": "两万四千是最终答案"
+    },
+    {
+      "from": 985.86,
+      "to": 989.439,
+      "sid": 389,
+      "location": 2,
+      "content": "如果你注意到模型得到了同样的结论"
+    },
+    {
+      "from": 989.64,
+      "to": 994.439,
+      "sid": 390,
+      "location": 2,
+      "content": "你可以通读它的解释"
+    },
+    {
+      "from": 994.58,
+      "to": 995.82,
+      "sid": 391,
+      "location": 2,
+      "content": "告诉你真相"
+    },
+    {
+      "from": 995.82,
+      "to": 999.25,
+      "sid": 392,
+      "location": 2,
+      "content": "我第一次试图自己解决这个问题"
+    },
+    {
+      "from": 999.25,
+      "to": 1000.67,
+      "sid": 393,
+      "location": 2,
+      "content": "我想不通"
+    },
+    {
+      "from": 1000.67,
+      "to": 1003.19,
+      "sid": 394,
+      "location": 2,
+      "content": "我花了半个小时通读税法"
+    },
+    {
+      "from": 1003.19,
+      "to": 1004.91,
+      "sid": 395,
+      "location": 2,
+      "content": "试图弄清楚这一点，就像反向引用一样"
+    },
+    {
+      "from": 1004.91,
+      "to": 1006.17,
+      "sid": 396,
+      "location": 2,
+      "content": "为什么有一个子程序"
+    },
+    {
+      "from": 1006.17,
+      "to": 1007.849,
+      "sid": 397,
+      "location": 2,
+      "content": "到底发生了什么"
+    },
+    {
+      "from": 1007.849,
+      "to": 1010.909,
+      "sid": 398,
+      "location": 2,
+      "content": "只有通过让模型详细说明它的推理"
+    },
+    {
+      "from": 1010.909,
+      "to": 1012.649,
+      "sid": 399,
+      "location": 2,
+      "content": "然后我跟着那个"
+    },
+    {
+      "from": 1012.649,
+      "to": 1013.129,
+      "sid": 400,
+      "location": 2,
+      "content": "我就像"
+    },
+    {
+      "from": 1013.129,
+      "to": 1014.589,
+      "sid": 401,
+      "location": 2,
+      "content": "哦，我现在明白了"
+    },
+    {
+      "from": 1014.589,
+      "to": 1016.28,
+      "sid": 402,
+      "location": 2,
+      "content": "我明白这是怎么回事"
+    },
+    {
+      "from": 1016.28,
+      "to": 1019.34,
+      "sid": 403,
+      "location": 2,
+      "content": "所以我认为这就是这个系统的力量所在"
+    },
+    {
+      "from": 1019.34,
+      "to": 1020.38,
+      "sid": 404,
+      "location": 2,
+      "content": "它并不完美"
+    },
+    {
+      "from": 1020.38,
+      "to": 1021.46,
+      "sid": 405,
+      "location": 2,
+      "content": "但你也不是"
+    },
+    {
+      "from": 1021.46,
+      "to": 1025.618,
+      "sid": 406,
+      "location": 2,
+      "content": "一起是这个放大工具，让你达到新的高度"
+    },
+    {
+      "from": 1026.099,
+      "to": 1027.359,
+      "sid": 407,
+      "location": 2,
+      "content": "你可以走得更远"
+    },
+    {
+      "from": 1027.359,
+      "to": 1028.579,
+      "sid": 408,
+      "location": 2,
+      "content": "你可以说"
+    },
+    {
+      "from": 1028.579,
+      "to": 1029.24,
+      "sid": 409,
+      "location": 2,
+      "content": "好的"
+    },
+    {
+      "from": 1029.24,
+      "to": 1032.919,
+      "sid": 410,
+      "location": 2,
+      "content": "现在计算他们的总负债"
+    },
+    {
+      "from": 1038.0,
+      "to": 1038.88,
+      "sid": 411,
+      "location": 2,
+      "content": "开始了"
+    },
+    {
+      "from": 1038.88,
+      "to": 1040.419,
+      "sid": 412,
+      "location": 2,
+      "content": "它在计算"
+    },
+    {
+      "from": 1055.66,
+      "to": 1056.16,
+      "sid": 413,
+      "location": 2,
+      "content": "老实说"
+    },
+    {
+      "from": 1056.16,
+      "to": 1057.86,
+      "sid": 414,
+      "location": 2,
+      "content": "我每次都这么做"
+    },
+    {
+      "from": 1057.86,
+      "to": 1058.2,
+      "sid": 415,
+      "location": 2,
+      "content": "只是"
+    },
+    {
+      "from": 1058.2,
+      "to": 1058.98,
+      "sid": 416,
+      "location": 2,
+      "content": "太神奇了"
+    },
+    {
+      "from": 1058.98,
+      "to": 1061.31,
+      "sid": 417,
+      "location": 2,
+      "content": "这个模型太擅长心算了"
+    },
+    {
+      "from": 1061.31,
+      "to": 1063.35,
+      "sid": 418,
+      "location": 2,
+      "content": "这比我的心算强多了"
+    },
+    {
+      "from": 1063.35,
+      "to": 1064.93,
+      "sid": 419,
+      "location": 2,
+      "content": "它没有连接到计算器上"
+    },
+    {
+      "from": 1064.93,
+      "to": 1067.909,
+      "sid": 420,
+      "location": 2,
+      "content": "这是你可以尝试增强这些系统的另一种方式"
+    },
+    {
+      "from": 1067.909,
+      "to": 1071.629,
+      "sid": 421,
+      "location": 2,
+      "content": "但它有这些非常灵活的原始功能"
+    },
+    {
+      "from": 1071.629,
+      "to": 1072.669,
+      "sid": 422,
+      "location": 2,
+      "content": "它不在乎它是不是代码"
+    },
+    {
+      "from": 1072.669,
+      "to": 1073.829,
+      "sid": 423,
+      "location": 2,
+      "content": "它不在乎它是否是语言"
+    },
+    {
+      "from": 1073.829,
+      "to": 1075.31,
+      "sid": 424,
+      "location": 2,
+      "content": "它不在乎是不是税"
+    },
+    {
+      "from": 1075.31,
+      "to": 1080.58,
+      "sid": 425,
+      "location": 2,
+      "content": "所有这些功能都在一个系统中，可以应用于您关心的问题"
+    },
+    {
+      "from": 1080.58,
+      "to": 1081.64,
+      "sid": 426,
+      "location": 2,
+      "content": "对您的应用程序"
+    },
+    {
+      "from": 1081.64,
+      "to": 1082.54,
+      "sid": 427,
+      "location": 2,
+      "content": "朝着你建造的任何东西"
+    },
+    {
+      "from": 1083.74,
+      "to": 1084.78,
+      "sid": 428,
+      "location": 2,
+      "content": "所以要结束它"
+    },
+    {
+      "from": 1084.78,
+      "to": 1089.18,
+      "sid": 429,
+      "location": 2,
+      "content": "最后我要展示的是一点创造力"
+    },
+    {
+      "from": 1089.18,
+      "to": 1093.6,
+      "sid": 430,
+      "location": 2,
+      "content": "它现在把这个问题总结成一个押韵"
+    },
+    {
+      "from": 1101.02,
+      "to": 1105.59,
+      "sid": 431,
+      "location": 2,
+      "content": "这是一首关于纳税的美丽的诗"
+    },
+    {
+      "from": 1105.59,
+      "to": 1107.75,
+      "sid": 432,
+      "location": 2,
+      "content": "所以感谢大家的收看"
+    },
+    {
+      "from": 1107.75,
+      "to": 1112.16,
+      "sid": 433,
+      "location": 2,
+      "content": "我希望你能学到一些关于模型能做什么如何使用它的东西"
+    },
+    {
+      "from": 1112.16,
+      "to": 1113.38,
+      "sid": 434,
+      "location": 2,
+      "content": "而且老实说"
+    },
+    {
+      "from": 1113.38,
+      "to": 1115.97,
+      "sid": 435,
+      "location": 2,
+      "content": "我们只是真的很兴奋看到你要建造什么"
+    },
+    {
+      "from": 1115.97,
+      "to": 1117.89,
+      "sid": 436,
+      "location": 2,
+      "content": "我说过开元音"
+    },
+    {
+      "from": 1117.89,
+      "to": 1118.67,
+      "sid": 437,
+      "location": 2,
+      "content": "请投稿"
+    },
+    {
+      "from": 1118.67,
+      "to": 1120.79,
+      "sid": 438,
+      "location": 2,
+      "content": "我们认为这个模型改进了它"
+    },
+    {
+      "from": 1120.79,
+      "to": 1123.97,
+      "sid": 439,
+      "location": 2,
+      "content": "让它更上一层楼是每个人都可以做出贡献的事情"
+    },
+    {
+      "from": 1123.97,
+      "to": 1126.29,
+      "sid": 440,
+      "location": 2,
+      "content": "我们认为它真的能让很多人受益"
+    },
+    {
+      "from": 1126.29,
+      "to": 1127.78,
+      "sid": 441,
+      "location": 2,
+      "content": "我们需要你的帮助"
+    },
+    {
+      "from": 1127.78,
+      "to": 1128.74,
+      "sid": 442,
+      "location": 2,
+      "content": "所以非常感谢"
+    },
+    {
+      "from": 1128.74,
+      "to": 1130.36,
+      "sid": 443,
+      "location": 2,
+      "content": "我们很高兴看到你要建造什么"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "font_size": 0.4,
+  "font_color": "#FFFFFF",
+  "background_alpha": 0.5,
+  "background_color": "#9C27B0",
+  "Stroke": "none",
+  "body": [{
+    "from": 0, "to": 2.32, "location": 0, "content": "I'm really trying to put the model through the paces."
+  }, {
+    "from": 2.32, "to": 5, "location": 0, "content": "We're going to try Q, which if you think about this"
+  }, {
+    "from": 5, "to": 7.44, "location": 0, "content": "for a moment, I want the audience to really think about"
+  }, {
+    "from": 7.44, "to": 9.96, "location": 0, "content": "how would you do a summary of this article"
+  }, {
+    "from": 9.96, "to": 12.3, "location": 0, "content": "that all starts with Q. It's not easy."
+  }, {
+    "from": 21.48, "to": 22.84, "location": 0, "content": "It's pretty good."
+  }, {
+    "from": 22.84, "to": 24.4, "location": 0, "content": "That's pretty good."
+  }, {
+    "from": 24.4,
+    "to": 29.32,
+    "location": 0,
+    "content": "All right, so I've shown you summarizing an existing article."
+  }, {
+    "from": 29.32, "to": 32.28, "location": 0, "content": "I want to show you how you can flexibly combine ideas"
+  }, {
+    "from": 32.28, "to": 34.04, "location": 0, "content": "between different articles."
+  }, {
+    "from": 34.04, "to": 35.72, "location": 0, "content": "So I'm going to take this article that"
+  }, {
+    "from": 35.72, "to": 41, "location": 0, "content": "was on Hacker News yesterday, copy paste it,"
+  }, {
+    "from": 41,
+    "to": 43.52,
+    "location": 0,
+    "content": "and do the same conversation so it has all the context of what"
+  }, {
+    "from": 43.52, "to": 44.52, "location": 0, "content": "we were just doing."
+  }, {
+    "from": 44.52, "to": 49.04, "location": 0, "content": "I'm going to say, find one common theme between this"
+  }, {
+    "from": 49.04, "to": 51.24, "location": 0, "content": "article and the GPT-4 blog."
+  }, {
+    "from": 55, "to": 57.24, "location": 0, "content": "So this is an article about Pinecone,"
+  }]
+}

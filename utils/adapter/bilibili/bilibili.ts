@@ -7,7 +7,7 @@ import {
 } from "~utils/prompt/tokenize";
 import {chatTypes} from "~utils/constants";
 
-interface Subtitle {
+export interface Subtitle {
     font_size: number;
     font_color: string;
     background_alpha: number;
@@ -89,7 +89,7 @@ export class BilibiliAdapter implements Adapter {
     }
     
     static FirstPartPromptPrefix = (count): string => {
-        return `总结以下这段视频的部分字幕，请注意一共有${count}段。`;
+        return `总结以下这段视频的部分字幕，请注意一共有${count}个部分。`;
     }
 
     static promptFirstPartTemplate = (first_part: string, lang, start: number, end: number): string => {
@@ -97,11 +97,11 @@ export class BilibiliAdapter implements Adapter {
     }
 
     static promptMiddlePartTemplate = (other_part: string, lang, start: number, end: number, index): string => {
-        return `请用${lang}总结以下这段视频的部分字幕，字幕第${index}部分是${other_part}。${this.promptTemplate(start, end)}`;
+        return `请用${lang}总结以下这段视频的部分字幕，字幕第${index}部分如下：${other_part}。${this.promptTemplate(start, end)}`;
     }
 
     static promptFinishPartTemplate = (lang, start: number, end: number, count): string => {
-        return `请用${lang}总结你上述${count}部分回答。${this.promptTemplate(start, end)};`
+        return `请用${lang}总结你上述${count}部分回答。${this.promptTemplate(start, end)}`;
     }
 
     _getMaxLimit = () => {
@@ -233,13 +233,14 @@ export class BilibiliAdapter implements Adapter {
             } else {
                 result.push(
                     BilibiliAdapter.promptMiddlePartTemplate(tmp_string, this._lang, body[body.length - 1].from,
-                        body[body.length - 1].to, result.length)
+                        body[body.length - 1].to, result.length + 1)
                 );
             }
         }
         if (result.length > 0) {
             result[0] = `${BilibiliAdapter.FirstPartPromptPrefix(result.length)}\n${result[0]}`
         }
+
         if (result.length > 2) {
         // add last part if prompt split length > 2
             result.push(

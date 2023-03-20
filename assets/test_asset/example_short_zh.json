@@ -1,0 +1,57 @@
+{
+    "font_size": 0.4,
+    "font_color": "#FFFFFF",
+    "background_alpha": 0.5,
+    "background_color": "#9C27B0",
+    "Stroke": "none",
+    "type": "AIsubtitle",
+    "lang": "zh",
+    "version": "en-v1.2.0.4-t0.3.c",
+    "body": [{
+        "from": 0.12, "to": 0.72, "sid": 1, "location": 2, "content": "在这里雄心勃勃"
+    }, {
+        "from": 0.72, "to": 2.36, "sid": 2, "location": 2, "content": "我真的在努力让模特通过测试"
+    }, {
+        "from": 2.36, "to": 4.09, "sid": 3, "location": 2, "content": "我们要试试Q"
+    }, {
+        "from": 4.09, "to": 5.51, "sid": 4, "location": 2, "content": "如果你想一下这个"
+    }, {
+        "from": 5.51, "to": 7.35, "sid": 5, "location": 2, "content": "我想让观众真正思考"
+    }, {
+        "from": 7.35, "to": 11.34, "sid": 6, "location": 2, "content": "你如何做一篇以Q开头的文章摘要"
+    }, {
+        "from": 11.34, "to": 12.62, "sid": 7, "location": 2, "content": "不容易"
+    }, {
+        "from": 21.58, "to": 22.54, "sid": 8, "location": 2, "content": "挺好的"
+    }, {
+        "from": 22.54, "to": 24, "sid": 9, "location": 2, "content": "那很好"
+    }, {
+        "from": 24, "to": 25, "sid": 10, "location": 2, "content": "所有的权利"
+    }, {
+        "from": 25, "to": 29.189, "sid": 11, "location": 2, "content": "我已经向你展示了一篇现有文章的总结"
+    }, {
+        "from": 29.189, "to": 33.589, "sid": 12, "location": 2, "content": "我想向你展示如何灵活地将不同文章之间的想法结合起来"
+    }, {
+        "from": 33.589, "to": 37.62, "sid": 13, "location": 2, "content": "所以我要把昨天黑客新闻上的这篇文章"
+    }, {
+        "from": 38.74, "to": 42.4, "sid": 14, "location": 2, "content": "复制粘贴并进行相同的对话"
+    }, {
+        "from": 42.4, "to": 44.28, "sid": 15, "location": 2, "content": "所以它有我们刚刚做的所有背景"
+    }, {
+        "from": 44.28, "to": 45.349, "sid": 16, "location": 2, "content": "我要说"
+    }, {
+        "from": 45.349, "to": 51.64, "sid": 17, "location": 2, "content": "在本文和GP Four博客之间找到一个共同的主题"
+    }, {
+        "from": 54.86, "to": 57.34, "sid": 18, "location": 2, "content": "所以这是一篇关于松果的文章"
+    }, {
+        "from": 57.34, "to": 59.52, "sid": 19, "location": 2, "content": "它是一个Python Web应用程序开发框架"
+    }, {
+        "from": 59.52, "to": 61.58, "sid": 20, "location": 2, "content": "它使这项技术更容易获得"
+    }, {
+        "from": 61.58, "to": 62.53, "sid": 21, "location": 2, "content": "用户友好"
+    }, {
+        "from": 62.53, "to": 63.85, "sid": 22, "location": 2, "content": "如果你认为这还不够有洞察力"
+    }, {
+        "from": 63.85, "to": 68.22, "sid": 23, "location": 2, "content": "你总是可以给出一些反馈，说这没有洞察力"
+    }]
+}
