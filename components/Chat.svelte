@@ -85,6 +85,12 @@
         vm.renew();
         vm = vm;
     }
+    const continue_command = () => {
+        if (vm.isSending) {
+            return;
+        }
+        vm.sendMsg("incomplete result, continue");
+    }
 </script>
 
 
@@ -113,7 +119,7 @@
     {/if}
     <div class="flex flex-row form-control justify-around bg-base-300 p-1">
         <div class="btn btn-warning" on:click={new_conv}>新对话</div>
-        <div class="btn btn-info text-base-100">继续</div>
+        <div class="btn btn-info text-base-100" on:click={continue_command} disabled={vm.isSending}>继续</div>
         <SimpleSelect
                 bind:bind_value={vm.mode}
                 keys={modeKeys}
