@@ -20,12 +20,10 @@
 
 <script>
     import Chat from "~components/Chat.svelte";
-    import SimpleSelect from "~components/SimpleSelect.svelte";
     import {chatTypes, Settings} from "~utils/constants";
     import {ChatViewModel, SidebarViewModel} from "~utils/viewmodel";
     import PromiseWaiting from "~components/PromiseWaiting.svelte";
     import {browserSyncStorage} from "~utils/store/browser";
-    import Links from "~components/Links.svelte";
     import Icon from "~components/Icon.svelte";
     import VerticalNavList from "~components/tailwind/VerticalNavList.svelte";
 

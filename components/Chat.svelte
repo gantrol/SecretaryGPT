@@ -21,6 +21,7 @@
     // TODO: fix autoscroll
     let div;
     let autoscroll;
+    let textbox;
 
     let preview;
     const MAX_INPUT_HEIGHT = screen.height / 4;
@@ -32,12 +33,10 @@
 
     beforeUpdate(() => {
         autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 500);
-        console.log("beforeUpdate", autoscroll)
     });
 
     afterUpdate(() => {
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
-        console.log("afterUpdate", div.scrollHeight, div)
     });
 
     const callback = () => {
@@ -54,10 +53,12 @@
 
     const handleKeydown = async (event) => {
         await vm.handleKeydown(event, callback);
+        textbox.style.height = '1em';
     }
 
     const sendOnclick = async (event) => {
         await vm.sendOnclick(event, callback);
+        textbox.style.height = '1em';
     }
 
     vm.initListener(callback)
@@ -129,6 +130,7 @@
             <PlusCircle/>
         </button>
         <textarea
+                bind:this={textbox}
                 rows="1"
                 on:keydown={handleKeydown}
                 on:input={textAreaOnChange}

@@ -8,13 +8,16 @@
     "description": "Description of the extension."
   },
   "chat_language_all": {
-    "message": "所有语言"
+    "message": "任意语言"
   },
   "chat_mode_explain": {
     "message": "扮演解释"
   },
   "chat_mode_summary": {
     "message": "摘要总结"
+  },
+  "chat_mode_refine": {
+    "message": "编辑微调"
   },
   "chat_mode_none": {
     "message": "不选择模式"
