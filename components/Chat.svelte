@@ -41,6 +41,7 @@
 
     const callback = () => {
         vm = vm;
+        textbox.style.height = '1em';
     };
 
     isDebugModeSetting.init().then(() => {
@@ -52,13 +53,17 @@
     });
 
     const handleKeydown = async (event) => {
+        if (vm.isSending) {
+            return;
+        }
         await vm.handleKeydown(event, callback);
-        textbox.style.height = '1em';
     }
 
     const sendOnclick = async (event) => {
+        if (vm.isSending) {
+            return;
+        }
         await vm.sendOnclick(event, callback);
-        textbox.style.height = '1em';
     }
 
     vm.initListener(callback)
@@ -119,7 +124,7 @@
     {/if}
     <div class="flex flex-row form-control justify-around bg-base-300 p-1">
         <div class="btn btn-warning" on:click={new_conv}>新对话</div>
-        <div class="btn btn-info text-base-100" on:click={continue_command} disabled={vm.isSending}>继续</div>
+        <div class="btn btn-info text-base-100" on:click={continue_command}>继续</div>
         <SimpleSelect
                 bind:bind_value={vm.mode}
                 keys={modeKeys}
@@ -148,7 +153,7 @@
                       overflow-y-auto bg-base-100
                       w-full resize-none mb-2 ml-2 mr-2"
         ></textarea>
-        <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick} disabled={vm.isSending}>
+        <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick}>
             <Send/>
         </button>
     </div>

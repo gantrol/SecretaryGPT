@@ -5,9 +5,10 @@ import {RefineAdapter} from "~utils/adapter/refine";
 import {ExplainAdapter} from "~utils/adapter/explain";
 import {SummaryAdapter} from "~utils/adapter/summary";
 import {NormalAdapter} from "~utils/adapter/normal";
+import {genTitle} from "~utils/filename";
+import {getNowWithFormat} from "~utils/time";
 
 export class ChatViewModel {
-    // TODO: 重构
     mode: string = modeKeys.NONE;
     language: string = languageI18n.NONE;
     newMessage: { id: number, author: string, text: string };
@@ -87,7 +88,7 @@ export class ChatViewModel {
     }
 
 
-    handleMessage = (message) : string[] => {
+    handleMessage = (message): string[] => {
         // mode value
         // TODO: i18n？
         // TODO: 弄一个Adapter...
@@ -119,9 +120,9 @@ export class ChatViewModel {
             author: 'user',
             text: this.typingMessage,
         });
-        callback()
         this.bulkSendPrompts(prompts, callback);
         this.typingMessage = '';
+        callback()
     }
 
     handleKeydown = async (event, callback) => {
@@ -160,6 +161,17 @@ export class ChatViewModel {
         } else {
             new Error(`暂不支持${this.chatType}批量发送`);
         }
+    }
+
+    getMdOfAnswer = () => {
+        let md = "";
+        for (let message of this.messages) {
+            if (message.author === 'bot') {
+                md = `${md}\n${message.text}`
+            }
+        }
+        const title = `ChatGPT_${genTitle(md)}${getNowWithFormat()}`
+        return [md, title];
     }
 }
 

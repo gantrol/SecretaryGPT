@@ -104,6 +104,18 @@
         window.removeEventListener('mousemove', onMouseMove);
     }
 
+    const download_answers = () => {
+        debugger;
+        const [md, title] = vm.getMdOfAnswer();
+        const dataStr = "data:text/md;charset=utf-8," + encodeURIComponent(md);
+        const downloadAnchorNode = document.createElement("a");
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", `${title}.md`);
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+
 </script>
 
 <svelte:window
@@ -151,10 +163,11 @@
                                 </svg>
                             </label>
 
-                            <ul class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
+                            <ul tabIndex={0} class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
                                 <li class="menu-title">
-                                    <span>...</span>
+                                    <span>下载</span>
                                 </li>
+                                <li on:click={download_answers}><a>下载回复</a></li>
                             </ul>
                         </div>
                     </nav>
