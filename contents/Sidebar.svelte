@@ -20,12 +20,10 @@
 
 <script>
     import Chat from "~components/Chat.svelte";
-    import SimpleSelect from "~components/SimpleSelect.svelte";
     import {chatTypes, Settings} from "~utils/constants";
     import {ChatViewModel, SidebarViewModel} from "~utils/viewmodel";
     import PromiseWaiting from "~components/PromiseWaiting.svelte";
     import {browserSyncStorage} from "~utils/store/browser";
-    import Links from "~components/Links.svelte";
     import Icon from "~components/Icon.svelte";
     import VerticalNavList from "~components/tailwind/VerticalNavList.svelte";
 
@@ -106,6 +104,18 @@
         window.removeEventListener('mousemove', onMouseMove);
     }
 
+    const download_answers = () => {
+        debugger;
+        const [md, title] = vm.getMdOfAnswer();
+        const dataStr = "data:text/md;charset=utf-8," + encodeURIComponent(md);
+        const downloadAnchorNode = document.createElement("a");
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", `${title}.md`);
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+
 </script>
 
 <svelte:window
@@ -115,17 +125,15 @@
 
 />
 
-<!--TODO: 拆分为更细颗粒度的组件, 可能涉及 store-->
 <PromiseWaiting promises={promises}>
     <div bind:this={sidebar} class='{isOpen ? "open" : "closed"} h-full bg-base-100'
          id="secretaire-sidebar">
         <div class="drawer bg-base-100">
             <input class="drawer-toggle" id="chat-drawer" type="checkbox"/>
             <div class="drawer-content bg-base-100 h-full" style="overflow-y: hidden">
-                <!-- Navbar -->
 
                 <div bind:this={dragholder}
-                     class="absolute left-0 h-screen w-1 bg-base-300
+                     class="absolute left-0 h-screen w-1 bg-base-300 z-50
                         active:cursor-col-resize hover:cursor-col-resize"
                      id="secretaire-sidebar-holder"
                      on:mousedown={onMouseDown}
@@ -155,19 +163,11 @@
                                 </svg>
                             </label>
 
-                            <ul class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
+                            <ul tabIndex={0} class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
                                 <li class="menu-title">
-                                    <span>插件功能</span>
+                                    <span>下载</span>
                                 </li>
-                                <Links isLink={true}></Links>
-                                <li class="menu-title">
-                                    <span>聊天后端</span>
-                                </li>
-                                <SimpleSelect
-                                        bind:bind_value={chatType}
-                                        keys={chatTypes}
-                                        values={chatTypes}
-                                />
+                                <li on:click={download_answers}><a>下载回复</a></li>
                             </ul>
                         </div>
                     </nav>

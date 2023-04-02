@@ -21,6 +21,7 @@
     // TODO: fix autoscroll
     let div;
     let autoscroll;
+    let textbox;
 
     let preview;
     const MAX_INPUT_HEIGHT = screen.height / 4;
@@ -32,16 +33,15 @@
 
     beforeUpdate(() => {
         autoscroll = div && (div.offsetHeight + div.scrollTop) > (div.scrollHeight - 500);
-        console.log("beforeUpdate", autoscroll)
     });
 
     afterUpdate(() => {
         if (autoscroll) div.scrollTo(0, div.scrollHeight);
-        console.log("afterUpdate", div.scrollHeight, div)
     });
 
     const callback = () => {
         vm = vm;
+        textbox.style.height = '1em';
     };
 
     isDebugModeSetting.init().then(() => {
@@ -53,10 +53,16 @@
     });
 
     const handleKeydown = async (event) => {
+        if (vm.isSending) {
+            return;
+        }
         await vm.handleKeydown(event, callback);
     }
 
     const sendOnclick = async (event) => {
+        if (vm.isSending) {
+            return;
+        }
         await vm.sendOnclick(event, callback);
     }
 
@@ -80,6 +86,16 @@
     // 3. 如果是 https://www.bilibili.com/read/cv* ……后面再说，总结文本会有通用方案。
 
     const textAreaOnChange = (event) => textAreaAdjust(event.target, MAX_INPUT_HEIGHT)
+    const new_conv = () => {
+        vm.renew();
+        vm = vm;
+    }
+    const continue_command = () => {
+        if (vm.isSending) {
+            return;
+        }
+        vm.sendMsg("incomplete result, continue");
+    }
 </script>
 
 
@@ -106,9 +122,9 @@
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
-    <div class="flex flex-row form-control justify-end bg-base-300 p-1">
-        <div class="btn btn-warning" on:click={() => vm.renew()}>新对话</div>
-        <div class="btn btn-info text-base-100">继续</div>
+    <div class="flex flex-row form-control justify-around bg-base-300 p-1">
+        <div class="btn btn-warning" on:click={new_conv}>新对话</div>
+        <div class="btn btn-info text-base-100" on:click={continue_command}>继续</div>
         <SimpleSelect
                 bind:bind_value={vm.mode}
                 keys={modeKeys}
@@ -124,8 +140,8 @@
         <button class="btn glass p-2 mb-3" on:click={show_more_button}>
             <PlusCircle/>
         </button>
-        <!--            TODO: 编辑模式？ 直接改成row等于十?-->
         <textarea
+                bind:this={textbox}
                 rows="1"
                 on:keydown={handleKeydown}
                 on:input={textAreaOnChange}
@@ -137,7 +153,7 @@
                       overflow-y-auto bg-base-100
                       w-full resize-none mb-2 ml-2 mr-2"
         ></textarea>
-        <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick} disabled={vm.isSending}>
+        <button class="btn glass p-2 mb-3 mr-1" on:click={sendOnclick}>
             <Send/>
         </button>
     </div>

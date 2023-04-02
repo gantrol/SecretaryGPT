@@ -1,0 +1,399 @@
+I'm really trying to put the model through the paces.
+We're going to try Q, which if you think about this
+for a moment, I want the audience to really think about
+how would you do a summary of this article
+that all starts with Q. It's not easy.
+It's pretty good.
+That's pretty good.
+All right, so I've shown you summarizing an existing article.
+I want to show you how you can flexibly combine ideas
+between different articles.
+So I'm going to take this article that
+was on Hacker News yesterday, copy paste it,
+and do the same conversation so it has all the context of what
+we were just doing.
+I'm going to say, find one common theme between this
+article and the GPT-4 blog.
+So this is an article about Pinecone,
+which is a Python web app development framework.
+And it's making the technology more accessible, user friendly.
+If you don't think that was insightful enough,
+you can always give some feedback and say,
+that was not insightful enough.
+Please.
+No, I'll just even just leave it there,
+leave it up to the model to decide.
+So bridging the gap between powerful technology
+and practical applications seems not bad.
+And of course, you can ask for any other kind of task
+you want using its flexible language understanding
+and synthesis.
+You can ask for something like, now turn the GPT-4 blog
+post into a rhyming poem.
+Picked up on opening IEvales, open source for all,
+helping to guide answering the call.
+Which by the way, if you'd like to contribute to this model,
+please give us evals.
+We have an open source evaluation framework
+that will help us guide and all of our users
+to understand what the model is capable of
+and to take it to the next level.
+So there we go.
+This is consuming existing content using GPT-4
+with a little bit of creativity on top.
+But next, I want to show you how to build with GPT-4, what
+it's like to create with it as a partner.
+And so the thing we're going to do
+is we're going to actually build a Discord bot.
+I'll build it live and show you the process,
+show you debugging, show you what the model can do,
+where its limitations are, and how to work with them in order
+to achieve new heights.
+So the first thing I'll do is tell the model
+that this time it's supposed to be an AI programming
+assistant.
+Its job is to write things out in pseudocode first
+and then actually write the code.
+And this approach is very helpful
+to let the model break down the problem into smaller pieces.
+And then that way, you're not asking
+it to just come up with a super hard solution to a problem
+all in one go.
+It also makes it very interpretable,
+because you can see exactly what the model was thinking,
+and you can even provide corrections if you'd like.
+So here is the prompt that we're going to ask it.
+This is the kind of thing that 3.5 would totally
+choke on if you tried anything like it.
+But so we're going to ask for a Discord bot that uses the GPT-4
+API to read images and text.
+Now, there's one problem here, which
+is this model's training cutoff is in 2021, which
+means it has not seen our new chat completions format.
+So I literally just went to the blog post from two weeks ago,
+copy pasted from the blog post, including the response format.
+It has not seen the new image extension to that.
+And so I just kind of wrote that up in just very minimal detail
+about how to include images.
+And now the model can actually leverage that documentation
+that it did not have memorized, that it does not know.
+And in general, these models are very good at using information
+that it's been trained on in new ways
+and synthesizing new content.
+And you can see that right here that it actually
+wrote an entirely new bot.
+Now, let's actually see if this bot is
+going to work in practice.
+So you should always look through the code
+to get a sense of what it does.
+Don't run untrusted code from humans or from AIs.
+And one thing to note is that the Discord API has
+changed a lot over time, and particularly
+that there's one feature that has changed a lot since this
+model was trained.
+Give it a try.
+In fact, yes, we are missing the intense keyword.
+This is something that came out in 2020.
+So the model does know it exists,
+but it doesn't know which version of the Discord API
+we're using.
+So are we out of luck?
+Well, not quite.
+We can just simply paste to the model
+exactly the error message, not even going to say,
+hey, this is from running your code.
+Could you please fix it?
+We'll just let it run.
+And the model says, oh, yeah.
+Whoops, the intense argument.
+Here's the correct code.
+Now, let's give this a try, once again, kind of making sure
+that we understand what the code is doing.
+Now, a second issue that can come up
+is it doesn't know what environment I'm running in.
+And if you notice, it says, hey, here's
+this inscrutable error message, which
+if you've not used Jupyter Notebook a lot with async IO
+before, you probably have no idea what this means.
+But fortunately, once again, you can just
+sort of say to the model, hey, I'm using Jupyter.
+And it's going to run.
+I'm using Jupyter and would like to make this work.
+And you fix it.
+And the specific problem is that there's already
+an event loop running, so you need to use this nest-async-io
+library.
+You need to call nest-async-io.apply.
+The model knows all of this, correctly
+instantiates all of these pieces into the bot.
+It even helpfully tells you, oh, you're running in Jupyter.
+Well, you can do this bang pip install in order
+to install the package if you don't already have it.
+That was very helpful.
+Now we'll run.
+And it looks like something happened.
+So the first thing I'll do is go over to our Discord.
+And I will paste in a screenshot of our Discord itself.
+So remember, GPT-4 is not just a language model.
+It's also a vision model.
+In fact, it can flexibly accept inputs
+that intersperse images and text arbitrarily,
+kind of like a document.
+Now the image feature is in preview.
+So this is going to be a little sneak peek.
+It's not yet publicly available.
+It's something we're working with one partner called
+Be My Eyes in order to really start to develop it
+and get it ready for prime time.
+But you can ask anything you like.
+For example, I'll say, GPT-4, hello world,
+can you describe this image in painstaking detail?
+All right, which first of all, think
+of how you would do this yourself.
+There's a lot of different things
+you could latch onto, a lot of different pieces
+of the system you could describe.
+And we can go over to the actual code.
+And we can see that, yep, we in fact received the message,
+have formatted an appropriate request for our API.
+And now we wait.
+Because one of the things we have to do
+is we have to make the system faster.
+That's one of the things that we're working on optimizing.
+In the meanwhile, I just want to say to the audience that's
+watching, we'll take an audience request next.
+So if you have an image and a task you'd like to accomplish,
+please submit that to the Discord.
+Our moderators will pick one that we'll run.
+So we can see that the Discord, oh, it
+looks like we have a response.
+Perfect.
+So it's a screenshot of a Discord application interface.
+Pretty good.
+Did not even describe it.
+It knows that it's Discord.
+It's probably Discord written there somewhere
+where it just kind of knows this from prior experience.
+Server icon label GPT-4 describes the interface
+in great detail.
+Talks about all the people telling me
+that I'm supposed to do queue.
+Very kind audience.
+And describes a bunch of the notification messages
+and the users that are in the channel.
+And so there you go.
+That's some pretty good understanding.
+Now this next one, if you notice, first of all,
+we got a post, but the model did not actually see the message.
+So is this a failure of the model
+or of the system around the model?
+Well, we can take a look.
+And if you notice here, content is an empty string.
+We received a blank message contents.
+The reason for this is a dirty trick
+that we played on the AI.
+So if you go to the Discord documentation
+and you scroll through it all the way down
+to the message content intent, you'll
+see this was added as of September 2022
+as a required field.
+So in order to receive a message that does not explicitly tag
+you, you now have to include this new intent in your code.
+Remember I said, intents have changed a lot over time.
+This is much newer than the model
+is possibly able to know.
+So maybe we're out of luck.
+We have to debug this by hand.
+But once again, we can try to use GPD4's language
+understanding capabilities to solve this.
+Now keep in mind, this is a document of like,
+I think this is like 10,000, 15,000 words, something
+like that.
+It's not formatted very well.
+This is literally a command A copy paste.
+This is what it's supposed to parse through
+to find in the middle of that document that, oh yeah,
+message contents.
+That's required now.
+But let's see if it can do it.
+So we will ask for, I am receiving blank message contents.
+Can you?
+Why could this be happening?
+How do I fix it?
+So one thing that's new about GPD4 is context length.
+32,000 tokens is kind of the upper limit
+that we support right now.
+And the model is able to flexibly use long documents.
+It's something we're still optimizing.
+So we recommend trying it out, but not necessarily
+really scaling it up just yet, unless you
+have an application that really benefits from it.
+So if you're really interested in long context,
+please let us know.
+We want to see what kinds of applications it unlocks.
+But if you see, it says, oh yeah, message content intent
+was not enabled.
+And so you can either ask the model to write some code for you
+or you could actually just do it the old fashioned way.
+Either way is fine.
+Think that this is an augmenting tool.
+Makes you much more productive.
+But it's still important that you are in the driver's seat
+and are the manager and knows what's going on.
+So now we're connected once again.
+And Boris, would you like to rerun the message?
+Once again, we can see that we have received it,
+even though the bot was not explicitly tagged.
+Seems like a pretty good description.
+This is an interesting image, actually.
+It looks like it's a Dali-generated one.
+Let's actually try this one as well.
+What's funny about this image?
+Oh, it's already been submitted.
+So once again, we can verify that it's
+making the right API calls.
+Squirrels do typically eat nuts.
+We don't expect them to use a camera or act like a human.
+So I think that's a pretty good explanation of why
+that image is funny.
+I'm going to show you one more example of what
+you can do with this model.
+So I have here a nice hand-drawn mock-up of a joke website.
+Definitely worthy of being put up on my refrigerator.
+So I'm just going to take out my phone,
+literally take a photo of this mock-up.
+And then I'm going to send it to our Discord.
+All right, going to send it to our Discord.
+This is, of course, the rockiest part,
+making sure that we actually send it to the right channel, which
+in fact, I think maybe I did not send it to the wrong channel.
+It's funny.
+It's always the sort of non-AI parts of these demos
+that are the hardest part to do.
+And here we go.
+Technology is now solved.
+And now we wait.
+So the thing that's amazing in my mind
+is that what's going on here is we're
+talking to a neural network.
+And this neural network was trained
+to predict what comes next.
+It played this game of being shown a partial document
+and then predicted what comes next
+across an unimaginably large amount of content.
+And from there, it learns all of these skills
+that you can apply in all of these very flexible ways.
+And so we can actually take now this output.
+So literally, we just said to output the HTML
+from that picture.
+And here we go.
+Actual working JavaScript filled in the jokes.
+For comparison, this was the original of our mockup.
+And so there you go, going from hand-drawn beautiful art,
+if I do say so myself, to working website.
+And this is all just potential.
+You can see lots of different applications.
+We ourselves are still figuring out new ways to use this.
+So we're going to work with our partner.
+We're going to scale it from there.
+But please be patient, because it's
+going to take us some time to really make
+this available for everyone.
+So I have one last thing to show you.
+I've shown you reading existing content.
+I've shown you how to build with the system as a partner.
+The last thing I'm going to show is
+how to work with the system to accomplish a task that none
+of us like to do, but we all have to.
+So you may have guessed.
+The thing we're going to do is taxes.
+Now note that GPT is not a certified tax professional,
+nor am I. So you should always check with your tax advisor.
+But it can be helpful to understand some dense content,
+to just be able to empower yourself
+to be able to solve problems and get a handle on what's
+happening when you could not otherwise.
+So once again, I'll do a system message.
+In this case, I'm going to tell it that it's tax GPT, which
+is not a specific thing that we've trained into this model.
+You can be very creative, if you want, with the system message,
+to really get the model in the mood of what is your job?
+What are you supposed to do?
+So I've pasted in the tax code.
+This is about 16 pages worth of tax code.
+And there's this question about Alice and Bob.
+They got married at one point.
+And here are their incomes.
+And they take a standard deduction.
+They're filing jointly.
+So first question, what is their standard deduction for 2018?
+So while the model is chugging, I'm
+going to solve this problem by hand
+to show you what's involved.
+So the standard deduction is the basic standard deduction
+plus the additional.
+The basic one is 200% for joint return of subparagraph C,
+which is here.
+So additional doesn't apply.
+The limitation doesn't apply.
+OK, these apply.
+Oh, wait.
+Special rules for taxable year 2018,
+which is the one we care about, through 2025,
+you have to substitute 12,000 for 3,000.
+So 200% of 12,000, 24,000 is the final answer.
+If you notice, the model got to the same conclusion.
+And you can actually read through its explanation.
+And to tell you the truth, the first time
+I tried to approach this problem myself,
+I could not figure it out.
+I spent half an hour reading through the tax code,
+trying to figure out this back reference
+and why there's subparagraph.
+Just what's even going on?
+It was only by asking the model to spell out its reasoning.
+And then I followed along.
+And I was like, oh, I get it now.
+I understand how this works.
+And so that, I think, is where the power of the system lies.
+It's not perfect, but neither are you.
+And together, it's this amplifying tool
+that lets you just reach new heights.
+And you can go further.
+You can say, OK, now calculate their total liability.
+And here we go.
+It's doing the calculation.
+Honestly, every time it does it, it's amazing.
+This model is so good at mental math.
+It's way, way better than I am at mental math.
+It's not hooked up to a calculator.
+That's another way that you could really
+try to enhance these systems.
+But it has these raw capabilities
+that are so flexible.
+It doesn't care if it's code.
+It doesn't care if it's language.
+It doesn't care if it's tax.
+All of these capabilities in one system
+that can be applied towards the problem that you care about,
+towards your application, towards whatever you build.
+And so to end it, the final thing that I will show
+is a little other dose of creativity,
+which is now summarize this problem into a rhyming poem.
+And there we go.
+A beautiful, beautiful poem about doing your taxes.
+So thank you, everyone, for tuning in.
+I hope you learned something about what the model can do,
+how to work with it.
+And honestly, we're just really excited to see
+what you're going to build.
+I've talked about OpenAI evals.
+Please contribute.
+We think that this model, improving it,
+bringing it to the next level, is something
+that everyone can contribute to.
+And we think it can really benefit a lot of people.
+And we want your help to do that.
+So thank you very much.
+We're so excited to see what you're going to build.
+Thank you.

@@ -1,15 +1,11 @@
 import {chatTypes} from "~utils/constants";
 import type {API} from "~utils/api/api";
-import {BingAPI} from "~utils/api/bingAPI";
 import {ChatGPTAPI} from "~utils/api/chatGPTAPI";
 
 let chatAPI: API;
-let bingAPI: API;
-
 
 const init = () => {
     chatAPI = new ChatGPTAPI();
-    bingAPI = new BingAPI();
 }
 
 init();
@@ -20,8 +16,6 @@ const chat = async (prompt: string, callback, chatType, conversation_id: string 
     let api: API;
     if (chatType === chatTypes.ChatGPT) {
         api = chatAPI;
-    } else if (chatType === chatTypes.Bing) {
-        api = bingAPI
     } else {
         throw new Error("chatType error: no chat type of " + chatType);
     }

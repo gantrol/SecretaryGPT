@@ -12,7 +12,7 @@
     }
 </style>
 <div class="main">
-    <Links></Links>
+<!--    <Links></Links>-->
     <UISettings></UISettings>
 </div>
 

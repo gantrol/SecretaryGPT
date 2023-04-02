@@ -22,6 +22,7 @@ export const modeKeys = {
     NONE: "chat_mode_none",
     EXPLAIN: "chat_mode_explain",
     SUMMARY: "chat_mode_summary",
+    REFINE: "chat_mode_refine",
 }
 export const modeValues = objectMap(modeKeys, getText);
 

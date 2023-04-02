@@ -40,29 +40,10 @@
 
 ## 介绍
 
-
-
 ### 侧边栏
 
 ![img.png](assets/demo.png)
 
-### ChatGPT vs Bing
-
-![img.png](assets/chatGPT-vs-Bing.png)
-
-![img.png](assets/chatGPT-vs-Bing1.png)
-
-### 日报订阅
-
-#### 即刻关注日报
-
-希望能给你带来快乐。（关注多的谨慎使用）
-
-![img_1.png](assets/jike.png)
-
-#### 微博关注日报
-
-TODO:
 
 ## 参考
 

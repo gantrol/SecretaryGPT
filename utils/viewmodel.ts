@@ -1,15 +1,20 @@
 import {chatTypes, languageI18n, messagesInit, modeKeys, RequestText} from "~utils/constants";
 import {log2} from "~utils/log";
+import type {MultipartTextAdapter} from "~utils/adapter/multipartTextAdapter";
+import {RefineAdapter} from "~utils/adapter/refine";
+import {ExplainAdapter} from "~utils/adapter/explain";
+import {SummaryAdapter} from "~utils/adapter/summary";
+import {NormalAdapter} from "~utils/adapter/normal";
+import {genTitle} from "~utils/filename";
+import {getNowWithFormat} from "~utils/time";
 
 export class ChatViewModel {
-    // TODO: 重构
     mode: string = modeKeys.NONE;
     language: string = languageI18n.NONE;
     newMessage: { id: number, author: string, text: string };
     messages = [];
     ChatID: string;
     isSending: boolean = false;
-    // TODO: time?
     isLogin: boolean = false;
     chatType: string;
     typingMessage = "";
@@ -18,7 +23,7 @@ export class ChatViewModel {
         this.chatType = chatType;
     }
 
-        initListener = (callback) => {
+    initListener = (callback) => {
         chrome.runtime.onMessage.addListener((request, _sender, _sendResponse) => {
             if (request.type === RequestText.ANS && request.chatType === this.chatType) {
                 const data = request.data;
@@ -66,7 +71,6 @@ export class ChatViewModel {
                 type: 'sendMsg',
                 body: {
                     prompt: message,
-                    // TODO: 不需要下面俩？只需要一个判断是new，还是ask的标志？还是说后续可以选择conversation_id
                     conversation_id: this.ChatID,
                     parent_message_id: this.messages[this.messages.length - 2].id,  // 上一个回复在倒数第二个
                     chatType: this.chatType,
@@ -84,41 +88,41 @@ export class ChatViewModel {
     }
 
 
-    handleMessage = (message) => {
+    handleMessage = (message): string[] => {
         // mode value
         // TODO: i18n？
         // TODO: 弄一个Adapter...
-        let prefix = '';
+
+        let messages: string[];
+        let adapter: MultipartTextAdapter;
         if (this.mode === modeKeys.EXPLAIN) {
-            prefix = `请根据下面的片段，推断写作者是什么角色。并模仿这类角色做出解释`;
+            adapter = new ExplainAdapter(this.chatType, this.language);
         } else if (this.mode === modeKeys.SUMMARY) {
-            prefix = `请根据下面的片段，做出总结要求长度至多为原来的十分之一。注意内容可能涉及多人、也可能只是单人。请注意内容后续内容都需要总结`;
-        }
-        if (prefix) {
-            prefix = `${prefix}: \n\n`;
-        }
-
-        message = `${prefix}${message}`;
-
-        // language value
-        if (this.language && this.language !== languageI18n.NONE) {
-            message = `${message}\n\n请用${this.language}回答`;
+            adapter = new SummaryAdapter(this.chatType, this.language);
+        } else if (this.mode === modeKeys.REFINE) {
+            // TODO: Max_token 给到界面配置
+            adapter = new RefineAdapter(this.chatType, this.language);
+            adapter.MAX_TOKENS = 1500;
+        } else {
+            adapter = new NormalAdapter(this.chatType, this.language)
         }
 
-        return message;
+        messages = adapter.promptList(message, adapter.MAX_TOKENS)
+
+        return messages;
     }
 
     _helper = async (callback) => {
         if (!this.typingMessage || this.isSending) return;
 
-        const message = this.handleMessage(this.typingMessage);
+        const prompts = this.handleMessage(this.typingMessage);
         this.messages = this.messages.concat({
             author: 'user',
             text: this.typingMessage,
         });
-        callback()
-        await this.sendMsg(message);
+        this.bulkSendPrompts(prompts, callback);
         this.typingMessage = '';
+        callback()
     }
 
     handleKeydown = async (event, callback) => {
@@ -157,6 +161,17 @@ export class ChatViewModel {
         } else {
             new Error(`暂不支持${this.chatType}批量发送`);
         }
+    }
+
+    getMdOfAnswer = () => {
+        let md = "";
+        for (let message of this.messages) {
+            if (message.author === 'bot') {
+                md = `${md}\n${message.text}`
+            }
+        }
+        const title = `ChatGPT_${genTitle(md)}${getNowWithFormat()}`
+        return [md, title];
     }
 }
 
