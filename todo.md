@@ -1,4 +1,3 @@
-- ChatGPT Key
 - 请求的通用事项？
   - 登录提示
     - 有个没author的bug，bing
@@ -6,6 +5,9 @@
         - （本地图片）![img.png](build/img.png)
   - 请求失败（很可能是网络问题）
 - ChatGPT 模型选择：GPT4（现在逻辑是选官方推荐的，也就是3.5）
+- generate title api
+- 自己的链接。。。
+- ChatGPT Key
 - 回复的复制按钮
 - prompt workflow（最近写的bili adapter其实有点符合了，感觉可以抽象出总结的逻辑，毕竟里面相关的函数应该都是可以static的）
   - 编辑微调
@@ -15,7 +17,6 @@
     - 考试复习
     - 哲理辩论
   - 是非明辨
-- 下载结果
 - 回车后，输入框高度
 - ChatGPT获取标题
 - 取消按钮
@@ -35,9 +36,4 @@
   - 存储？indexDB?
   - 配置？popup？
 - /模式，寻址
-- 即刻日报，全部摘要……
-- 改成区域？
-- 微博关注日报
-- 一个显示bug
-- links target _blank
 
