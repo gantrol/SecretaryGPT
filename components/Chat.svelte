@@ -80,6 +80,10 @@
     // 3. 如果是 https://www.bilibili.com/read/cv* ……后面再说，总结文本会有通用方案。
 
     const textAreaOnChange = (event) => textAreaAdjust(event.target, MAX_INPUT_HEIGHT)
+    const new_conv = () => {
+        vm.renew();
+        vm = vm;
+    }
 </script>
 
 
@@ -106,8 +110,8 @@
     {#if vm.typingMessage}
         <PromptPreview {preview}></PromptPreview>
     {/if}
-    <div class="flex flex-row form-control justify-end bg-base-300 p-1">
-        <div class="btn btn-warning" on:click={() => vm.renew()}>新对话</div>
+    <div class="flex flex-row form-control justify-around bg-base-300 p-1">
+        <div class="btn btn-warning" on:click={new_conv}>新对话</div>
         <div class="btn btn-info text-base-100">继续</div>
         <SimpleSelect
                 bind:bind_value={vm.mode}
@@ -124,7 +128,6 @@
         <button class="btn glass p-2 mb-3" on:click={show_more_button}>
             <PlusCircle/>
         </button>
-        <!--            TODO: 编辑模式？ 直接改成row等于十?-->
         <textarea
                 rows="1"
                 on:keydown={handleKeydown}

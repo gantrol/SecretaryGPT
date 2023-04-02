@@ -1,6 +1,6 @@
 module.exports = {
   mode: "jit",
-  content: ['./**/*.svelte'],
+  content: ['./**/*.{svelte,html}'],
   plugins: [
     require('@tailwindcss/forms'),
     require("@tailwindcss/typography"),

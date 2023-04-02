@@ -9,7 +9,6 @@ export class ChatViewModel {
     messages = [];
     ChatID: string;
     isSending: boolean = false;
-    // TODO: time?
     isLogin: boolean = false;
     chatType: string;
     typingMessage = "";
@@ -111,6 +110,7 @@ export class ChatViewModel {
     _helper = async (callback) => {
         if (!this.typingMessage || this.isSending) return;
 
+        // TODO: handle longer messages
         const message = this.handleMessage(this.typingMessage);
         this.messages = this.messages.concat({
             author: 'user',

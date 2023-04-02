@@ -115,17 +115,15 @@
 
 />
 
-<!--TODO: 拆分为更细颗粒度的组件, 可能涉及 store-->
 <PromiseWaiting promises={promises}>
     <div bind:this={sidebar} class='{isOpen ? "open" : "closed"} h-full bg-base-100'
          id="secretaire-sidebar">
         <div class="drawer bg-base-100">
             <input class="drawer-toggle" id="chat-drawer" type="checkbox"/>
             <div class="drawer-content bg-base-100 h-full" style="overflow-y: hidden">
-                <!-- Navbar -->
 
                 <div bind:this={dragholder}
-                     class="absolute left-0 h-screen w-1 bg-base-300
+                     class="absolute left-0 h-screen w-1 bg-base-300 z-50
                         active:cursor-col-resize hover:cursor-col-resize"
                      id="secretaire-sidebar-holder"
                      on:mousedown={onMouseDown}
@@ -157,17 +155,8 @@
 
                             <ul class="dropdown-content menu bg-base-100 w-56 p-2 rounded-box">
                                 <li class="menu-title">
-                                    <span>插件功能</span>
+                                    <span>...</span>
                                 </li>
-                                <Links isLink={true}></Links>
-                                <li class="menu-title">
-                                    <span>聊天后端</span>
-                                </li>
-                                <SimpleSelect
-                                        bind:bind_value={chatType}
-                                        keys={chatTypes}
-                                        values={chatTypes}
-                                />
                             </ul>
                         </div>
                     </nav>

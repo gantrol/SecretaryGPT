@@ -8,10 +8,5 @@
 </script>
 
 <ConditionalCollapse {title} has_collapse={!isLink}>
-    <LinkButton
-            url="/tabs/jike.html"
-            text={"即刻·关注日报"}
-            type={LinkType.INNER}
-            isLink={isLink}
-    />
+
 </ConditionalCollapse>
