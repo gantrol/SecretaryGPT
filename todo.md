@@ -9,9 +9,12 @@
 - 自己的链接。。。
 - ChatGPT Key
 - 回复的复制按钮
-- prompt workflow（最近写的bili adapter其实有点符合了，感觉可以抽象出总结的逻辑，毕竟里面相关的函数应该都是可以static的）
+- prompt workflow
   - 编辑微调
-    - No changes needed.
+    - 处理No changes needed.
+  - 重写润色
+    - 请你自行判断主题，使内容整合为一篇文章
+    - 去掉重复语句、口癖
   - 它来提问
     - 面试官
     - 考试复习

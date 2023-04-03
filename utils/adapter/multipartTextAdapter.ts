@@ -12,7 +12,7 @@ export abstract class MultipartTextAdapter {
     protected secondPartLimit;
     private api;
     // TODO: this should be define by api
-    MAX_TOKENS = 4096;
+    MAX_TOKENS;
     protected lang;
 
     constructor(api = chatTypes.ChatGPT, lang = languageI18n.NONE) {
@@ -26,7 +26,7 @@ export abstract class MultipartTextAdapter {
 
     abstract promptTemplate(part: string, index): string
 
-    splitText = (text: string, max_tokens = 4096): string[] => {
+    splitText = (text: string, max_tokens = 3900): string[] => {
         this.MAX_TOKENS = max_tokens
         this.calLimit()
         const result: string[] = [];
@@ -34,7 +34,7 @@ export abstract class MultipartTextAdapter {
 
         // Split by natural paragraphs
         const paragraphs = text.split('\n');
-        let currentTokens;
+        let currentTokens = 0;
         for (const paragraph of paragraphs) {
             // If a natural paragraph is too long, split it irregularly
             if (isOverLimit(paragraph, this.firstPartLimit)) {
