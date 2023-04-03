@@ -1,4 +1,10 @@
-import {addStringAvoidOverLimit, isOverLimit, MAX_TOKENS, text2tokenAndSplit} from "~utils/prompt/tokenize";
+import {
+    addStringAvoidOverLimit,
+    addStringAvoidOverLimitWithToken,
+    isOverLimit,
+    MAX_TOKENS,
+    text2tokenAndSplit
+} from "~utils/prompt/tokenize";
 import {chatTypes, languageI18n} from "~utils/constants";
 
 export abstract class MultipartTextAdapter {
@@ -28,6 +34,7 @@ export abstract class MultipartTextAdapter {
 
         // Split by natural paragraphs
         const paragraphs = text.split('\n');
+        let currentTokens;
         for (const paragraph of paragraphs) {
             // If a natural paragraph is too long, split it irregularly
             if (isOverLimit(paragraph, this.firstPartLimit)) {
@@ -38,12 +45,14 @@ export abstract class MultipartTextAdapter {
                 const splitParagraphs = this.splitLongParagraph(paragraph);
                 result.push(...splitParagraphs);
             } else {
-                const [merged, updatedText] = addStringAvoidOverLimit(currentParagraph, paragraph, this.firstPartLimit);
+                const [merged, updatedText, updatedTokens] = addStringAvoidOverLimitWithToken(currentParagraph, paragraph, this.firstPartLimit, currentTokens);
                 if (merged) {
                     currentParagraph = updatedText;
+                    currentTokens = updatedTokens
                 } else {
                     result.push(currentParagraph);
                     currentParagraph = paragraph;
+                    currentTokens = 0;
                 }
             }
         }

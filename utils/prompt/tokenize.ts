@@ -27,6 +27,17 @@ export const addStringAvoidOverLimit = (text: string, addText: string, limit = S
     }
 }
 
+export const addStringAvoidOverLimitWithToken = (text: string, addText: string, limit = SPLIT_TOKEN, tokens = 0, sep="\n"
+): [boolean, string, number] => {
+    const resultTokens = tokens + tokenCount(addText);
+    if (resultTokens > limit) {
+        return [false, text, tokens];
+    } else {
+        const result = `${text}${sep}${addText}`;
+        return [true, result, resultTokens];
+    }
+}
+
 export const isOverLimit = (text: string, limit = MAX_TOKENS): boolean => {
     return tokenCount(text) > limit;
 }
