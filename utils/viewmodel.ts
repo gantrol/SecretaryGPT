@@ -163,6 +163,10 @@ export class ChatViewModel {
         }
     }
 
+    getMessagesOfBotAsText = () => {
+        return this.messages.filter(m => m.author === 'bot').map(m => m.text).join("\n\n")
+    }
+
     getMdOfAnswer = () => {
         let md = "";
         for (let message of this.messages) {

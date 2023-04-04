@@ -105,7 +105,6 @@
     }
 
     const download_answers = () => {
-        debugger;
         const [md, title] = vm.getMdOfAnswer();
         const dataStr = "data:text/md;charset=utf-8," + encodeURIComponent(md);
         const downloadAnchorNode = document.createElement("a");
@@ -116,6 +115,9 @@
         downloadAnchorNode.remove();
     }
 
+    const answer_as_input = () => {
+        vm.typingMessage = vm.getMessagesOfBotAsText();
+    }
 </script>
 
 <svelte:window
@@ -168,6 +170,7 @@
                                     <span>下载</span>
                                 </li>
                                 <li on:click={download_answers}><a>下载回复</a></li>
+                                <li on:click={answer_as_input}><a>回复作为输入</a></li>
                             </ul>
                         </div>
                     </nav>
