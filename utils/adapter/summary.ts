@@ -11,6 +11,6 @@ export class SummaryAdapter extends MultipartTextAdapter {
     }
 
     promptTemplate(part: string, index): string {
-        return `用${this.lang}回答\nHere is the part ${index} to summary:\n${part}\n注意内容可能涉及多人、也可能只是单人。`;
+        return `用${this.lang}回答\nHere is the part ${index} to summary:\n${part}\n\n本段结束，请注意内容可能涉及多人、也可能只是单人。`;
     }
 }
