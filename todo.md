@@ -10,7 +10,11 @@
 - ChatGPT Key
 - 回复的复制按钮
 - prompt workflow
+  - 配置化
   - 编辑微调
+    - 迭代？
+      - 有没有playground？可以借鉴谁的？
+        - 粘贴队列？
     - 处理No changes needed.
   - 重写润色
     - 请你自行判断主题，使内容整合为一篇文章
@@ -20,6 +24,25 @@
     - 考试复习
     - 哲理辩论
   - 是非明辨
+  - 剪切板 https://chat.openai.com/chat/de34dec0-1d0b-4de1-be4c-98e44b2f2fe0
+    - ```js
+function copyToClipboard(text) {
+navigator.clipboard.writeText(text).then(() => {
+console.log('Text copied to clipboard');
+}).catch(err => {
+console.error('Failed to copy text: ', err);
+});
+}
+
+function handleClickEvent(event) {
+  const targetElement = event.target;
+  const text = targetElement.textContent || targetElement.innerText;
+  copyToClipboard(text);
+}
+
+document.addEventListener('click', handleClickEvent);
+
+```
 - 回车后，输入框高度
 - ChatGPT获取标题
 - 取消按钮

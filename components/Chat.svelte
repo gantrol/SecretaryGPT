@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {beforeUpdate, afterUpdate} from 'svelte';
+    import {beforeUpdate, afterUpdate, onMount} from 'svelte';
     import SimpleSelect from "~components/SimpleSelect.svelte";
     import {languageI18n, messagesInit, modeKeys, modeValues, VideoSites} from "~utils/constants";
     import PromptPreview from "~components/PromptPreview.svelte";
@@ -7,10 +7,10 @@
     import {ChatViewModel} from "~utils/viewmodel";
     import {log2} from "~utils/log";
     import {isDebugModeSetting} from "~utils/store/stores";
-    import PlusCircle from "~components/icons/PlusCircle.svelte";
     import Send from "~components/icons/Send.svelte";
     import BiliBiliSubtitleSummary from "~components/video/BiliBiliSubtitleSummary.svelte";
     import MyMediaFooter from "~components/tailwind/MyMediaFooter.svelte";
+    import WindowsMouse from "~components/icons/WindowsMouse.svelte";
 
 
 
@@ -26,6 +26,9 @@
     let preview;
     const MAX_INPUT_HEIGHT = screen.height / 4;
 
+    let hoverEnabled = false;
+
+    let overlay;
     $: {
         preview = vm.handleMessage(vm.typingMessage);
     }
@@ -67,8 +70,9 @@
     }
 
     vm.initListener(callback)
-    const show_more_button = () => {
+    const show_more_button = (event) => {
         // TODO: vm.show_more_button();
+        toggleHoverState(event)
     }
 
     const textAreaAdjust = (element, max) => {
@@ -96,7 +100,70 @@
         }
         vm.sendMsg("incomplete result, continue");
     }
+
+    onMount(() => {
+        document.addEventListener('mouseover', e => {
+            if (!overlay) return;
+            if (hoverEnabled) {
+                let elem = e.target as HTMLElement;
+                let rect = elem.getBoundingClientRect();
+                overlay.style.top = rect.top + 'px';
+                overlay.style.left = rect.left + 'px';
+                overlay.style.width = rect.width + 'px';
+                overlay.style.height = rect.height + 'px';
+            } else {
+                overlay.style.top = '-9999px';
+                overlay.style.left = '-9999px';
+                overlay.style.width = '0px';
+                overlay.style.height = '0px';
+            }
+        });
+
+        document.addEventListener('click', e => {
+            if (hoverEnabled) {
+                e.preventDefault();
+                e.stopPropagation();
+                let elem = e.target as HTMLElement;
+                console.log('Element selected:', elem);
+                const selectedText = selectElementText(elem);
+                vm.typingMessage = selectedText;
+                hoverEnabled = false;
+            }
+        });
+    });
+
+    function selectElementText(element) {
+        let selectedText = '';
+
+        if (window.getSelection) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            selectedText = selection.toString();
+        }
+
+        return selectedText;
+    }
+
+
+
+    function toggleHoverState(event) {
+        event.stopPropagation(); // Add this line to stop event propagation
+        hoverEnabled = !hoverEnabled;
+    }
+
+
+    $: console.log(hoverEnabled);
 </script>
+
+<div bind:this={overlay}
+     class="fixed z-50 inset-0 bg-blue-400 bg-opacity-30 pointer-events-none transition duration-200"
+     id="mouseover_overlay"
+     style="top: -9999px; left: -9999px; width: 0; height: 0;">
+</div>
+
 
 
 <div class="chat flex flex-col w-full bg-base-100 h-full relative" id="chat-content">
@@ -138,7 +205,7 @@
     </div>
     <div class="flex flex-row items-end max-h-1/2 p-1">
         <button class="btn glass p-2 mb-3" on:click={show_more_button}>
-            <PlusCircle/>
+            <WindowsMouse/>
         </button>
         <textarea
                 bind:this={textbox}
