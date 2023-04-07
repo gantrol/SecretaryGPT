@@ -129,8 +129,8 @@ export class ChatViewModel {
         if (event.key === 'Enter' && event.shiftKey) {
             event.preventDefault();
             await this._helper(callback);
+            callback();
         }
-        callback();
     }
 
     sendOnclick = async (_event, callback) => {
